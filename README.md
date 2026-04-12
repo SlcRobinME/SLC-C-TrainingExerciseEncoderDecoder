@@ -106,6 +106,10 @@ Can you find a way to configure this conditional behavior? Try and apply it.
 
 When the *Status* parameter changes, the end user would like to have an information event raised.
 
+### Requirement 5
+
+Apply the configuration that the exception values defined on the protocol parameters show up by default as Normal alarms.
+
 ---
 ---
 
