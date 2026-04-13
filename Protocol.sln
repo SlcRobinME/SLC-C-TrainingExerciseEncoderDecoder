@@ -8,8 +8,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Internal", "Internal", "{5D
 		Internal\.editorconfig = Internal\.editorconfig
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "QActions", "QActions", "{4DD010B3-F443-4E53-A3F7-232E8C98E61A}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dlls", "Dlls", "{40F9A766-CB59-4EB4-AB3A-4ED1FAF36E0B}"
 	ProjectSection(SolutionItems) = preProject
 		Dlls\ABOUT.md = Dlls\ABOUT.md
