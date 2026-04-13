@@ -35,22 +35,21 @@ public static class QAction
 
     private static void SetDefaults(SLProtocol protocol)
     {
-        // Encoder Status: Enabled (1) by default
-        protocol.SetParameter(4, 1);
-        // Decoder Status: Enabled (1) by default
-        protocol.SetParameter(5, 1);
+        // Status: Disabled (0) by default
+        protocol.SetParameter(4, 0);
+        protocol.SetParameter(5, 0);
 
         // Encoder parameters — default values
-        protocol.SetParameter(6, 30.0);   // EncoderCurrentCompressedBitrate
+        protocol.SetParameter(6, 0.0);    // EncoderCurrentCompressedBitrate
         protocol.SetParameter(8, 0.0);    // EncoderAutoChromaWeight: Disabled
         protocol.SetParameter(17, 0.0);   // EncoderChromaWeight
         protocol.SetParameter(10, 0.0);   // EncoderLosslessMode: Disabled
 
         // Decoder parameters — default values
-        protocol.SetParameter(7, 50.0);   // DecoderCurrentCompressedBitrate
+        protocol.SetParameter(7, 00.0);   // DecoderCurrentCompressedBitrate
         protocol.SetParameter(11, 0.0);   // DecoderProgressionOrder: LCRP
-        protocol.SetParameter(12, 50.0);  // DecoderCodeBlockWidth
-        protocol.SetParameter(13, 70.0);  // DecoderCodeBlockHeight
+        protocol.SetParameter(12, 0.0);   // DecoderCodeBlockWidth
+        protocol.SetParameter(13, 0.0);   // DecoderCodeBlockHeight
     }
 
     private static void SimulateBitrate(SLProtocol protocol)

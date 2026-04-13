@@ -39,6 +39,14 @@ public static class QAction
                 protocol.SetParameter(8, Convert.ToDouble(protocol.GetParameter(108)));
                 protocol.SetParameter(17, Convert.ToDouble(protocol.GetParameter(117)));
                 protocol.SetParameter(10, Convert.ToDouble(protocol.GetParameter(110)));
+
+                // Auto-disable decoder
+                protocol.SetParameter(5, 0.0);
+                protocol.SetParameter(55, 0.0);
+                protocol.SetParameter(7, -1.0);
+                protocol.SetParameter(11, -1.0);
+                protocol.SetParameter(12, -1.0);
+                protocol.SetParameter(13, -1.0);
             }
         }
 		catch (Exception ex)
