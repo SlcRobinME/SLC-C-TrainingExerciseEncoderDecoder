@@ -175,8 +175,6 @@ public interface SLProtocolExt : SLProtocol
 	object Decodercodeblockwidth { get; set; }
 	object Decodercodeblockheight_13 { get; set; }
 	object Decodercodeblockheight { get; set; }
-	object Notavailable__fixed { get; set; }
-	object Setstatustodisabled__fixed { get; set; }
 	object Encoderchromaweight_17 { get; set; }
 	object Encoderchromaweight { get; set; }
 	object Encoderstatus_54 { get; set; }
@@ -256,10 +254,6 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Decodercodeblockheight_13 {get { return GetParameter(13); }set { SetParameter(13, value); }}
 	/// <summary>PID: 13  | Type: read | EXCEPTIONS: Not Available = -1</summary>
 	public System.Object Decodercodeblockheight {get { return GetParameter(13); }set { SetParameter(13, value); }}
-	/// <summary>PID: 15  | Type: fixed</summary>
-	public System.Object Notavailable__fixed {get { return GetParameter(15); }set { SetParameter(15, value); }}
-	/// <summary>PID: 16  | Type: fixed</summary>
-	public System.Object Setstatustodisabled__fixed {get { return GetParameter(16); }set { SetParameter(16, value); }}
 	/// <summary>PID: 17  | Type: read | EXCEPTIONS: Not Available = -1</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Encoderchromaweight_17 {get { return GetParameter(17); }set { SetParameter(17, value); }}
