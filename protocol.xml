@@ -28,15 +28,13 @@
 	</Compliancies>
 
 	<Params>
-
-		<Param id="2">
+		<Param id="1">
 			<Name>AfterStartup</Name>
 			<Description>After Startup</Description>
 			<Type>dummy</Type>
 		</Param>
-
 		<!-- Fixed params - copy sources -->
-		<Param id="200">
+		<Param id="2">
 			<Name>NotAvailable</Name>
 			<Description>Source parameter for setting Not Available (-1)</Description>
 			<Type>fixed</Type>
@@ -48,8 +46,7 @@
 				<Value>-1</Value>
 			</Interprete>
 		</Param>
-
-		<Param id="201">
+		<Param id="3">
 			<Name>SetStatusToDisabled</Name>
 			<Description>Source parameter for setting Status to Disabled (0)</Description>
 			<Type>fixed</Type>
@@ -61,8 +58,7 @@
 				<Value>0</Value>
 			</Interprete>
 		</Param>
-
-		<Param id="202">
+		<Param id="4">
 			<Name>SetStatusToEnabled</Name>
 			<Type>fixed</Type>
 			<Interprete>
@@ -73,9 +69,8 @@
 				<Value>1</Value>
 			</Interprete>
 		</Param>
-
 		<!-- Copy params - default values for enable -->
-		<Param id="300">
+		<Param id="10">
 			<Name>CopyOfEncoderCurrentCompressedBitrate</Name>
 			<Description>Copy Of Encoder Current Compressed Bitrate</Description>
 			<Type>read</Type>
@@ -86,8 +81,7 @@
 				<DefaultValue>150</DefaultValue>
 			</Interprete>
 		</Param>
-
-		<Param id="301">
+		<Param id="11">
 			<Name>CopyOfEncoderAutoChromaWeight</Name>
 			<Description>Copy Of Encoder Auto Chroma Weight</Description>
 			<Type>read</Type>
@@ -98,8 +92,7 @@
 				<DefaultValue>0</DefaultValue>
 			</Interprete>
 		</Param>
-
-		<Param id="302">
+		<Param id="12">
 			<Name>CopyOfEncoderChromaWeight</Name>
 			<Description>Copy Of Encoder Chroma Weight</Description>
 			<Type>read</Type>
@@ -110,8 +103,7 @@
 				<DefaultValue>75</DefaultValue>
 			</Interprete>
 		</Param>
-
-		<Param id="303">
+		<Param id="13">
 			<Name>CopyOfEncoderLosslessMode</Name>
 			<Description>Copy Of Encoder Lossless Mode</Description>
 			<Type>read</Type>
@@ -122,8 +114,7 @@
 				<DefaultValue>0</DefaultValue>
 			</Interprete>
 		</Param>
-
-		<Param id="304">
+		<Param id="14">
 			<Name>CopyOfDecoderCurrentCompressedBitrate</Name>
 			<Description>Copy Of Decoder Current Compressed Bitrate</Description>
 			<Type>read</Type>
@@ -134,8 +125,7 @@
 				<DefaultValue>200</DefaultValue>
 			</Interprete>
 		</Param>
-
-		<Param id="305">
+		<Param id="15">
 			<Name>CopyOfDecoderProgressionOrder</Name>
 			<Description>Copy Of Decoder Progression Order</Description>
 			<Type>read</Type>
@@ -146,8 +136,7 @@
 				<DefaultValue>0</DefaultValue>
 			</Interprete>
 		</Param>
-
-		<Param id="306">
+		<Param id="16">
 			<Name>CopyOfDecoderCodeBlockWidth</Name>
 			<Description>Copy Of Decoder Code Block Width</Description>
 			<Type>read</Type>
@@ -158,8 +147,7 @@
 				<DefaultValue>64</DefaultValue>
 			</Interprete>
 		</Param>
-
-		<Param id="307">
+		<Param id="17">
 			<Name>CopyOfDecoderCodeBlockHeight</Name>
 			<Description>Copy Of Decoder Code Block Height</Description>
 			<Type>read</Type>
@@ -170,9 +158,8 @@
 				<DefaultValue>64</DefaultValue>
 			</Interprete>
 		</Param>
-
 		<!-- ENCODER -->
-		<Param id="10">
+		<Param id="100">
 			<Name>EncoderStatus</Name>
 			<Description>Encoder Status</Description>
 			<Type>read</Type>
@@ -206,7 +193,7 @@
 				</Discreets>
 			</Measurement>
 		</Param>
-		<Param id="20" setter="true">
+		<Param id="101" setter="true">
 			<Name>EncoderStatus</Name>
 			<Description>Encoder Status</Description>
 			<Type>write</Type>
@@ -239,8 +226,7 @@
 				</Discreets>
 			</Measurement>
 		</Param>
-
-		<Param id="70">
+		<Param id="102">
 			<Name>EncoderCurrentCompressedBitrate</Name>
 			<Description>Encoder Current Compressed Bitrate</Description>
 			<Type>read</Type>
@@ -276,8 +262,7 @@
 				<Type>analog</Type>
 			</Measurement>
 		</Param>
-
-		<Param id="30">
+		<Param id="103">
 			<Name>EncoderAutoChromaWeight</Name>
 			<Description>Encoder Auto Chroma Weight</Description>
 			<Type>read</Type>
@@ -317,7 +302,7 @@
 				</Discreets>
 			</Measurement>
 		</Param>
-		<Param id="40" setter="true">
+		<Param id="104" setter="true">
 			<Name>EncoderAutoChromaWeight</Name>
 			<Description>Encoder Auto Chroma Weight</Description>
 			<Type>write</Type>
@@ -350,8 +335,7 @@
 				</Discreets>
 			</Measurement>
 		</Param>
-
-		<Param id="90">
+		<Param id="105">
 			<Name>EncoderChromaWeight</Name>
 			<Description>Encoder Chroma Weight</Description>
 			<Type>read</Type>
@@ -386,7 +370,7 @@
 				<Type>analog</Type>
 			</Measurement>
 		</Param>
-		<Param id="100" setter="true">
+		<Param id="106" setter="true">
 			<Name>EncoderChromaWeight</Name>
 			<Description>Encoder Chroma Weight</Description>
 			<Type>write</Type>
@@ -414,8 +398,7 @@
 				<Type>analog</Type>
 			</Measurement>
 		</Param>
-
-		<Param id="50">
+		<Param id="107">
 			<Name>EncoderLosslessMode</Name>
 			<Description>Encoder Lossless Mode</Description>
 			<Type>read</Type>
@@ -455,7 +438,7 @@
 				</Discreets>
 			</Measurement>
 		</Param>
-		<Param id="60" setter="true">
+		<Param id="108" setter="true">
 			<Name>EncoderLosslessMode</Name>
 			<Description>Encoder Lossless Mode</Description>
 			<Type>write</Type>
@@ -488,9 +471,8 @@
 				</Discreets>
 			</Measurement>
 		</Param>
-
 		<!-- DECODER -->
-		<Param id="110">
+		<Param id="200">
 			<Name>DecoderStatus</Name>
 			<Description>Decoder Status</Description>
 			<Type>read</Type>
@@ -524,7 +506,7 @@
 				</Discreets>
 			</Measurement>
 		</Param>
-		<Param id="120" setter="true">
+		<Param id="201" setter="true">
 			<Name>DecoderStatus</Name>
 			<Description>Decoder Status</Description>
 			<Type>write</Type>
@@ -557,8 +539,7 @@
 				</Discreets>
 			</Measurement>
 		</Param>
-
-		<Param id="130">
+		<Param id="202">
 			<Name>DecoderCurrentCompressedBitrate</Name>
 			<Description>Decoder Current Compressed Bitrate</Description>
 			<Type>read</Type>
@@ -594,8 +575,7 @@
 				<Type>analog</Type>
 			</Measurement>
 		</Param>
-
-		<Param id="140">
+		<Param id="203">
 			<Name>DecoderProgressionOrder</Name>
 			<Description>Decoder Progression Order</Description>
 			<Type>read</Type>
@@ -647,7 +627,7 @@
 				</Discreets>
 			</Measurement>
 		</Param>
-		<Param id="150" setter="true">
+		<Param id="204" setter="true">
 			<Name>DecoderProgressionOrder</Name>
 			<Description>Decoder Progression Order</Description>
 			<Type>write</Type>
@@ -692,8 +672,7 @@
 				</Discreets>
 			</Measurement>
 		</Param>
-
-		<Param id="160">
+		<Param id="205">
 			<Name>DecoderCodeBlockWidth</Name>
 			<Description>Decoder Code Block Width</Description>
 			<Type>read</Type>
@@ -728,8 +707,7 @@
 				<Type>number</Type>
 			</Measurement>
 		</Param>
-
-		<Param id="170">
+		<Param id="206">
 			<Name>DecoderCodeBlockHeight</Name>
 			<Description>Decoder Code Block Height</Description>
 			<Type>read</Type>
@@ -764,241 +742,232 @@
 				<Type>number</Type>
 			</Measurement>
 		</Param>
-
 	</Params>
-
+	
 	<Groups>
-		<Group id="203">
+		<Group id="300">
 			<Name>Disable Encoder Parameters</Name>
 			<Description>Disable Encoder Parameters</Description>
 			<Type>poll action</Type>
 			<Content>
-				<Action>111</Action>
-				<Action>112</Action>
-				<Action>113</Action>
-				<Action>114</Action>
-				<Action>115</Action>
-				<Action>116</Action>
+				<Action>500</Action>
+				<Action>501</Action>
+				<Action>502</Action>
+				<Action>503</Action>
+				<Action>504</Action>
+				<Action>505</Action>
 			</Content>
 		</Group>
-		<Group id="204">
+		<Group id="301">
 			<Name>Disable Decoder Parameters</Name>
 			<Description>Disable Decoder Parameters</Description>
 			<Type>poll action</Type>
 			<Content>
-				<Action>121</Action>
-				<Action>122</Action>
-				<Action>123</Action>
-				<Action>124</Action>
-				<Action>125</Action>
-				<Action>126</Action>
+				<Action>510</Action>
+				<Action>511</Action>
+				<Action>512</Action>
+				<Action>513</Action>
+				<Action>514</Action>
+				<Action>515</Action>
 			</Content>
 		</Group>
-		<Group id="205">
+		<Group id="302">
 			<Name>Enable Encoder Parameters</Name>
 			<Description>Enable Encoder Parameters</Description>
 			<Type>poll action</Type>
 			<Content>
-				<Action>131</Action>
-				<Action>132</Action>
-				<Action>133</Action>
-				<Action>134</Action>
-				<Action>135</Action>
+				<Action>520</Action>
+				<Action>521</Action>
+				<Action>522</Action>
+				<Action>523</Action>
+				<Action>524</Action>
 			</Content>
 		</Group>
-		<Group id="206">
+		<Group id="303">
 			<Name>Enable Decoder Parameters</Name>
 			<Description>Enable Decoder Parameters</Description>
 			<Type>poll action</Type>
 			<Content>
-				<Action>141</Action>
-				<Action>142</Action>
-				<Action>143</Action>
-				<Action>144</Action>
-				<Action>145</Action>
+				<Action>530</Action>
+				<Action>531</Action>
+				<Action>532</Action>
+				<Action>533</Action>
+				<Action>534</Action>
 			</Content>
 		</Group>
 	</Groups>
-
 	<Triggers>
-		<Trigger id="101">
+		<Trigger id="400">
 			<Name>After Startup</Name>
 			<On>protocol</On>
 			<Time>after startup</Time>
 			<Type>action</Type>
 			<Content>
-				<Id>152</Id>
+				<Id>541</Id>
 			</Content>
 		</Trigger>
-
 		<!-- Encoder Status read changes: if 0 disable encoder, else enable encoder + disable decoder -->
-		<Trigger id="102">
+		<Trigger id="401">
 			<Name>Encoder Status Changed</Name>
-			<On id="10">parameter</On>
+			<On id="100">parameter</On>
 			<Time>change</Time>
 			<Type>action</Type>
-			<Condition><![CDATA[id:10 == 0]]></Condition>
+			<Condition><![CDATA[id:100 == 0]]></Condition>
 			<Content>
-				<Id>151</Id>
-				<Id else="true">152</Id>
+				<Id>540</Id>
+				<Id else="true">541</Id>
 			</Content>
 		</Trigger>
-
 		<!-- Decoder Status read changes: if 0 disable decoder, else enable decoder + disable encoder -->
-		<Trigger id="103">
+		<Trigger id="402">
 			<Name>Decoder Status Changed</Name>
-			<On id="110">parameter</On>
+			<On id="200">parameter</On>
 			<Time>change</Time>
 			<Type>action</Type>
-			<Condition><![CDATA[id:110 == 0]]></Condition>
+			<Condition><![CDATA[id:200 == 0]]></Condition>
 			<Content>
-				<Id>153</Id>
-				<Id else="true">154</Id>
+				<Id>542</Id>
+				<Id else="true">543</Id>
 			</Content>
 		</Trigger>
 	</Triggers>
-
+	
 	<Actions>
 		<!-- Disable Encoder params -->
-		<Action id="111">
+		<Action id="500">
 			<Name>Disable Encoder Bitrate</Name>
-			<On id="70">parameter</On>
-			<Type id="200">copy</Type>
+			<On id="102">parameter</On>
+			<Type id="2">copy</Type>
 		</Action>
-		<Action id="112">
+		<Action id="501">
 			<Name>Disable Encoder Auto Chroma Weight</Name>
-			<On id="30">parameter</On>
-			<Type id="200">copy</Type>
+			<On id="103">parameter</On>
+			<Type id="2">copy</Type>
 		</Action>
-		<Action id="113">
+		<Action id="502">
 			<Name>Disable Encoder Chroma Weight</Name>
-			<On id="90">parameter</On>
-			<Type id="200">copy</Type>
+			<On id="105">parameter</On>
+			<Type id="2">copy</Type>
 		</Action>
-		<Action id="114">
+		<Action id="503">
 			<Name>Disable Encoder Lossless Mode</Name>
-			<On id="50">parameter</On>
-			<Type id="200">copy</Type>
+			<On id="107">parameter</On>
+			<Type id="2">copy</Type>
 		</Action>
-		<Action id="115">
+		<Action id="504">
 			<Name>Set Encoder Status To Disabled</Name>
-			<On id="20">parameter</On>
-			<Type id="201">copy</Type>
+			<On id="101">parameter</On>
+			<Type id="3">copy</Type>
 		</Action>
-		<Action id="116">
+		<Action id="505">
 			<Name>Enable Decoder When Encoder Disabled</Name>
-			<On id="110">parameter</On>
-			<Type id="202">copy</Type>
+			<On id="200">parameter</On>
+			<Type id="4">copy</Type>
 		</Action>
-
 		<!-- Disable Decoder params -->
-		<Action id="121">
+		<Action id="510">
 			<Name>Disable Decoder Bitrate</Name>
-			<On id="130">parameter</On>
-			<Type id="200">copy</Type>
+			<On id="202">parameter</On>
+			<Type id="2">copy</Type>
 		</Action>
-		<Action id="122">
+		<Action id="511">
 			<Name>Disable Decoder Progression Order</Name>
-			<On id="140">parameter</On>
-			<Type id="200">copy</Type>
+			<On id="203">parameter</On>
+			<Type id="2">copy</Type>
 		</Action>
-		<Action id="123">
+		<Action id="512">
 			<Name>Disable Decoder Code Block Width</Name>
-			<On id="160">parameter</On>
-			<Type id="200">copy</Type>
+			<On id="205">parameter</On>
+			<Type id="2">copy</Type>
 		</Action>
-		<Action id="124">
+		<Action id="513">
 			<Name>Disable Decoder Code Block Height</Name>
-			<On id="170">parameter</On>
-			<Type id="200">copy</Type>
+			<On id="206">parameter</On>
+			<Type id="2">copy</Type>
 		</Action>
-		<Action id="125">
+		<Action id="514">
 			<Name>Set Decoder Status To Disabled</Name>
-			<On id="120">parameter</On>
-			<Type id="201">copy</Type>
+			<On id="201">parameter</On>
+			<Type id="3">copy</Type>
 		</Action>
-		<Action id="126">
+		<Action id="515">
 			<Name>Enable Encoder When Decoder Disabled</Name>
-			<On id="10">parameter</On>
-			<Type id="202">copy</Type>
+			<On id="100">parameter</On>
+			<Type id="4">copy</Type>
 		</Action>
-
 		<!-- Enable Encoder params -->
-		<Action id="131">
+		<Action id="520">
 			<Name>Enable Encoder Bitrate</Name>
-			<On id="70">parameter</On>
-			<Type id="300">copy</Type>
+			<On id="102">parameter</On>
+			<Type id="10">copy</Type>
 		</Action>
-		<Action id="132">
+		<Action id="521">
 			<Name>Enable Encoder Auto Chroma Weight</Name>
-			<On id="30">parameter</On>
-			<Type id="301">copy</Type>
+			<On id="103">parameter</On>
+			<Type id="11">copy</Type>
 		</Action>
-		<Action id="133">
+		<Action id="522">
 			<Name>Enable Encoder Chroma Weight</Name>
-			<On id="90">parameter</On>
-			<Type id="302">copy</Type>
+			<On id="105">parameter</On>
+			<Type id="12">copy</Type>
 		</Action>
-		<Action id="134">
+		<Action id="523">
 			<Name>Enable Encoder Lossless Mode</Name>
-			<On id="50">parameter</On>
-			<Type id="303">copy</Type>
+			<On id="107">parameter</On>
+			<Type id="13">copy</Type>
 		</Action>
-		<Action id="135">
+		<Action id="524">
 			<Name>Set Decoder Status To Disabled</Name>
-			<On id="110">parameter</On>
-			<Type id="201">copy</Type>
+			<On id="200">parameter</On>
+			<Type id="3">copy</Type>
 		</Action>
-
 		<!-- Enable Decoder params -->
-		<Action id="141">
+		<Action id="530">
 			<Name>Enable Decoder Bitrate</Name>
-			<On id="130">parameter</On>
-			<Type id="304">copy</Type>
+			<On id="202">parameter</On>
+			<Type id="14">copy</Type>
 		</Action>
-		<Action id="142">
+		<Action id="531">
 			<Name>Enable Decoder Progression Order</Name>
-			<On id="140">parameter</On>
-			<Type id="305">copy</Type>
+			<On id="203">parameter</On>
+			<Type id="15">copy</Type>
 		</Action>
-		<Action id="143">
+		<Action id="532">
 			<Name>Enable Decoder Code Block Width</Name>
-			<On id="160">parameter</On>
-			<Type id="306">copy</Type>
+			<On id="205">parameter</On>
+			<Type id="16">copy</Type>
 		</Action>
-		<Action id="144">
+		<Action id="533">
 			<Name>Enable Decoder Code Block Height</Name>
-			<On id="170">parameter</On>
-			<Type id="307">copy</Type>
+			<On id="206">parameter</On>
+			<Type id="17">copy</Type>
 		</Action>
-		<Action id="145">
+		<Action id="534">
 			<Name>Set Encoder Status To Disabled</Name>
-			<On id="10">parameter</On>
-			<Type id="201">copy</Type>
+			<On id="100">parameter</On>
+			<Type id="3">copy</Type>
 		</Action>
-
 		<!-- Execute groups -->
-		<Action id="151">
+		<Action id="540">
 			<Name>Execute Disable Encoder Parameters Group</Name>
-			<On id="203">group</On>
+			<On id="300">group</On>
 			<Type>execute next</Type>
 		</Action>
-		<Action id="152">
+		<Action id="541">
 			<Name>Execute Enable Encoder Parameters Group</Name>
-			<On id="205">group</On>
+			<On id="302">group</On>
 			<Type>execute next</Type>
 		</Action>
-		<Action id="153">
+		<Action id="542">
 			<Name>Execute Disable Decoder Parameters Group</Name>
-			<On id="204">group</On>
+			<On id="301">group</On>
 			<Type>execute next</Type>
 		</Action>
-		<Action id="154">
+		<Action id="543">
 			<Name>Execute Enable Decoder Parameters Group</Name>
-			<On id="206">group</On>
+			<On id="303">group</On>
 			<Type>execute next</Type>
 		</Action>
-
 	</Actions>
 
 	<Timers>
@@ -1024,7 +993,6 @@
 			</Content>
 		</Timer>
 	</Timers>
-
 
 	<VersionHistory>
 		<Branches>
