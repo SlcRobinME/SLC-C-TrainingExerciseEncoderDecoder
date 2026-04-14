@@ -119,6 +119,9 @@
 			<Name>EncoderCurrentCompressedBitrate</Name>
 			<Description>Encoder Current Compressed Bitrate</Description>
 			<Type>read</Type>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
 			<Information>
 				<Subtext>Current compressed bitrate of the Encoder.</Subtext>
 			</Information>
@@ -158,6 +161,9 @@
 			<Name>EncoderAutoChromaWeight</Name>
 			<Description>Encoder Auto Chroma Weight</Description>
 			<Type>read</Type>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
 			<Information>
 				<Subtext>Current auto chroma weight of the Encoder.</Subtext>
 			</Information>
@@ -234,6 +240,9 @@
 			<Name>EncoderChromaWeight</Name>
 			<Description>Encoder Chroma Weight</Description>
 			<Type>read</Type>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
 			<Information>
 				<Subtext>Current chroma weight of the Encoder.</Subtext>
 			</Information>
@@ -300,6 +309,9 @@
 			<Name>EncoderLosslessMode</Name>
 			<Description>Encoder Lossless Mode</Description>
 			<Type>read</Type>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
 			<Information>
 				<Subtext>Current lossless mode of the Encoder.</Subtext>
 			</Information>
@@ -447,6 +459,9 @@
 			<Name>DecoderCurrentCompressedBitrate</Name>
 			<Description>Decoder Current Compressed Bitrate</Description>
 			<Type>read</Type>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
 			<Information>
 				<Subtext>Current compressed bitrate of the Decoder.</Subtext>
 			</Information>
@@ -468,7 +483,7 @@
 				<Decimals>3</Decimals>
 				<Range>
 					<Low>0</Low>
-					<High>15</High>
+					<High>15git </High>
 				</Range>
 				<Positions>
 					<Position>
@@ -486,6 +501,9 @@
 			<Name>DecoderProgressionOrder</Name>
 			<Description>Decoder Progression Order</Description>
 			<Type>read</Type>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
 			<Information>
 				<Subtext>Current progression order of the Decoder.</Subtext>
 			</Information>
@@ -586,6 +604,9 @@
 			<Name>DecoderCodeBlockWidth</Name>
 			<Description>Decoder Code Block Width</Description>
 			<Type>read</Type>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
 			<Information>
 				<Subtext>Code block width of the Decoder.</Subtext>
 			</Information>
@@ -624,6 +645,9 @@
 			<Name>DecoderCodeBlockHeight</Name>
 			<Description>Decoder Code Block Height</Description>
 			<Type>read</Type>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
 			<Information>
 				<Subtext>Code block height of the Decoder.</Subtext>
 			</Information>
