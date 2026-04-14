@@ -1,10 +1,9 @@
+using Skyline.DataMiner.Scripting;
+using Skyline.DataMiner.Utils.Protocol.Extension;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
-using Skyline.DataMiner.Net.Messages.Diagnostics.Requests;
-using Skyline.DataMiner.Scripting;
-using Skyline.DataMiner.Utils.Protocol.Extension;
 
 /// <summary>
 /// DataMiner QAction Class.
@@ -20,10 +19,11 @@ public static class QAction
 		try
 		{
 			int encoderStatus = Convert.ToInt32(protocol.GetParameter(100));
-			if (encoderStatus == 1)
+            protocol.Log($"QA2 fired | encoderStatus = {encoderStatus}", LogType.Information, LogLevel.NoLogging);
+
+            if (encoderStatus == 1)
 			{
 				//Encoder enabled
-				protocol.SetParameter(101, 1);
 				protocol.SetParameter(102, 150);
 				protocol.SetParameter(103, 0);
 				protocol.SetParameter(104, 0);
@@ -43,7 +43,6 @@ public static class QAction
 			else 
 			{
                 //Encoder disabled
-                protocol.SetParameter(101, 0);
                 protocol.SetParameter(102, -1);
                 protocol.SetParameter(103, -1);
                 protocol.SetParameter(104, -1);
@@ -52,7 +51,7 @@ public static class QAction
                 protocol.SetParameter(107, -1);
                 protocol.SetParameter(108, -1);
 
-				int decoderStatus = Convert.ToInt32(protocol.GetParameter(200));
+				int decoderStatus = Convert.ToInt32(protocol.GetParameter(201));
 				if (decoderStatus != 1) {
                     protocol.SetParameter(200, 1);
                     protocol.SetParameter(201, 1);

@@ -19,8 +19,10 @@ public static class QAction
 	{
 		try
 		{
-			//Encoder
-			protocol.SetParameter(100, 1);
+            protocol.Log($"QA1 fired", LogType.Information, LogLevel.NoLogging);
+
+            //Encoder
+            protocol.SetParameter(100, 1);
 			protocol.SetParameter(101, 1);
 			protocol.SetParameter(102, 150);
 			protocol.SetParameter(103, 0);

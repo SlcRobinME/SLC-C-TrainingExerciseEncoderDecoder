@@ -9,7 +9,7 @@
     <ProjectReference Include="..\QAction_Helper\QAction_Helper.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Skyline.DataMiner.Dev.Protocol" Version="10.1.0.6" />
+    <PackageReference Include="Skyline.DataMiner.Dev.Protocol" Version="10.6.4" />
     <PackageReference Include="Skyline.DataMiner.Utils.Protocol.Extension" Version="1.0.0.4" />
     <PackageReference Include="Skyline.DataMiner.Utils.SecureCoding.Analyzers" Version="2.2.3" />
   </ItemGroup>

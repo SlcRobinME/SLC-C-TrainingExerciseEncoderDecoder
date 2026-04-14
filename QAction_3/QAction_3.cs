@@ -22,7 +22,6 @@ public static class QAction
             int decoderStatus = Convert.ToInt32(protocol.GetParameter(200));
 
 			if (decoderStatus == 1) {
-                protocol.SetParameter(201, 1);
                 protocol.SetParameter(202, 200);
                 protocol.SetParameter(203, 0);
                 protocol.SetParameter(204, 0);
@@ -30,7 +29,7 @@ public static class QAction
                 protocol.SetParameter(206, 64);
 
 
-                int encoderStatus = Convert.ToInt32(protocol.GetParameter(100));
+                int encoderStatus = Convert.ToInt32(protocol.GetParameter(101));
                 if (encoderStatus != 0)
                 {
                     protocol.SetParameter(100, 0);
@@ -39,7 +38,7 @@ public static class QAction
             }
             else
             {
-                protocol.SetParameter(201, 0);
+
                 protocol.SetParameter(202, -1);
                 protocol.SetParameter(203, -1);
                 protocol.SetParameter(204, -1);

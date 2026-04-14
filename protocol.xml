@@ -8,10 +8,12 @@
 -->
 
 
+
+
 <Protocol xmlns="http://www.skyline.be/protocol">
 	<Name>Exercise Encoder-Decoder SCO</Name>
 	<Description>Exercise Encoder-Decoder DataMiner connector</Description>
-	<Version>1.0.0.1</Version>
+	<Version>1.0.0.2</Version>
 	<IntegrationID>DMS-DRV-0000</IntegrationID>
 	<Provider>Skyline Communications</Provider>
 	<Vendor>Skyline</Vendor>
@@ -24,7 +26,7 @@
 
 	<Compliancies>
 		<CassandraReady>true</CassandraReady>
-		<MinimumRequiredVersion>10.3.0.0 - 12752</MinimumRequiredVersion>
+		<MinimumRequiredVersion>10.6.4.0 - 0</MinimumRequiredVersion>
 	</Compliancies>
 
 	<Params>
@@ -33,11 +35,18 @@
 			<Description>After Startup</Description>
 			<Type>dummy</Type>
 		</Param>
+		<Param id="5">
+			<Name>Bitrate timer tick</Name>
+			<Type>dummy</Type>
+		</Param>
 		<!-- ENCODER -->
 		<Param id="100">
 			<Name>EncoderStatus</Name>
 			<Description>Encoder Status</Description>
 			<Type>read</Type>
+			<Information>
+				<Subtext>Current status of the Encoder.</Subtext>
+			</Information>
 			<Interprete>
 				<RawType>numeric text</RawType>
 				<Type>double</Type>
@@ -72,6 +81,9 @@
 			<Name>EncoderStatus</Name>
 			<Description>Encoder Status</Description>
 			<Type>write</Type>
+			<Information>
+				<Subtext>Current status of the Encoder.</Subtext>
+			</Information>
 			<Interprete>
 				<RawType>numeric text</RawType>
 				<Type>double</Type>
@@ -105,6 +117,9 @@
 			<Name>EncoderCurrentCompressedBitrate</Name>
 			<Description>Encoder Current Compressed Bitrate</Description>
 			<Type>read</Type>
+			<Information>
+				<Subtext>Current compressed bitrate of the Encoder.</Subtext>
+			</Information>
 			<Interprete>
 				<RawType>numeric text</RawType>
 				<Type>double</Type>
@@ -123,7 +138,7 @@
 				<Decimals>3</Decimals>
 				<Range>
 					<Low>0</Low>
-					<High>1000</High>
+					<High>15</High>
 				</Range>
 				<Positions>
 					<Position>
@@ -141,6 +156,9 @@
 			<Name>EncoderAutoChromaWeight</Name>
 			<Description>Encoder Auto Chroma Weight</Description>
 			<Type>read</Type>
+			<Information>
+				<Subtext>Current auto chroma weight of the Encoder.</Subtext>
+			</Information>
 			<Interprete>
 				<RawType>numeric text</RawType>
 				<Type>double</Type>
@@ -214,6 +232,9 @@
 			<Name>EncoderChromaWeight</Name>
 			<Description>Encoder Chroma Weight</Description>
 			<Type>read</Type>
+			<Information>
+				<Subtext>Current chroma weight of the Encoder.</Subtext>
+			</Information>
 			<Interprete>
 				<RawType>numeric text</RawType>
 				<Type>double</Type>
@@ -277,6 +298,9 @@
 			<Name>EncoderLosslessMode</Name>
 			<Description>Encoder Lossless Mode</Description>
 			<Type>read</Type>
+			<Information>
+				<Subtext>Current lossless mode of the Encoder.</Subtext>
+			</Information>
 			<Interprete>
 				<RawType>numeric text</RawType>
 				<Type>double</Type>
@@ -351,6 +375,9 @@
 			<Name>DecoderStatus</Name>
 			<Description>Decoder Status</Description>
 			<Type>read</Type>
+			<Information>
+				<Subtext>Current status of the Decoder.</Subtext>
+			</Information>
 			<Interprete>
 				<RawType>numeric text</RawType>
 				<Type>double</Type>
@@ -418,6 +445,9 @@
 			<Name>DecoderCurrentCompressedBitrate</Name>
 			<Description>Decoder Current Compressed Bitrate</Description>
 			<Type>read</Type>
+			<Information>
+				<Subtext>Current compressed bitrate of the Decoder.</Subtext>
+			</Information>
 			<Interprete>
 				<RawType>numeric text</RawType>
 				<Type>double</Type>
@@ -454,6 +484,9 @@
 			<Name>DecoderProgressionOrder</Name>
 			<Description>Decoder Progression Order</Description>
 			<Type>read</Type>
+			<Information>
+				<Subtext>Current progression order of the Decoder.</Subtext>
+			</Information>
 			<Interprete>
 				<RawType>numeric text</RawType>
 				<Type>double</Type>
@@ -551,6 +584,9 @@
 			<Name>DecoderCodeBlockWidth</Name>
 			<Description>Decoder Code Block Width</Description>
 			<Type>read</Type>
+			<Information>
+				<Subtext>Code block width of the Decoder.</Subtext>
+			</Information>
 			<Interprete>
 				<RawType>numeric text</RawType>
 				<Type>double</Type>
@@ -586,6 +622,9 @@
 			<Name>DecoderCodeBlockHeight</Name>
 			<Description>Decoder Code Block Height</Description>
 			<Type>read</Type>
+			<Information>
+				<Subtext>Code block height of the Decoder.</Subtext>
+			</Information>
 			<Interprete>
 				<RawType>numeric text</RawType>
 				<Type>double</Type>
@@ -624,13 +663,20 @@
 		<QAction id="1" name="After Startup" encoding="csharp" triggers="1"></QAction>
 		<QAction id="2" name="Encoder Status Changed" encoding="csharp" triggers="100"></QAction>
 		<QAction id="3" name="Decoder Status Changed" encoding="csharp" triggers="200"></QAction>
-		<QAction id="4" name="Update Bitrate" encoding="csharp" triggers=""></QAction>
+		<QAction id="4" name="Update Bitrate" encoding="csharp" triggers="5"></QAction>
 	</QActions>
 	
 	<Groups>
 		<Group id="300">
-			<Name>Update bitrate</Name>
-			<Description>Runs the bitrate update QAction every second</Description>
+			<Name>After Startup Group</Name>
+			<Description>Runs The Bitrate Update QAction Every Second</Description>
+			<Type>poll action</Type>
+			<Content>
+				<Action>542</Action>
+			</Content>
+		</Group>
+		<Group id="301">
+			<Name>Update Bitrate Group</Name>
 			<Type>poll action</Type>
 			<Content>
 				<Action>541</Action>
@@ -651,37 +697,29 @@
 	
 	<Actions>
 		<Action id="540">
-			<Name>After startup QAction</Name>
-			<On id="1">QAction</On>
-			<Type>run</Type>
+			<Name>After startup group</Name>
+			<On id="300">group</On>
+			<Type>execute next</Type>
 		</Action>
 		<Action id="541">
-			<Name>Update bitrate QAction</Name>
-			<On id="4">QAction</On>
-			<Type>run</Type>
+			<Name>Trigger update bitrate qaction</Name>
+			<On id="5">parameter</On>
+			<Type>run actions</Type>
+		</Action>
+		<Action id="542">
+			<Name>Trigger After Startup QAction</Name>
+			<On id="1">parameter</On>
+			<Type>run actions</Type>
 		</Action>
 	</Actions>
 
 	<Timers>
 		<Timer id="1">
-			<Name>Fast Timer (10s)</Name>
-			<Time initial="true">10000</Time>
+			<Name>bitrate Timer (1s)</Name>
+			<Time initial="true">1000</Time>
 			<Interval>75</Interval>
 			<Content>
-			</Content>
-		</Timer>
-		<Timer id="2">
-			<Name>Medium Timer (1m)</Name>
-			<Time initial="true" dataDisplay="30000">60000</Time>
-			<Interval>75</Interval>
-			<Content>
-			</Content>
-		</Timer>
-		<Timer id="3">
-			<Name>Slow Timer (1h)</Name>
-			<Time initial="true">3600000</Time>
-			<Interval>75</Interval>
-			<Content>
+				<Group>301</Group>
 			</Content>
 		</Timer>
 	</Timers>

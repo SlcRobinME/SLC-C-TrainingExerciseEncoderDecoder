@@ -115,6 +115,7 @@ public class WriteParameters
 public interface SLProtocolExt : SLProtocol
 {
 	object Afterstartup_dummy { get; set; }
+	object BitrateTimerTick_dummy { get; set; }
 	object Encoderstatus_100 { get; set; }
 	object Encoderstatus { get; set; }
 	object Encoderstatus_101 { get; set; }
@@ -147,6 +148,8 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 {
 	/// <summary>PID: 1  | Type: dummy</summary>
 	public System.Object Afterstartup_dummy {get { return GetParameter(1); }set { SetParameter(1, value); }}
+	/// <summary>PID: 5  | Type: dummy</summary>
+	public System.Object BitrateTimerTick_dummy {get { return GetParameter(5); }set { SetParameter(5, value); }}
 	/// <summary>PID: 100  | Type: read | DISCREETS: Disabled = 0, Enabled = 1</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Encoderstatus_100 {get { return GetParameter(100); }set { SetParameter(100, value); }}
