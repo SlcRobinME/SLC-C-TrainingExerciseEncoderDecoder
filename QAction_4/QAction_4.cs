@@ -25,13 +25,13 @@ public static class QAction
 		{
 			double randomBitrate= Math.Round(Rng.NextDouble()*15.0, 3);
 
-            int encoderStatus = Convert.ToInt32(protocol.GetParameter(100));
+            int encoderStatus = Convert.ToInt32(protocol.GetParameter(Parameter.encoderstatus));
             if (encoderStatus == 1) {
-                protocol.SetParameter(102,randomBitrate);
+                protocol.SetParameter(Parameter.encodercurrentcompressedbitrate, randomBitrate);
             }
-            int decoderStatus = Convert.ToInt32(protocol.GetParameter(200));
+            int decoderStatus = Convert.ToInt32(protocol.GetParameter(Parameter.decoderstatus));
             if (decoderStatus == 1) {
-                protocol.SetParameter(202,randomBitrate);
+                protocol.SetParameter(Parameter.decodercurrentcompressedbitrate, randomBitrate);
             }
         }
         catch (Exception ex)

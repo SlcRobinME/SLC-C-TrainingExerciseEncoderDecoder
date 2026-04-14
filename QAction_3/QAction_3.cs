@@ -19,37 +19,37 @@ public static class QAction
 	{
 		try
 		{
-            int decoderStatus = Convert.ToInt32(protocol.GetParameter(200));
+            int decoderStatus = Convert.ToInt32(protocol.GetParameter(Parameter.decoderstatus));
 
 			if (decoderStatus == 1) {
-                protocol.SetParameter(202, 200);
-                protocol.SetParameter(203, 0);
-                protocol.SetParameter(204, 0);
-                protocol.SetParameter(205, 64);
-                protocol.SetParameter(206, 64);
+                protocol.SetParameter(Parameter.decodercurrentcompressedbitrate, 200);
+                protocol.SetParameter(Parameter.decoderprogressionorder, 0);
+                protocol.SetParameter(Parameter.Write.decoderprogressionorder, 0);
+                protocol.SetParameter(Parameter.decodercodeblockwidth, 64);
+                protocol.SetParameter(Parameter.decodercodeblockheight, 64);
 
 
-                int encoderStatus = Convert.ToInt32(protocol.GetParameter(101));
+                int encoderStatus = Convert.ToInt32(protocol.GetParameter(Parameter.Write.encoderstatus));
                 if (encoderStatus != 0)
                 {
-                    protocol.SetParameter(100, 0);
-                    protocol.SetParameter(101, 0);
+                    protocol.SetParameter(Parameter.encoderstatus, 0);
+                    protocol.SetParameter(Parameter.Write.encoderstatus, 0);
                 }
             }
             else
             {
 
-                protocol.SetParameter(202, -1);
-                protocol.SetParameter(203, -1);
-                protocol.SetParameter(204, -1);
-                protocol.SetParameter(205, -1);
-                protocol.SetParameter(206, -1);
+                protocol.SetParameter(Parameter.decodercurrentcompressedbitrate, -1);
+                protocol.SetParameter(Parameter.decoderprogressionorder, -1);
+                protocol.SetParameter(Parameter.Write.decoderprogressionorder, -1);
+                protocol.SetParameter(Parameter.decodercodeblockwidth, -1);
+                protocol.SetParameter(Parameter.decodercodeblockheight, -1);
 
-                int encoderStatus = Convert.ToInt32(protocol.GetParameter(100));
+                int encoderStatus = Convert.ToInt32(protocol.GetParameter(Parameter.encoderstatus));
                 if (encoderStatus != 1)
                 {
-                    protocol.SetParameter(100, 1);
-                    protocol.SetParameter(101, 1);
+                    protocol.SetParameter(Parameter.encoderstatus, 1);
+                    protocol.SetParameter(Parameter.Write.encoderstatus, 1);
                 }
             }
         }

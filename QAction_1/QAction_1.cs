@@ -19,26 +19,27 @@ public static class QAction
 	{
 		try
 		{
-            protocol.Log($"QA1 fired", LogType.Information, LogLevel.NoLogging);
+            //protocol.Log($"QA1 fired", LogType.Information, LogLevel.NoLogging);
 
             //Encoder
-            protocol.SetParameter(100, 1);
-			protocol.SetParameter(101, 1);
-			protocol.SetParameter(102, 150);
-			protocol.SetParameter(103, 0);
-			protocol.SetParameter(104, 0);
-			protocol.SetParameter(105, 75.0);
-			protocol.SetParameter(106, 75.0);
-			protocol.SetParameter(107, 0);
-			protocol.SetParameter(108, 0);
+            protocol.SetParameter(Parameter.encoderstatus, 1);
+			protocol.SetParameter(Parameter.Write.encoderstatus, 1);
+			protocol.SetParameter(Parameter.encodercurrentcompressedbitrate, 150);
+			protocol.SetParameter(Parameter.encoderautochromaweight, 0);
+			protocol.SetParameter(Parameter.Write.encoderautochromaweight, 0);
+			protocol.SetParameter(Parameter.encoderchromaweight, 75.0);
+			protocol.SetParameter(Parameter.Write.encoderchromaweight, 75.0);
+			protocol.SetParameter(Parameter.encoderlosslessmode, 0);
+			protocol.SetParameter(Parameter.Write.encoderlosslessmode, 0);
+
 			//Decoder
-			protocol.SetParameter(200, 0);
-            protocol.SetParameter(201, 0);
-            protocol.SetParameter(202, -1);
-            protocol.SetParameter(203, -1);
-            protocol.SetParameter(204, -1);
-            protocol.SetParameter(205, -1);
-            protocol.SetParameter(206, -1);
+			protocol.SetParameter(Parameter.decoderstatus, 0);
+            protocol.SetParameter(Parameter.Write.decoderstatus, 0);
+            protocol.SetParameter(Parameter.decodercurrentcompressedbitrate, -1);
+            protocol.SetParameter(Parameter.decoderprogressionorder, -1);
+            protocol.SetParameter(Parameter.Write.decoderprogressionorder, -1);
+            protocol.SetParameter(Parameter.decodercodeblockwidth, -1);
+            protocol.SetParameter(Parameter.decodercodeblockheight, -1);
         }
         catch (Exception ex)
 		{

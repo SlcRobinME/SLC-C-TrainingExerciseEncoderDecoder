@@ -21,7 +21,9 @@
 	<DeviceOID>00</DeviceOID>
 	<ElementType>Encoder/Decoder</ElementType>
 	<Type relativeTimers="true">virtual</Type>
+	<!-- SuppressValidator 1.21.5 That task is in exercise 4 -->
 	<Display defaultPage="Encoder" pageOrder="Encoder;Decoder" wideColumnPages=""/>
+	<!-- /SuppressValidator 1.21.5 -->
 	<SNMP includepages="true">auto</SNMP>
 
 	<Compliancies>
@@ -36,7 +38,7 @@
 			<Type>dummy</Type>
 		</Param>
 		<Param id="5">
-			<Name>Bitrate timer tick</Name>
+			<Name>BitrateTimerTick</Name>
 			<Type>dummy</Type>
 		</Param>
 		<!-- ENCODER -->
@@ -466,7 +468,7 @@
 				<Decimals>3</Decimals>
 				<Range>
 					<Low>0</Low>
-					<High>1000</High>
+					<High>15</High>
 				</Range>
 				<Positions>
 					<Position>

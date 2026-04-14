@@ -18,43 +18,43 @@ public static class QAction
 	{
 		try
 		{
-			int encoderStatus = Convert.ToInt32(protocol.GetParameter(100));
+			int encoderStatus = Convert.ToInt32(protocol.GetParameter(Parameter.encoderstatus));
             protocol.Log($"QA2 fired | encoderStatus = {encoderStatus}", LogType.Information, LogLevel.NoLogging);
 
             if (encoderStatus == 1)
 			{
 				//Encoder enabled
-				protocol.SetParameter(102, 150);
-				protocol.SetParameter(103, 0);
-				protocol.SetParameter(104, 0);
-				protocol.SetParameter(105, 75.0);
-				protocol.SetParameter(106, 75.0);
-				protocol.SetParameter(107, 0);
-				protocol.SetParameter(108, 0);
+				protocol.SetParameter(Parameter.encodercurrentcompressedbitrate, 150);
+				protocol.SetParameter(Parameter.encoderautochromaweight, 0);
+				protocol.SetParameter(Parameter.Write.encoderautochromaweight, 0);
+				protocol.SetParameter(Parameter.encoderchromaweight, 75.0);
+				protocol.SetParameter(Parameter.Write.encoderchromaweight, 75.0);
+				protocol.SetParameter(Parameter.encoderlosslessmode, 0);
+				protocol.SetParameter(Parameter.Write.encoderlosslessmode, 0);
 
 				//Disable decoder
-				int decoderStatus = Convert.ToInt32(protocol.GetParameter(200));
+				int decoderStatus = Convert.ToInt32(protocol.GetParameter(Parameter.decoderstatus));
 				if (decoderStatus != 0)
 				{
-					protocol.SetParameter(200, 0);
-					protocol.SetParameter(201, 0);
+					protocol.SetParameter(Parameter.decoderstatus, 0);
+					protocol.SetParameter(Parameter.Write.decoderstatus, 0);
 				}
 			}
 			else 
 			{
                 //Encoder disabled
-                protocol.SetParameter(102, -1);
-                protocol.SetParameter(103, -1);
-                protocol.SetParameter(104, -1);
-                protocol.SetParameter(105, -1);
-                protocol.SetParameter(106, -1);
-                protocol.SetParameter(107, -1);
-                protocol.SetParameter(108, -1);
+                protocol.SetParameter(Parameter.encodercurrentcompressedbitrate, -1);
+                protocol.SetParameter(Parameter.encoderautochromaweight, -1);
+                protocol.SetParameter(Parameter.Write.encoderautochromaweight, -1);
+                protocol.SetParameter(Parameter.encoderchromaweight, -1);
+                protocol.SetParameter(Parameter.Write.encoderchromaweight, -1);
+                protocol.SetParameter(Parameter.encoderlosslessmode, -1);
+                protocol.SetParameter(Parameter.Write.encoderlosslessmode, -1);
 
-				int decoderStatus = Convert.ToInt32(protocol.GetParameter(201));
+				int decoderStatus = Convert.ToInt32(protocol.GetParameter(Parameter.decoderstatus));
 				if (decoderStatus != 1) {
-                    protocol.SetParameter(200, 1);
-                    protocol.SetParameter(201, 1);
+                    protocol.SetParameter(Parameter.decoderstatus, 1);
+                    protocol.SetParameter(Parameter.Write.decoderstatus, 1);
                 }
             }
 		}
