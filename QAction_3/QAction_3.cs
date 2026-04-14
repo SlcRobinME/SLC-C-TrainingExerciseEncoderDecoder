@@ -28,7 +28,6 @@ public static class QAction
                 protocol.SetParameter(Parameter.decodercodeblockwidth, 64);
                 protocol.SetParameter(Parameter.decodercodeblockheight, 64);
 
-
                 int encoderStatus = Convert.ToInt32(protocol.GetParameter(Parameter.Write.encoderstatus));
                 if (encoderStatus != 0)
                 {
@@ -38,7 +37,6 @@ public static class QAction
             }
             else
             {
-
                 protocol.SetParameter(Parameter.decodercurrentcompressedbitrate, -1);
                 protocol.SetParameter(Parameter.decoderprogressionorder, -1);
                 protocol.SetParameter(Parameter.Write.decoderprogressionorder, -1);

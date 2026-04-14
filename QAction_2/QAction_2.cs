@@ -19,7 +19,7 @@ public static class QAction
 		try
 		{
 			int encoderStatus = Convert.ToInt32(protocol.GetParameter(Parameter.encoderstatus));
-            protocol.Log($"QA2 fired | encoderStatus = {encoderStatus}", LogType.Information, LogLevel.NoLogging);
+            //protocol.Log($"QA2 fired | encoderStatus = {encoderStatus}", LogType.Information, LogLevel.NoLogging);
 
             if (encoderStatus == 1)
 			{
