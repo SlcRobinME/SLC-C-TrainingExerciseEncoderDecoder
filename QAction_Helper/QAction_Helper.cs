@@ -98,6 +98,11 @@ public static class Parameter
 	public const int copyofencoderchromaweight_117 = 117;
 	/// <summary>PID: 117 | Type: read</summary>
 	public const int copyofencoderchromaweight = 117;
+	/// <summary>PID: 170 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int operationmode_170 = 170;
+	/// <summary>PID: 170 | Type: read</summary>
+	public const int operationmode = 170;
 	public class Write
 	{
 		/// <summary>PID: 54 | Type: write</summary>
@@ -130,6 +135,11 @@ public static class Parameter
 		public const int encoderchromaweight_67 = 67;
 		/// <summary>PID: 67 | Type: write</summary>
 		public const int encoderchromaweight = 67;
+		/// <summary>PID: 70 | Type: write</summary>
+		[EditorBrowsable(EditorBrowsableState.Never)]
+		public const int encodermode_70 = 70;
+		/// <summary>PID: 70 | Type: write</summary>
+		public const int encodermode = 70;
 	}
 }
 public class WriteParameters
@@ -146,6 +156,8 @@ public class WriteParameters
 	public System.Object Decoderprogressionorder {get { return Protocol.GetParameter(61); }set { Protocol.SetParameter(61, value); }}
 	/// <summary>PID: 67  | Type: write</summary>
 	public System.Object Encoderchromaweight {get { return Protocol.GetParameter(67); }set { Protocol.SetParameter(67, value); }}
+	/// <summary>PID: 70  | Type: write | DISCREETS: Encoder = 1, Decoder = 2</summary>
+	public System.Object Encodermode {get { return Protocol.GetParameter(70); }set { Protocol.SetParameter(70, value); }}
 	public SLProtocolExt Protocol;
 	public WriteParameters(SLProtocolExt protocol)
 	{
@@ -183,6 +195,8 @@ public interface SLProtocolExt : SLProtocol
 	object Encoderlosslessmode_60 { get; set; }
 	object Decoderprogressionorder_61 { get; set; }
 	object Encoderchromaweight_67 { get; set; }
+	object Encodermode_70 { get; set; }
+	object Encodermode { get; set; }
 	object Copyofencodercurrentcompressedbitrate_106 { get; set; }
 	object Copyofencodercurrentcompressedbitrate { get; set; }
 	object Copyofdecodercurrentcompressedbitrate_107 { get; set; }
@@ -199,6 +213,8 @@ public interface SLProtocolExt : SLProtocol
 	object Copyofdecodercodeblockheight { get; set; }
 	object Copyofencoderchromaweight_117 { get; set; }
 	object Copyofencoderchromaweight { get; set; }
+	object Operationmode_170 { get; set; }
+	object Operationmode { get; set; }
 	WriteParameters Write { get; set; }
 }
 public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
@@ -277,6 +293,10 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	/// <summary>PID: 67  | Type: write</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Encoderchromaweight_67 {get { return GetParameter(67); }set { SetParameter(67, value); }}
+	/// <summary>PID: 70  | Type: write | DISCREETS: Encoder = 1, Decoder = 2</summary>
+	public System.Object Encodermode_70 {get { return GetParameter(70); }set { SetParameter(70, value); }}
+	/// <summary>PID: 70  | Type: write | DISCREETS: Encoder = 1, Decoder = 2</summary>
+	public System.Object Encodermode {get { return Write.Encodermode; }set { Write.Encodermode = value; }}
 	/// <summary>PID: 106  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Copyofencodercurrentcompressedbitrate_106 {get { return GetParameter(106); }set { SetParameter(106, value); }}
@@ -317,6 +337,11 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Copyofencoderchromaweight_117 {get { return GetParameter(117); }set { SetParameter(117, value); }}
 	/// <summary>PID: 117  | Type: read</summary>
 	public System.Object Copyofencoderchromaweight {get { return GetParameter(117); }set { SetParameter(117, value); }}
+	/// <summary>PID: 170  | Type: read | DISCREETS: Encoder = 1, Decoder = 2</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Operationmode_170 {get { return GetParameter(170); }set { SetParameter(170, value); }}
+	/// <summary>PID: 170  | Type: read | DISCREETS: Encoder = 1, Decoder = 2</summary>
+	public System.Object Operationmode {get { return GetParameter(170); }set { SetParameter(170, value); }}
 	public WriteParameters Write { get; set; }
 	public ConcreteSLProtocolExt()
 	{

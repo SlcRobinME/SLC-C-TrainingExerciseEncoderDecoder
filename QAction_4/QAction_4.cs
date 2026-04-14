@@ -5,20 +5,21 @@ using System.Text;
 
 using Skyline.DataMiner.Scripting;
 using Skyline.DataMiner.Utils.Protocol.Extension;
+using System.Reflection;
 
 /// <summary>
 /// DataMiner QAction Class: Decoder Status Changed.
 /// </summary>
 public static class QAction
 {
-	/// <summary>
-	/// The QAction entry point.
-	/// </summary>
-	/// <param name="protocol">Link with SLProtocol process.</param>
-	public static void Run(SLProtocol protocol)
-	{
-		try
-		{
+    /// <summary>
+    /// The QAction entry point.
+    /// </summary>
+    /// <param name="protocol">Link with SLProtocol process.</param>
+    public static void Run(SLProtocol protocol)
+    {
+        try
+        {
             double writeValue = Convert.ToDouble(protocol.GetParameter(55));
 
             // Copy write value to read parameter
@@ -31,6 +32,7 @@ public static class QAction
                 protocol.SetParameter(11, -1.0);  // DecoderProgressionOrder
                 protocol.SetParameter(12, -1.0);  // DecoderCodeBlockWidth
                 protocol.SetParameter(13, -1.0);  // DecoderCodeBlockHeight
+
             }
             else
             {
@@ -47,11 +49,12 @@ public static class QAction
                 protocol.SetParameter(8, -1.0);
                 protocol.SetParameter(17, -1.0);
                 protocol.SetParameter(10, -1.0);
+
             }
         }
-		catch (Exception ex)
-		{
-			protocol.Log($"QA{protocol.QActionID}|{protocol.GetTriggerParameter()}|Run|Exception thrown:{Environment.NewLine}{ex}", LogType.Error, LogLevel.NoLogging);
-		}
-	}
+        catch (Exception ex)
+        {
+            protocol.Log($"QA{protocol.QActionID}|{protocol.GetTriggerParameter()}|Run|Exception thrown:{Environment.NewLine}{ex}", LogType.Error, LogLevel.NoLogging);
+        }
+    }
 }

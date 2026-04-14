@@ -49,11 +49,18 @@ Revision History (auto generated):
 DATE          VERSION    AUTHOR                         COMMENTS
 
 08/01/2024    1.0.0.2    XXX, Skyline Communications    NF: Initial version
+
+
+Revision History (auto generated):
+
+DATE          VERSION    AUTHOR                         COMMENTS
+
+08/01/2024    1.0.0.1    XXX, Skyline Communications    NF: Initial version
 -->
 <Protocol xmlns="http://www.skyline.be/protocol">
 	<Name>Exercise Encoder Decoder Amer Mujalo</Name>
 	<Description>Exercise Encoder/Decoder DataMiner connector</Description>
-	<Version>1.0.0.2</Version>
+	<Version>1.0.0.2_DIS</Version>
 	<IntegrationID>DMS-DRV-0000</IntegrationID>
 	<Provider>Skyline Communications</Provider>
 	<Vendor>Skyline</Vendor>
@@ -61,7 +68,23 @@ DATE          VERSION    AUTHOR                         COMMENTS
 	<DeviceOID>0000</DeviceOID>
 	<ElementType>Encoder/Decoder</ElementType>
 	<Type>virtual</Type>
-	<Display defaultPage="General" pageOrder="General" wideColumnPages=""/>
+	<Display defaultPage="General" pageOrder="General;Encoder;Decoder" wideColumnPages="Encoder;Decoder">
+		<Pages>
+
+			<Page>
+				<Name>Encoder</Name>
+				<Visibility default="false" overridePID="170" value="1"/>
+			</Page>
+
+			<Page>
+				<Name>Decoder</Name>
+				<Visibility default="false" overridePID="170" value="2"/>
+			</Page>
+
+		</Pages>
+	</Display>
+
+
 	<SNMP includepages="true">auto</SNMP>
 	<Compliancies>
 		<CassandraReady>true</CassandraReady>
@@ -76,7 +99,7 @@ DATE          VERSION    AUTHOR                         COMMENTS
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>General</Page>
+						<Page>Encoder</Page>
 						<Column>0</Column>
 						<Row>0</Row>
 					</Position>
@@ -99,8 +122,8 @@ DATE          VERSION    AUTHOR                         COMMENTS
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>General</Page>
-						<Column>1</Column>
+						<Page>Decoder </Page>
+						<Column>0</Column>
 						<Row>0</Row>
 					</Position>
 				</Positions>
@@ -131,7 +154,7 @@ DATE          VERSION    AUTHOR                         COMMENTS
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>General</Page>
+						<Page>Encoder</Page>
 						<Column>0</Column>
 						<Row>1</Row>
 					</Position>
@@ -164,7 +187,7 @@ DATE          VERSION    AUTHOR                         COMMENTS
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>General</Page>
+						<Page>Encoder</Page>
 						<Column>0</Column>
 						<Row>1</Row>
 					</Position>
@@ -206,8 +229,8 @@ DATE          VERSION    AUTHOR                         COMMENTS
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>General</Page>
-						<Column>1</Column>
+						<Page>Decoder </Page>
+						<Column>0</Column>
 						<Row>1</Row>
 					</Position>
 				</Positions>
@@ -239,8 +262,8 @@ DATE          VERSION    AUTHOR                         COMMENTS
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>General</Page>
-						<Column>1</Column>
+						<Page>Decoder </Page>
+						<Column>0</Column>
 						<Row>1</Row>
 					</Position>
 				</Positions>
@@ -280,8 +303,11 @@ DATE          VERSION    AUTHOR                         COMMENTS
 			</Interprete>
 			<Alarm>
 				<Monitored>true</Monitored>
-				<CL>20</CL>
-				<Normal>50</Normal>
+				<WaL>9.5</WaL>
+				<WaH>10.5</WaH>
+				<CL>9</CL>
+				<CH>11</CH>
+				<Normal>10</Normal>
 			</Alarm>
 			<Display>
 				<RTDisplay>true</RTDisplay>
@@ -293,7 +319,7 @@ DATE          VERSION    AUTHOR                         COMMENTS
 				</Range>
 				<Positions>
 					<Position>
-						<Page>General</Page>
+						<Page>Encoder</Page>
 						<Column>0</Column>
 						<Row>2</Row>
 					</Position>
@@ -324,8 +350,11 @@ DATE          VERSION    AUTHOR                         COMMENTS
 			</Interprete>
 			<Alarm>
 				<Monitored>true</Monitored>
-				<CL>20</CL>
-				<Normal>50</Normal>
+				<WaL>9.5</WaL>
+				<WaH>10.5</WaH>
+				<CL>9</CL>
+				<CH>11</CH>
+				<Normal>10</Normal>
 			</Alarm>
 			<Display>
 				<RTDisplay>true</RTDisplay>
@@ -337,8 +366,8 @@ DATE          VERSION    AUTHOR                         COMMENTS
 				</Range>
 				<Positions>
 					<Position>
-						<Page>General</Page>
-						<Column>1</Column>
+						<Page>Decoder </Page>
+						<Column>0</Column>
 						<Row>2</Row>
 					</Position>
 				</Positions>
@@ -375,7 +404,7 @@ DATE          VERSION    AUTHOR                         COMMENTS
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>General</Page>
+						<Page>Encoder</Page>
 						<Column>0</Column>
 						<Row>3</Row>
 					</Position>
@@ -408,7 +437,7 @@ DATE          VERSION    AUTHOR                         COMMENTS
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>General</Page>
+						<Page>Encoder</Page>
 						<Column>0</Column>
 						<Row>3</Row>
 					</Position>
@@ -456,7 +485,7 @@ DATE          VERSION    AUTHOR                         COMMENTS
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>General</Page>
+						<Page>Encoder</Page>
 						<Column>0</Column>
 						<Row>5</Row>
 					</Position>
@@ -489,7 +518,7 @@ DATE          VERSION    AUTHOR                         COMMENTS
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>General</Page>
+						<Page>Encoder</Page>
 						<Column>0</Column>
 						<Row>5</Row>
 					</Position>
@@ -537,8 +566,8 @@ DATE          VERSION    AUTHOR                         COMMENTS
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>General</Page>
-						<Column>1</Column>
+						<Page>Decoder </Page>
+						<Column>0</Column>
 						<Row>3</Row>
 					</Position>
 				</Positions>
@@ -582,8 +611,8 @@ DATE          VERSION    AUTHOR                         COMMENTS
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>General</Page>
-						<Column>1</Column>
+						<Page>Decoder </Page>
+						<Column>0</Column>
 						<Row>3</Row>
 					</Position>
 				</Positions>
@@ -642,8 +671,8 @@ DATE          VERSION    AUTHOR                         COMMENTS
 				</Range>
 				<Positions>
 					<Position>
-						<Page>General</Page>
-						<Column>1</Column>
+						<Page>Decoder </Page>
+						<Column>0</Column>
 						<Row>4</Row>
 					</Position>
 				</Positions>
@@ -680,8 +709,8 @@ DATE          VERSION    AUTHOR                         COMMENTS
 				</Range>
 				<Positions>
 					<Position>
-						<Page>General</Page>
-						<Column>1</Column>
+						<Page>Decoder </Page>
+						<Column>0</Column>
 						<Row>6</Row>
 					</Position>
 				</Positions>
@@ -723,7 +752,7 @@ DATE          VERSION    AUTHOR                         COMMENTS
 				</Range>
 				<Positions>
 					<Position>
-						<Page>General</Page>
+						<Page>Encoder</Page>
 						<Column>0</Column>
 						<Row>4</Row>
 					</Position>
@@ -751,7 +780,7 @@ DATE          VERSION    AUTHOR                         COMMENTS
 				</Range>
 				<Positions>
 					<Position>
-						<Page>General</Page>
+						<Page>Encoder</Page>
 						<Column>0</Column>
 						<Row>4</Row>
 					</Position>
@@ -849,12 +878,88 @@ DATE          VERSION    AUTHOR                         COMMENTS
 				<DefaultValue>0</DefaultValue>
 			</Interprete>
 		</Param>
+		<Param id="170" trending="true">
+			<Name>OperationMode</Name>
+			<Description>Operation Mode</Description>
+			<Type>read</Type>
+			
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+			</Interprete>
+			
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Column>0</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
+			</Display>
+			
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Encoder</Display>
+						<Value>1</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Decoder</Display>
+						<Value>2</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		
+		<Param id="70" setter="true">
+			<Name>EncoderMode</Name>
+			<Type>write</Type>
+			
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+			</Interprete>
+			
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Column>0</Column>
+						<Row>1</Row>
+					</Position>
+				</Positions>
+			</Display>
+			
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Encoder</Display>
+						<Value>1</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Decoder</Display>
+						<Value>2</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
 	</Params>
 	<QActions>
-		<QAction id="1" name="Precompiled Code" encoding="csharp" options="precompile"></QAction>
-		<QAction id="2" name="After Startup" encoding="csharp" triggers="2"></QAction>
-		<QAction id="3" name="Encoder Status Changed" encoding="csharp" triggers="54"></QAction>
-		<QAction id="4" name="Decoder Status Changed" encoding="csharp" triggers="55"></QAction>
+		<QAction id="1" name="Precompiled Code" encoding="csharp" options="precompile">
+		</QAction>
+		<QAction id="2" name="After Startup" encoding="csharp" triggers="2">
+		</QAction>
+		<QAction id="3" name="Encoder Status Changed" encoding="csharp" triggers="54;">
+		</QAction>
+		<QAction id="4" name="Decoder Status Changed" encoding="csharp" triggers="55;">
+		</QAction>
+		<QAction id="5" name="Toggle display type" encoding="csharp" triggers="70;71">
+		</QAction>
 	</QActions>
 	<Groups>
 		<Group id="2">
@@ -912,10 +1017,8 @@ DATE          VERSION    AUTHOR                         COMMENTS
 			</Content>
 		</Timer>
 	</Timers>
-	
 	<PortSettings>
 	</PortSettings>
-	
 	<VersionHistory>
 		<Branches>
 			<Branch id="1">
