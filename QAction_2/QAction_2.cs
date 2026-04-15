@@ -23,8 +23,9 @@ public static class QAction
 
             if (encoderStatus == 1)
 			{
+				protocol.ShowInformationMessage("Encoder Status changed to: Enabled");
 				//Encoder enabled
-				protocol.SetParameter(Parameter.encodercurrentcompressedbitrate, 150);
+				protocol.SetParameter(Parameter.encodercurrentcompressedbitrate, 10);
 				protocol.SetParameter(Parameter.encoderautochromaweight, 0);
 				protocol.SetParameter(Parameter.Write.encoderautochromaweight, 0);
 				protocol.SetParameter(Parameter.encoderchromaweight, 75.0);

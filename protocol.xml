@@ -119,9 +119,6 @@
 			<Name>EncoderCurrentCompressedBitrate</Name>
 			<Description>Encoder Current Compressed Bitrate</Description>
 			<Type>read</Type>
-			<Alarm>
-				<Monitored>true</Monitored>
-			</Alarm>
 			<Information>
 				<Subtext>Current compressed bitrate of the Encoder.</Subtext>
 			</Information>
@@ -137,6 +134,14 @@
 				</Exceptions>
 				<DefaultValue>-1</DefaultValue>
 			</Interprete>
+			<Alarm>
+				<Monitored>true</Monitored>
+				<CL>9.0</CL>
+				<WaL>9.5</WaL>
+				<Normal>10;$-1</Normal>
+				<WaH>10.5</WaH>
+				<CH>11.0</CH>
+			</Alarm>
 			<Display>
 				<RTDisplay>true</RTDisplay>
 				<Units>Mbps</Units>
@@ -161,9 +166,6 @@
 			<Name>EncoderAutoChromaWeight</Name>
 			<Description>Encoder Auto Chroma Weight</Description>
 			<Type>read</Type>
-			<Alarm>
-				<Monitored>true</Monitored>
-			</Alarm>
 			<Information>
 				<Subtext>Current auto chroma weight of the Encoder.</Subtext>
 			</Information>
@@ -179,6 +181,10 @@
 				</Exceptions>
 				<DefaultValue>-1</DefaultValue>
 			</Interprete>
+			<Alarm>
+				<Monitored>true</Monitored>
+				<Normal>$-1</Normal>
+			</Alarm>
 			<Display>
 				<RTDisplay>true</RTDisplay>
 				<Positions>
@@ -258,6 +264,10 @@
 				</Exceptions>
 				<DefaultValue>-1</DefaultValue>
 			</Interprete>
+			<Alarm>
+				<Monitored>true</Monitored>
+				<Normal>$-1</Normal>
+			</Alarm>
 			<Display>
 				<RTDisplay>true</RTDisplay>
 				<Units>%</Units>
@@ -309,9 +319,6 @@
 			<Name>EncoderLosslessMode</Name>
 			<Description>Encoder Lossless Mode</Description>
 			<Type>read</Type>
-			<Alarm>
-				<Monitored>true</Monitored>
-			</Alarm>
 			<Information>
 				<Subtext>Current lossless mode of the Encoder.</Subtext>
 			</Information>
@@ -327,6 +334,10 @@
 				</Exceptions>
 				<DefaultValue>-1</DefaultValue>
 			</Interprete>
+			<Alarm>
+				<Monitored>true</Monitored>
+				<Normal>$-1</Normal>
+			</Alarm>
 			<Display>
 				<RTDisplay>true</RTDisplay>
 				<Positions>
@@ -459,9 +470,6 @@
 			<Name>DecoderCurrentCompressedBitrate</Name>
 			<Description>Decoder Current Compressed Bitrate</Description>
 			<Type>read</Type>
-			<Alarm>
-				<Monitored>true</Monitored>
-			</Alarm>
 			<Information>
 				<Subtext>Current compressed bitrate of the Decoder.</Subtext>
 			</Information>
@@ -477,13 +485,21 @@
 				</Exceptions>
 				<DefaultValue>-1</DefaultValue>
 			</Interprete>
+			<Alarm>
+				<Monitored>true</Monitored>
+				<CL>9.0</CL>
+				<WaL>9.5</WaL>
+				<Normal>10;$-1</Normal>
+				<WaH>10.5</WaH>
+				<CH>11.0</CH>
+			</Alarm>
 			<Display>
 				<RTDisplay>true</RTDisplay>
 				<Units>Mbps</Units>
 				<Decimals>3</Decimals>
 				<Range>
 					<Low>0</Low>
-					<High>15git </High>
+					<High>15</High>
 				</Range>
 				<Positions>
 					<Position>
@@ -501,9 +517,6 @@
 			<Name>DecoderProgressionOrder</Name>
 			<Description>Decoder Progression Order</Description>
 			<Type>read</Type>
-			<Alarm>
-				<Monitored>true</Monitored>
-			</Alarm>
 			<Information>
 				<Subtext>Current progression order of the Decoder.</Subtext>
 			</Information>
@@ -519,6 +532,10 @@
 				</Exceptions>
 				<DefaultValue>-1</DefaultValue>
 			</Interprete>
+			<Alarm>
+				<Monitored>true</Monitored>
+				<Normal>$-1</Normal>
+			</Alarm>
 			<Display>
 				<RTDisplay>true</RTDisplay>
 				<Positions>
@@ -604,9 +621,6 @@
 			<Name>DecoderCodeBlockWidth</Name>
 			<Description>Decoder Code Block Width</Description>
 			<Type>read</Type>
-			<Alarm>
-				<Monitored>true</Monitored>
-			</Alarm>
 			<Information>
 				<Subtext>Code block width of the Decoder.</Subtext>
 			</Information>
@@ -622,6 +636,10 @@
 				</Exceptions>
 				<DefaultValue>-1</DefaultValue>
 			</Interprete>
+			<Alarm>
+				<Monitored>true</Monitored>
+				<Normal>$-1</Normal>
+			</Alarm>
 			<Display>
 				<RTDisplay>true</RTDisplay>
 				<Units>px</Units>
@@ -645,9 +663,6 @@
 			<Name>DecoderCodeBlockHeight</Name>
 			<Description>Decoder Code Block Height</Description>
 			<Type>read</Type>
-			<Alarm>
-				<Monitored>true</Monitored>
-			</Alarm>
 			<Information>
 				<Subtext>Code block height of the Decoder.</Subtext>
 			</Information>
@@ -663,6 +678,10 @@
 				</Exceptions>
 				<DefaultValue>-1</DefaultValue>
 			</Interprete>
+			<Alarm>
+				<Monitored>true</Monitored>
+				<Normal>$-1</Normal>
+			</Alarm>
 			<Display>
 				<RTDisplay>true</RTDisplay>
 				<Units>px</Units>

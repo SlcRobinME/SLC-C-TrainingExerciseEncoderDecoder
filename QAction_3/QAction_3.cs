@@ -22,7 +22,7 @@ public static class QAction
             int decoderStatus = Convert.ToInt32(protocol.GetParameter(Parameter.decoderstatus));
 
 			if (decoderStatus == 1) {
-                protocol.SetParameter(Parameter.decodercurrentcompressedbitrate, 200);
+                protocol.SetParameter(Parameter.decodercurrentcompressedbitrate, 10);
                 protocol.SetParameter(Parameter.decoderprogressionorder, 0);
                 protocol.SetParameter(Parameter.Write.decoderprogressionorder, 0);
                 protocol.SetParameter(Parameter.decodercodeblockwidth, 64);
