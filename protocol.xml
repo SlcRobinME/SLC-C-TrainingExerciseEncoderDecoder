@@ -246,9 +246,6 @@
 			<Name>EncoderChromaWeight</Name>
 			<Description>Encoder Chroma Weight</Description>
 			<Type>read</Type>
-			<Alarm>
-				<Monitored>true</Monitored>
-			</Alarm>
 			<Information>
 				<Subtext>Current chroma weight of the Encoder.</Subtext>
 			</Information>
