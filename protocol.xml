@@ -48,19 +48,13 @@ Revision History (auto generated):
 
 DATE          VERSION    AUTHOR                         COMMENTS
 
-08/01/2024    1.0.0.2    XXX, Skyline Communications    NF: Initial version
+15/04/2026    1.0.0.2    AmerMO, Skyline Communications    NF: Initial version
 
-
-Revision History (auto generated):
-
-DATE          VERSION    AUTHOR                         COMMENTS
-
-08/01/2024    1.0.0.1    XXX, Skyline Communications    NF: Initial version
 -->
 <Protocol xmlns="http://www.skyline.be/protocol">
 	<Name>Exercise Encoder Decoder Amer Mujalo</Name>
 	<Description>Exercise Encoder/Decoder DataMiner connector</Description>
-	<Version>1.0.0.2_DIS</Version>
+	<Version>1.0.0.34</Version>
 	<IntegrationID>DMS-DRV-0000</IntegrationID>
 	<Provider>Skyline Communications</Provider>
 	<Vendor>Skyline</Vendor>
