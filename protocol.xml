@@ -48,7 +48,7 @@ Revision History (auto generated):
 
 DATE          VERSION    AUTHOR                         COMMENTS
 
-08/01/2024    1.0.0.2    XXX, Skyline Communications    NF: Initial version
+10/04/2026    1.0.0.2    AmerMO, Skyline Communications    NF: Initial version
 -->
 <Protocol xmlns="http://www.skyline.be/protocol">
 	<Name>Exercise Encoder Decoder Amer Mujalo</Name>
