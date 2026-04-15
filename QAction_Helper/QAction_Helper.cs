@@ -60,9 +60,14 @@ public static class Parameter
 	public const int encoderchromaweight = 17;
 	/// <summary>PID: 20 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int operationmode_20 = 20;
+	public const int encodermode_20 = 20;
 	/// <summary>PID: 20 | Type: read</summary>
-	public const int operationmode = 20;
+	public const int encodermode = 20;
+	/// <summary>PID: 21 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int decodermode_21 = 21;
+	/// <summary>PID: 21 | Type: read</summary>
+	public const int decodermode = 21;
 	/// <summary>PID: 106 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public const int copyofencodercurrentcompressedbitrate_106 = 106;
@@ -196,8 +201,10 @@ public interface SLProtocolExt : SLProtocol
 	object Decodercodeblockheight { get; set; }
 	object Encoderchromaweight_17 { get; set; }
 	object Encoderchromaweight { get; set; }
-	object Operationmode_20 { get; set; }
-	object Operationmode { get; set; }
+	object Encodermode_20 { get; set; }
+	object Encodermode { get; set; }
+	object Decodermode_21 { get; set; }
+	object Decodermode { get; set; }
 	object Encoderstatus_54 { get; set; }
 	object Decoderstatus_55 { get; set; }
 	object Encoderautochromaweight_58 { get; set; }
@@ -205,9 +212,9 @@ public interface SLProtocolExt : SLProtocol
 	object Decoderprogressionorder_61 { get; set; }
 	object Encoderchromaweight_67 { get; set; }
 	object Encodermode_70 { get; set; }
-	object Encodermode { get; set; }
 	object Decodermode_71 { get; set; }
-	object Decodermode { get; set; }
+	object Title_end_encoder__fixed { get; set; }
+	object Title_end_decoder__fixed { get; set; }
 	object Copyofencodercurrentcompressedbitrate_106 { get; set; }
 	object Copyofencodercurrentcompressedbitrate { get; set; }
 	object Copyofdecodercurrentcompressedbitrate_107 { get; set; }
@@ -224,6 +231,8 @@ public interface SLProtocolExt : SLProtocol
 	object Copyofdecodercodeblockheight { get; set; }
 	object Copyofencoderchromaweight_117 { get; set; }
 	object Copyofencoderchromaweight { get; set; }
+	object Title_begin_general__fixed { get; set; }
+	object Title_end_general__fixed { get; set; }
 	WriteParameters Write { get; set; }
 }
 public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
@@ -284,11 +293,16 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Encoderchromaweight_17 {get { return GetParameter(17); }set { SetParameter(17, value); }}
 	/// <summary>PID: 17  | Type: read | EXCEPTIONS: Not Available = -1</summary>
 	public System.Object Encoderchromaweight {get { return GetParameter(17); }set { SetParameter(17, value); }}
-	/// <summary>PID: 20  | Type: read | DISCREETS: Encoder = 0, Decoder = 1</summary>
+	/// <summary>PID: 20  | Type: read | DISCREETS: Disabled = 0, Enabled = 1</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Operationmode_20 {get { return GetParameter(20); }set { SetParameter(20, value); }}
-	/// <summary>PID: 20  | Type: read | DISCREETS: Encoder = 0, Decoder = 1</summary>
-	public System.Object Operationmode {get { return GetParameter(20); }set { SetParameter(20, value); }}
+	public System.Object Encodermode_20 {get { return GetParameter(20); }set { SetParameter(20, value); }}
+	/// <summary>PID: 20  | Type: read | DISCREETS: Disabled = 0, Enabled = 1</summary>
+	public System.Object Encodermode {get { return GetParameter(20); }set { SetParameter(20, value); }}
+	/// <summary>PID: 21  | Type: read | DISCREETS: Disabled = 0, Enabled = 1</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Decodermode_21 {get { return GetParameter(21); }set { SetParameter(21, value); }}
+	/// <summary>PID: 21  | Type: read | DISCREETS: Disabled = 0, Enabled = 1</summary>
+	public System.Object Decodermode {get { return GetParameter(21); }set { SetParameter(21, value); }}
 	/// <summary>PID: 54  | Type: write | DISCREETS: Disabled = 0, Enabled = 1</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Encoderstatus_54 {get { return GetParameter(54); }set { SetParameter(54, value); }}
@@ -308,13 +322,15 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Encoderchromaweight_67 {get { return GetParameter(67); }set { SetParameter(67, value); }}
 	/// <summary>PID: 70  | Type: write | DISCREETS: Disabled = 0, Enabled = 1</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Encodermode_70 {get { return GetParameter(70); }set { SetParameter(70, value); }}
-	/// <summary>PID: 70  | Type: write | DISCREETS: Disabled = 0, Enabled = 1</summary>
-	public System.Object Encodermode {get { return Write.Encodermode; }set { Write.Encodermode = value; }}
 	/// <summary>PID: 71  | Type: write | DISCREETS: Disabled = 0, Enabled = 1</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Decodermode_71 {get { return GetParameter(71); }set { SetParameter(71, value); }}
-	/// <summary>PID: 71  | Type: write | DISCREETS: Disabled = 0, Enabled = 1</summary>
-	public System.Object Decodermode {get { return Write.Decodermode; }set { Write.Decodermode = value; }}
+	/// <summary>PID: 101  | Type: fixed</summary>
+	public System.Object Title_end_encoder__fixed {get { return GetParameter(101); }set { SetParameter(101, value); }}
+	/// <summary>PID: 102  | Type: fixed</summary>
+	public System.Object Title_end_decoder__fixed {get { return GetParameter(102); }set { SetParameter(102, value); }}
 	/// <summary>PID: 106  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Copyofencodercurrentcompressedbitrate_106 {get { return GetParameter(106); }set { SetParameter(106, value); }}
@@ -355,6 +371,10 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Copyofencoderchromaweight_117 {get { return GetParameter(117); }set { SetParameter(117, value); }}
 	/// <summary>PID: 117  | Type: read</summary>
 	public System.Object Copyofencoderchromaweight {get { return GetParameter(117); }set { SetParameter(117, value); }}
+	/// <summary>PID: 200  | Type: fixed</summary>
+	public System.Object Title_begin_general__fixed {get { return GetParameter(200); }set { SetParameter(200, value); }}
+	/// <summary>PID: 201  | Type: fixed</summary>
+	public System.Object Title_end_general__fixed {get { return GetParameter(201); }set { SetParameter(201, value); }}
 	public WriteParameters Write { get; set; }
 	public ConcreteSLProtocolExt()
 	{

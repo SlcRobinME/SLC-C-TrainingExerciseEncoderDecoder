@@ -68,15 +68,15 @@ DATE          VERSION    AUTHOR                         COMMENTS
 	<DeviceOID>0000</DeviceOID>
 	<ElementType>Encoder/Decoder</ElementType>
 	<Type>virtual</Type>
-	<Display defaultPage="General" pageOrder="General;Encoder;Decoder" wideColumnPages="Encoder;Decoder">
+	<Display defaultPage="General" pageOrder="General;----------;Encoder;Decoder" wideColumnPages="Encoder;Decoder">
 		<Pages>
 			<Page>
 				<Name>Encoder</Name>
-				<Visibility default="false" overridePID="70" value="0"/>
+				<Visibility default="false" overridePID="70" value="1"/>
 			</Page>
 			<Page>
 				<Name>Decoder</Name>
-				<Visibility default="false" overridePID="71" value="0"/>
+				<Visibility default="false" overridePID="71" value="1"/>
 			</Page>
 		</Pages>
 	</Display>
@@ -104,6 +104,24 @@ DATE          VERSION    AUTHOR                         COMMENTS
 				<Type options="begin">title</Type>
 			</Measurement>
 		</Param>
+		<Param id="101">
+			<Name>Title_End_Encoder</Name>
+			<Description>Encoder</Description>
+			<Type>fixed</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Encoder</Page>
+						<Column>0</Column>
+						<Row>6</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="end">title</Type>
+			</Measurement>
+		</Param>
 		<Param id="2">
 			<Name>AfterStartup</Name>
 			<Description>After Startup</Description>
@@ -125,6 +143,24 @@ DATE          VERSION    AUTHOR                         COMMENTS
 			</Display>
 			<Measurement>
 				<Type options="begin">title</Type>
+			</Measurement>
+		</Param>
+		<Param id="102">
+			<Name>Title_End_Decoder</Name>
+			<Description>Decoder</Description>
+			<Type>fixed</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Decoder</Page>
+						<Column>0</Column>
+						<Row>6</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="end">title</Type>
 			</Measurement>
 		</Param>
 		<Param id="4" trending="true">
@@ -704,9 +740,9 @@ DATE          VERSION    AUTHOR                         COMMENTS
 				</Range>
 				<Positions>
 					<Position>
-						<Page>Decoder </Page>
+						<Page>Decoder</Page>
 						<Column>0</Column>
-						<Row>6</Row>
+						<Row>5</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -873,16 +909,10 @@ DATE          VERSION    AUTHOR                         COMMENTS
 				<DefaultValue>0</DefaultValue>
 			</Interprete>
 		</Param>
-		<Param id="20" setter="true" trending="false">
-			<Name>OperationMode</Name>
+		<Param id="200">
+			<Name>Title_Begin_General</Name>
 			<Description>Operation Mode</Description>
-			<Type>read</Type>
-			<Interprete>
-				<RawType>numeric text</RawType>
-				<Type>double</Type>
-				<LengthType>next param</LengthType>
-				<DefaultValue>0</DefaultValue>
-			</Interprete>
+			<Type>fixed</Type>
 			<Display>
 				<RTDisplay>true</RTDisplay>
 				<Positions>
@@ -894,28 +924,38 @@ DATE          VERSION    AUTHOR                         COMMENTS
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type>discreet</Type>
-				<Discreets>
-					<Discreet>
-						<Display>Encoder</Display>
-						<Value>0</Value>
-					</Discreet>
-					<Discreet>
-						<Display>Decoder</Display>
-						<Value>1</Value>
-					</Discreet>
-				</Discreets>
+				<Type options="begin">title</Type>
 			</Measurement>
 		</Param>
-		<Param id="70" setter="true">
+		<Param id="201">
+			<Name>Title_End_General</Name>
+			<Description>Operation Mode</Description>
+			<Type>fixed</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Column>0</Column>
+						<Row>3</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="end">title</Type>
+			</Measurement>
+		</Param>
+		<Param id="20" trending="true">
 			<Name>EncoderMode</Name>
 			<Description>Encoder Mode</Description>
-			<Type>write</Type>
+			<Type>read</Type>
+			
 			<Interprete>
 				<RawType>numeric text</RawType>
 				<Type>double</Type>
 				<LengthType>next param</LengthType>
 			</Interprete>
+			
 			<Display>
 				<RTDisplay>true</RTDisplay>
 				<Positions>
@@ -926,6 +966,79 @@ DATE          VERSION    AUTHOR                         COMMENTS
 					</Position>
 				</Positions>
 			</Display>
+			
+			<Measurement>
+				<Type>togglebutton</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Disabled</Display>
+						<Value>0</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Enabled</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="21" trending="true">
+			<Name>DecoderMode</Name>
+			<Description>Decoder Mode</Description>
+			<Type>read</Type>
+			
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Column>0</Column>
+						<Row>2</Row>
+					</Position>
+				</Positions>
+			</Display>
+			
+			<Measurement>
+				<Type>togglebutton</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Disabled</Display>
+						<Value>0</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Enabled</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="70" setter="true">
+			<Name>EncoderMode</Name>
+			<Description>Encoder Mode</Description>
+			<Type>write</Type>
+			
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Column>0</Column>
+						<Row>1</Row>
+					</Position>
+				</Positions>
+			</Display>
+			
 			<Measurement>
 				<Type>togglebutton</Type>
 				<Discreets>
@@ -944,11 +1057,13 @@ DATE          VERSION    AUTHOR                         COMMENTS
 			<Name>DecoderMode</Name>
 			<Description>Decoder Mode</Description>
 			<Type>write</Type>
+			
 			<Interprete>
 				<RawType>numeric text</RawType>
 				<Type>double</Type>
 				<LengthType>next param</LengthType>
 			</Interprete>
+			
 			<Display>
 				<RTDisplay>true</RTDisplay>
 				<Positions>
@@ -959,6 +1074,7 @@ DATE          VERSION    AUTHOR                         COMMENTS
 					</Position>
 				</Positions>
 			</Display>
+			
 			<Measurement>
 				<Type>togglebutton</Type>
 				<Discreets>
@@ -973,7 +1089,6 @@ DATE          VERSION    AUTHOR                         COMMENTS
 				</Discreets>
 			</Measurement>
 		</Param>
-		
 	</Params>
 	<QActions>
 		<QAction id="1" name="Precompiled Code" encoding="csharp" options="precompile">
