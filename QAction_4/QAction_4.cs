@@ -1,11 +1,5 @@
 using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Text;
-
 using Skyline.DataMiner.Scripting;
-using Skyline.DataMiner.Utils.Protocol.Extension;
-using System.Reflection;
 
 /// <summary>
 /// DataMiner QAction Class: Decoder Status Changed.

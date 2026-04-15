@@ -70,21 +70,16 @@ DATE          VERSION    AUTHOR                         COMMENTS
 	<Type>virtual</Type>
 	<Display defaultPage="General" pageOrder="General;Encoder;Decoder" wideColumnPages="Encoder;Decoder">
 		<Pages>
-
 			<Page>
 				<Name>Encoder</Name>
-				<Visibility default="false" overridePID="170" value="1"/>
+				<Visibility default="false" overridePID="70" value="0"/>
 			</Page>
-
 			<Page>
 				<Name>Decoder</Name>
-				<Visibility default="false" overridePID="170" value="2"/>
+				<Visibility default="false" overridePID="71" value="0"/>
 			</Page>
-
 		</Pages>
 	</Display>
-
-
 	<SNMP includepages="true">auto</SNMP>
 	<Compliancies>
 		<CassandraReady>true</CassandraReady>
@@ -878,16 +873,16 @@ DATE          VERSION    AUTHOR                         COMMENTS
 				<DefaultValue>0</DefaultValue>
 			</Interprete>
 		</Param>
-		<Param id="170" trending="true">
+		<Param id="20" setter="true" trending="false">
 			<Name>OperationMode</Name>
 			<Description>Operation Mode</Description>
 			<Type>read</Type>
-			
 			<Interprete>
 				<RawType>numeric text</RawType>
 				<Type>double</Type>
+				<LengthType>next param</LengthType>
+				<DefaultValue>0</DefaultValue>
 			</Interprete>
-			
 			<Display>
 				<RTDisplay>true</RTDisplay>
 				<Positions>
@@ -898,31 +893,29 @@ DATE          VERSION    AUTHOR                         COMMENTS
 					</Position>
 				</Positions>
 			</Display>
-			
 			<Measurement>
 				<Type>discreet</Type>
 				<Discreets>
 					<Discreet>
 						<Display>Encoder</Display>
-						<Value>1</Value>
+						<Value>0</Value>
 					</Discreet>
 					<Discreet>
 						<Display>Decoder</Display>
-						<Value>2</Value>
+						<Value>1</Value>
 					</Discreet>
 				</Discreets>
 			</Measurement>
 		</Param>
-		
 		<Param id="70" setter="true">
 			<Name>EncoderMode</Name>
+			<Description>Encoder Mode</Description>
 			<Type>write</Type>
-			
 			<Interprete>
 				<RawType>numeric text</RawType>
 				<Type>double</Type>
+				<LengthType>next param</LengthType>
 			</Interprete>
-			
 			<Display>
 				<RTDisplay>true</RTDisplay>
 				<Positions>
@@ -933,32 +926,63 @@ DATE          VERSION    AUTHOR                         COMMENTS
 					</Position>
 				</Positions>
 			</Display>
-			
 			<Measurement>
-				<Type>discreet</Type>
+				<Type>togglebutton</Type>
 				<Discreets>
 					<Discreet>
-						<Display>Encoder</Display>
-						<Value>1</Value>
+						<Display>Disabled</Display>
+						<Value>0</Value>
 					</Discreet>
 					<Discreet>
-						<Display>Decoder</Display>
-						<Value>2</Value>
+						<Display>Enabled</Display>
+						<Value>1</Value>
 					</Discreet>
 				</Discreets>
 			</Measurement>
 		</Param>
+		<Param id="71" setter="true">
+			<Name>DecoderMode</Name>
+			<Description>Decoder Mode</Description>
+			<Type>write</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Column>0</Column>
+						<Row>2</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>togglebutton</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Disabled</Display>
+						<Value>0</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Enabled</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		
 	</Params>
 	<QActions>
 		<QAction id="1" name="Precompiled Code" encoding="csharp" options="precompile">
 		</QAction>
 		<QAction id="2" name="After Startup" encoding="csharp" triggers="2">
 		</QAction>
-		<QAction id="3" name="Encoder Status Changed" encoding="csharp" triggers="54;">
+		<QAction id="3" name="Encoder Status Changed" encoding="csharp" triggers="54;70">
 		</QAction>
-		<QAction id="4" name="Decoder Status Changed" encoding="csharp" triggers="55;">
-		</QAction>
-		<QAction id="5" name="Toggle display type" encoding="csharp" triggers="70;71">
+		<QAction id="4" name="Decoder Status Changed" encoding="csharp" triggers="55;71">
 		</QAction>
 	</QActions>
 	<Groups>
