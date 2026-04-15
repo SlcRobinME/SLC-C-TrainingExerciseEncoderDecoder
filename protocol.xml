@@ -1089,9 +1089,9 @@ DATE          VERSION    AUTHOR                         COMMENTS
 		</QAction>
 		<QAction id="2" name="After Startup" encoding="csharp" triggers="2">
 		</QAction>
-		<QAction id="3" name="Encoder Status Changed" encoding="csharp" triggers="54;70">
+		<QAction id="3" name="Encoder Status Changed" encoding="csharp" triggers="54">
 		</QAction>
-		<QAction id="4" name="Decoder Status Changed" encoding="csharp" triggers="55;71">
+		<QAction id="4" name="Decoder Status Changed" encoding="csharp" triggers="55">
 		</QAction>
 	</QActions>
 	<Groups>
