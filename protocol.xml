@@ -679,16 +679,10 @@
 		</Param>
 	</Params>
 	<QActions>
-		<!-- SuppressValidator 2901 Referencing precompile QAction -->
-		<QAction id="1" name="After Startup" encoding="csharp" triggers="1" options="3"></QAction>
-		<!-- /SuppressValidator 2901 -->
-		<!-- SuppressValidator 2901 Referencing precompile QAction-->
-		<QAction id="2" name="Operation mode changed" encoding="csharp" triggers="51" options="3"></QAction>
-		<!-- /SuppressValidator 2901 -->
+		<QAction id="1" name="After Startup" encoding="csharp" triggers="1"></QAction>
+		<QAction id="2" name="Operation mode changed" encoding="csharp" triggers="51"></QAction>
 		<QAction id="3" name="Shared Methods" encoding="csharp" options="precompile"></QAction>
-		<!-- SuppressValidator 2901 Referencing precompile QAction-->
-		<QAction id="4" name="Update Bitrate" encoding="csharp" triggers="5" options="3"></QAction>
-		<!-- /SuppressValidator 2901 -->
+		<QAction id="4" name="Update Bitrate" encoding="csharp" triggers="5"></QAction>
 	</QActions>
 	<Groups>
 		<Group id="300">
