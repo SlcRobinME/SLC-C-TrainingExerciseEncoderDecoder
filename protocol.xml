@@ -82,7 +82,7 @@ DATE          VERSION    AUTHOR                         COMMENTS
 	<Params>
 		<Param id="1">
 			<Name>Title_Begin_Encoder</Name>
-			<Description>Encoder</Description>
+			<Description>Encoder title begin</Description>
 			<Type>fixed</Type>
 			<Display>
 				<RTDisplay>true</RTDisplay>
@@ -100,7 +100,7 @@ DATE          VERSION    AUTHOR                         COMMENTS
 		</Param>
 		<Param id="101">
 			<Name>Title_End_Encoder</Name>
-			<Description>Encoder</Description>
+			<Description>Encoder title end</Description>
 			<Type>fixed</Type>
 			<Display>
 				<RTDisplay>true</RTDisplay>
@@ -123,7 +123,7 @@ DATE          VERSION    AUTHOR                         COMMENTS
 		</Param>
 		<Param id="3">
 			<Name>Title_Begin_Decoder</Name>
-			<Description>Decoder</Description>
+			<Description>Decoder title begin</Description>
 			<Type>fixed</Type>
 			<Display>
 				<RTDisplay>true</RTDisplay>
@@ -141,7 +141,7 @@ DATE          VERSION    AUTHOR                         COMMENTS
 		</Param>
 		<Param id="102">
 			<Name>Title_End_Decoder</Name>
-			<Description>Decoder</Description>
+			<Description>Decoder title end</Description>
 			<Type>fixed</Type>
 			<Display>
 				<RTDisplay>true</RTDisplay>
@@ -173,7 +173,7 @@ DATE          VERSION    AUTHOR                         COMMENTS
 			<Alarm>
 				<Monitored>true</Monitored>
 				<CL>0</CL>
-				<Normal>1</Normal>
+				<Normal>1;$-1</Normal>
 			</Alarm>
 			<Display>
 				<RTDisplay>true</RTDisplay>
@@ -248,7 +248,7 @@ DATE          VERSION    AUTHOR                         COMMENTS
 			<Alarm>
 				<Monitored>true</Monitored>
 				<CL>0</CL>
-				<Normal>1</Normal>
+				<Normal>1;$-1</Normal>
 			</Alarm>
 			<Display>
 				<RTDisplay>true</RTDisplay>
@@ -332,7 +332,7 @@ DATE          VERSION    AUTHOR                         COMMENTS
 				<WaH>10.5</WaH>
 				<CL>9</CL>
 				<CH>11</CH>
-				<Normal>10</Normal>
+				<Normal>10;$-1</Normal>
 			</Alarm>
 			<Display>
 				<RTDisplay>true</RTDisplay>
@@ -379,7 +379,7 @@ DATE          VERSION    AUTHOR                         COMMENTS
 				<WaH>10.5</WaH>
 				<CL>9</CL>
 				<CH>11</CH>
-				<Normal>10</Normal>
+				<Normal>10;$-1</Normal>
 			</Alarm>
 			<Display>
 				<RTDisplay>true</RTDisplay>
@@ -423,7 +423,7 @@ DATE          VERSION    AUTHOR                         COMMENTS
 			<Alarm>
 				<Monitored>true</Monitored>
 				<CL>0</CL>
-				<Normal>1</Normal>
+				<Normal>1;$-1</Normal>
 			</Alarm>
 			<Display>
 				<RTDisplay>true</RTDisplay>
@@ -504,7 +504,7 @@ DATE          VERSION    AUTHOR                         COMMENTS
 			<Alarm>
 				<Monitored>true</Monitored>
 				<CL>0</CL>
-				<Normal>1</Normal>
+				<Normal>1;$-1</Normal>
 			</Alarm>
 			<Display>
 				<RTDisplay>true</RTDisplay>
@@ -584,7 +584,7 @@ DATE          VERSION    AUTHOR                         COMMENTS
 			</Interprete>
 			<Alarm>
 				<Monitored>true</Monitored>
-				<Normal>0</Normal>
+				<Normal>0;$-1</Normal>
 				<CH>3</CH>
 			</Alarm>
 			<Display>
@@ -766,7 +766,7 @@ DATE          VERSION    AUTHOR                         COMMENTS
 			<Alarm>
 				<Monitored>true</Monitored>
 				<CL>15</CL>
-				<Normal>30</Normal>
+				<Normal>30;$-1</Normal>
 			</Alarm>
 			<Display>
 				<RTDisplay>true</RTDisplay>
@@ -905,7 +905,7 @@ DATE          VERSION    AUTHOR                         COMMENTS
 		</Param>
 		<Param id="200">
 			<Name>Title_Begin_General</Name>
-			<Description>Operation Mode</Description>
+			<Description>Operation Mode Title Begin</Description>
 			<Type>fixed</Type>
 			<Display>
 				<RTDisplay>true</RTDisplay>
@@ -923,7 +923,7 @@ DATE          VERSION    AUTHOR                         COMMENTS
 		</Param>
 		<Param id="201">
 			<Name>Title_End_General</Name>
-			<Description>Operation Mode</Description>
+			<Description>Operation Mode Title End</Description>
 			<Type>fixed</Type>
 			<Display>
 				<RTDisplay>true</RTDisplay>
@@ -1083,6 +1083,11 @@ DATE          VERSION    AUTHOR                         COMMENTS
 				</Discreets>
 			</Measurement>
 		</Param>
+		<Param id="52">
+			<Name>Poll Trigger</Name>
+			<Description>Poll Trigger</Description>
+			<Type>dummy</Type>
+		</Param>
 	</Params>
 	<QActions>
 		<QAction id="1" name="Precompiled Code" encoding="csharp" options="precompile">
@@ -1093,8 +1098,18 @@ DATE          VERSION    AUTHOR                         COMMENTS
 		</QAction>
 		<QAction id="4" name="Decoder Status Changed" encoding="csharp" triggers="55">
 		</QAction>
+		<QAction id="5" name="Poll Trigger for Bitrate simulation" encoding="csharp" triggers="52">
+		</QAction>
 	</QActions>
 	<Groups>
+		<Group id="1">
+			<Name>Bitrate Simullation Group</Name>
+			<Description>Bitrate Simullation</Description>
+			<Type>poll action</Type>
+			<Content>
+				<Action>3</Action>
+			</Content>
+		</Group>
 		<Group id="2">
 			<Name>After Startup</Name>
 			<Description>After Startup</Description>
@@ -1126,27 +1141,19 @@ DATE          VERSION    AUTHOR                         COMMENTS
 			<On id="2">parameter</On>
 			<Type>run actions</Type>
 		</Action>
+		<Action id="3">
+			<Name>Bitrate Simulation Action</Name>
+			<On id="52">parameter</On>
+			<Type>run actions</Type>
+		</Action>
 	</Actions>
 	<Timers>
 		<Timer id="1">
-			<Name>Fast Timer (10s)</Name>
-			<Time initial="true">10000</Time>
+			<Name>Fast Timer (1s) for Simulate Bitrate</Name>
+			<Time initial="true">1000</Time>
 			<Interval>75</Interval>
 			<Content>
-			</Content>
-		</Timer>
-		<Timer id="2">
-			<Name>Medium Timer (1m)</Name>
-			<Time initial="true" dataDisplay="30000">60000</Time>
-			<Interval>75</Interval>
-			<Content>
-			</Content>
-		</Timer>
-		<Timer id="3">
-			<Name>Slow Timer (1h)</Name>
-			<Time initial="true">3600000</Time>
-			<Interval>75</Interval>
-			<Content>
+				<Group>1</Group>
 			</Content>
 		</Timer>
 	</Timers>

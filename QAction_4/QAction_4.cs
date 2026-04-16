@@ -6,6 +6,13 @@ using Skyline.DataMiner.Scripting;
 /// </summary>
 public static class QAction
 {
+    public enum ParamState
+    {
+        NA = -1,
+        Disabled = 0,
+        Enabled = 1,
+    }
+
     /// <summary>
     /// The QAction entry point.
     /// </summary>
@@ -14,36 +21,57 @@ public static class QAction
     {
         try
         {
-            double writeValue = Convert.ToDouble(protocol.GetParameter(55));
+            double writeValue = Convert.ToDouble(protocol.GetParameter(Parameter.Write.decoderstatus_55));
 
             // Copy write value to read parameter
-            protocol.SetParameter(5, writeValue);
+            protocol.SetParameter(Parameter.decoderstatus_5, writeValue);
 
             if (writeValue == 0)
             {
                 // Disable — set all decoder params to Not Available (-1)
-                protocol.SetParameter(7, -1.0);   // DecoderCurrentCompressedBitrate
-                protocol.SetParameter(11, -1.0);  // DecoderProgressionOrder
-                protocol.SetParameter(12, -1.0);  // DecoderCodeBlockWidth
-                protocol.SetParameter(13, -1.0);  // DecoderCodeBlockHeight
-
+                protocol.SetParameters(
+                    new int[]
+                    {
+                        Parameter.decodercurrentcompressedbitrate_7,
+                        Parameter.decoderprogressionorder_11,
+                        Parameter.decodercodeblockwidth_12,
+                        Parameter.decodercodeblockheight_13,
+                    },
+                    new object[] { ParamState.NA, ParamState.NA, ParamState.NA, ParamState.NA });
             }
             else
             {
-                // Enable — restore from copy params
-                protocol.SetParameter(7, Convert.ToDouble(protocol.GetParameter(107)));
-                protocol.SetParameter(11, Convert.ToDouble(protocol.GetParameter(111)));
-                protocol.SetParameter(12, Convert.ToDouble(protocol.GetParameter(112)));
-                protocol.SetParameter(13, Convert.ToDouble(protocol.GetParameter(113)));
+                protocol.SetParameters(
+                    new int[]
+                    {
+                        // Restore decoder (ONE CALL)
+                        Parameter.decodercurrentcompressedbitrate_7,
+                        Parameter.decoderprogressionorder_11,
+                        Parameter.decodercodeblockwidth_12,
+                        Parameter.decodercodeblockheight_13,
 
-                // Auto-disable encoder
-                protocol.SetParameter(4, 0.0);
-                protocol.SetParameter(54, 0.0);
-                protocol.SetParameter(6, -1.0);
-                protocol.SetParameter(8, -1.0);
-                protocol.SetParameter(17, -1.0);
-                protocol.SetParameter(10, -1.0);
+                        // Disable encoder (ONE CALL)
+                        Parameter.Write.encoderstatus_54,
+                        Parameter.encoderstatus_4,
+                        Parameter.encodercurrentcompressedbitrate_6,
+                        Parameter.encoderautochromaweight_8,
+                        Parameter.encoderchromaweight_17,
+                        Parameter.encoderlosslessmode_10,
+                    },
+                    new object[]
+                    {
+                        protocol.GetParameter(Parameter.copyofdecodercurrentcompressedbitrate),
+                        protocol.GetParameter(Parameter.copyofdecoderprogressionorder),
+                        protocol.GetParameter(Parameter.copyofdecodercodeblockwidth),
+                        protocol.GetParameter(Parameter.copyofdecodercodeblockheight),
 
+                        ParamState.Disabled,
+                        ParamState.Disabled,
+                        ParamState.NA,
+                        ParamState.NA,
+                        ParamState.NA,
+                        ParamState.NA,
+                    });
             }
         }
         catch (Exception ex)

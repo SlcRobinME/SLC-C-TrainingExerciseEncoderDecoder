@@ -1,20 +1,48 @@
 using System;
 using Skyline.DataMiner.Scripting;
 
+/// <summary>
+/// DataMiner QAction Class.
+/// </summary>
 public static class QAction
 {
-    public static void Run(SLProtocol protocol)
+    public enum ParamState
     {
-        try
+        NA = -1,
+        Disabled = 0,
+        Enabled = 1,
+    }
+
+    /// <summary>
+    /// The QAction entry point.
+    /// </summary>
+    /// <param name="protocol">Link with SLProtocol process.</param>
+    public static void Run(SLProtocol protocol)
+	{
+        var rng = new Random();
+
+        object[] statuses = (object[])protocol.GetParameters(new uint[]
         {
-            double current = Convert.ToDouble(protocol.GetParameter(72));
-            // Toggle: 0 → 1, 1 → 0
-            double newVal = (current == 1) ? 0.0 : 1.0;
-            protocol.SetParameter(72, newVal);
+            Parameter.encoderstatus_4,
+            Parameter.decoderstatus_5,
+        });
+
+        // Only update if Encoder is Enabled
+        if (Convert.ToUInt16(statuses[0]) == (ushort)ParamState.Enabled)
+        {
+            double newEncoderBitrate = Math.Round(rng.NextDouble() * 47, 3);
+            protocol.SetParameters(
+                new int[] { Parameter.encodercurrentcompressedbitrate_6, Parameter.copyofencodercurrentcompressedbitrate_106 },
+                new object[] { newEncoderBitrate, newEncoderBitrate });
         }
-        catch (Exception ex)
+
+        // Only update if Decoder is Enabled
+        if (Convert.ToUInt16(statuses[1]) == (ushort)ParamState.Enabled)
         {
-            protocol.Log($"QA{protocol.QActionID}|Run|{ex}", LogType.Error, LogLevel.NoLogging);
+            double newDecoderBitrate = Math.Round(rng.NextDouble() * 47, 3);
+            protocol.SetParameters(
+                new int[] { Parameter.decodercurrentcompressedbitrate_7, Parameter.copyofdecodercurrentcompressedbitrate_107 },
+                new object[] { newDecoderBitrate, newDecoderBitrate });
         }
     }
 }

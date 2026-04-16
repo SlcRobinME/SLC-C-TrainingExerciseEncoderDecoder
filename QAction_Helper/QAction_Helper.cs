@@ -205,6 +205,7 @@ public interface SLProtocolExt : SLProtocol
 	object Encodermode { get; set; }
 	object Decodermode_21 { get; set; }
 	object Decodermode { get; set; }
+	object PollTrigger_dummy { get; set; }
 	object Encoderstatus_54 { get; set; }
 	object Decoderstatus_55 { get; set; }
 	object Encoderautochromaweight_58 { get; set; }
@@ -303,6 +304,8 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Decodermode_21 {get { return GetParameter(21); }set { SetParameter(21, value); }}
 	/// <summary>PID: 21  | Type: read | DISCREETS: Disabled = 0, Enabled = 1</summary>
 	public System.Object Decodermode {get { return GetParameter(21); }set { SetParameter(21, value); }}
+	/// <summary>PID: 52  | Type: dummy</summary>
+	public System.Object PollTrigger_dummy {get { return GetParameter(52); }set { SetParameter(52, value); }}
 	/// <summary>PID: 54  | Type: write | DISCREETS: Disabled = 0, Enabled = 1</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Encoderstatus_54 {get { return GetParameter(54); }set { SetParameter(54, value); }}

@@ -1,17 +1,18 @@
 using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Text;
-
 using Skyline.DataMiner.Scripting;
-using Skyline.DataMiner.Utils.Protocol.Extension;
-using System.Reflection;
 
 /// <summary>
 /// DataMiner QAction Class: Encoder Status Changed.
 /// </summary>
 public static class QAction
 {
+    public enum ParamState
+    {
+        NA = -1,
+        Disabled = 0,
+        Enabled = 1,
+    }
+
     /// <summary>
     /// The QAction entry point.
     /// </summary>
@@ -20,35 +21,66 @@ public static class QAction
     {
         try
         {
-            double writeValue = Convert.ToDouble(protocol.GetParameter(54));
+            double writeValue = Convert.ToDouble(protocol.GetParameter(Parameter.Write.encoderstatus_54));
 
             // Copy write value to read parameter
-            protocol.SetParameter(4, writeValue);
+            protocol.SetParameter(Parameter.encoderstatus_4, writeValue);
 
             if (writeValue == 0)
             {
                 // Disable — set all encoder params to Not Available (-1)
-                protocol.SetParameter(6, -1.0);   // EncoderCurrentCompressedBitrate
-                protocol.SetParameter(8, -1.0);   // EncoderAutoChromaWeight
-                protocol.SetParameter(17, -1.0);  // EncoderChromaWeight
-                protocol.SetParameter(10, -1.0);  // EncoderLosslessMode
-
+                protocol.SetParameters(
+                    new int[]
+                    {
+                        Parameter.encodercurrentcompressedbitrate_6,
+                        Parameter.encoderautochromaweight_8,
+                        Parameter.encoderchromaweight_17,
+                        Parameter.encoderlosslessmode_10,
+                    },
+                    new object[] { ParamState.NA, ParamState.NA, ParamState.NA, ParamState.NA });
             }
             else
             {
-                // Enable — restore from copy params
-                protocol.SetParameter(6, Convert.ToDouble(protocol.GetParameter(106)));
-                protocol.SetParameter(8, Convert.ToDouble(protocol.GetParameter(108)));
-                protocol.SetParameter(17, Convert.ToDouble(protocol.GetParameter(117)));
-                protocol.SetParameter(10, Convert.ToDouble(protocol.GetParameter(110)));
+                // Batch-get all copy params in one call
+                object[] copyValues = (object[])protocol.GetParameters(new uint[]
+                {
+                    Parameter.copyofencodercurrentcompressedbitrate_106,
+                    Parameter.copyofencoderautochromaweight_108,
+                    Parameter.copyofencoderchromaweight_117,
+                    Parameter.copyofencoderlosslessmode_110,
+                });
 
-                // Auto-disable decoder
-                protocol.SetParameter(5, 0.0);
-                protocol.SetParameter(55, 0.0);
-                protocol.SetParameter(7, -1.0);
-                protocol.SetParameter(11, -1.0);
-                protocol.SetParameter(12, -1.0);
-                protocol.SetParameter(13, -1.0);
+                protocol.SetParameters(
+                    new int[]
+                    {
+                        // Restore encoder params
+                        Parameter.encodercurrentcompressedbitrate_6,
+                        Parameter.encoderautochromaweight_8,
+                        Parameter.encoderchromaweight_17,
+                        Parameter.encoderlosslessmode_10,
+
+                        // Auto-disable decoder
+                        Parameter.Write.decoderstatus_55,
+                        Parameter.decoderstatus_5,
+                        Parameter.decodercurrentcompressedbitrate_7,
+                        Parameter.decoderprogressionorder_11,
+                        Parameter.decodercodeblockwidth_12,
+                        Parameter.decodercodeblockheight_13,
+                    },
+                    new object[]
+                    {
+                        copyValues[0],
+                        copyValues[1],
+                        copyValues[2],
+                        copyValues[3],
+
+                        ParamState.Disabled,
+                        ParamState.Disabled,
+                        ParamState.NA,
+                        ParamState.NA,
+                        ParamState.NA,
+                        ParamState.NA,
+                    });
             }
         }
         catch (Exception ex)
