@@ -8,12 +8,10 @@
 -->
 
 
-
-
 <Protocol xmlns="http://www.skyline.be/protocol">
 	<Name>Exercise Encoder-Decoder SCO</Name>
 	<Description>Exercise Encoder-Decoder DataMiner connector</Description>
-	<Version>1.0.0.2</Version>
+	<Version>1.0.0.4</Version>
 	<IntegrationID>DMS-DRV-0000</IntegrationID>
 	<Provider>Skyline Communications</Provider>
 	<Vendor>Skyline</Vendor>
@@ -21,16 +19,25 @@
 	<DeviceOID>00</DeviceOID>
 	<ElementType>Encoder/Decoder</ElementType>
 	<Type relativeTimers="true">virtual</Type>
-	<!-- SuppressValidator 1.21.5 That task is in exercise 4 -->
-	<Display defaultPage="Encoder" pageOrder="Encoder;Decoder" wideColumnPages=""/>
+	<!--<Display defaultPage="Encoder" pageOrder="Encoder;Decoder" wideColumnPages=""/>-->
+	<Display defaultPage="General" pageOrder="General;Encoder;Decoder" wideColumnPages="">
+		<Pages>
+			<Page>
+				<Name>Encoder</Name>
+				<Visibility default="false" overridePID="50" value="0"/>
+			</Page>
+			<Page>
+				<Name>Decoder</Name>
+				<Visibility default="false" overridePID="50" value="1"/>
+			</Page>
+		</Pages>
+	</Display>
 	<!-- /SuppressValidator 1.21.5 -->
 	<SNMP includepages="true">auto</SNMP>
-
 	<Compliancies>
 		<CassandraReady>true</CassandraReady>
 		<MinimumRequiredVersion>10.6.4.0 - 0</MinimumRequiredVersion>
 	</Compliancies>
-
 	<Params>
 		<Param id="1">
 			<Name>AfterStartup</Name>
@@ -41,25 +48,24 @@
 			<Name>BitrateTimerTick</Name>
 			<Type>dummy</Type>
 		</Param>
-		<!-- ENCODER -->
-		<Param id="100">
-			<Name>EncoderStatus</Name>
-			<Description>Encoder Status</Description>
+		<Param id="50">
+			<Name>OperationMode</Name>
+			<Description>Operation Mode</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext>Current status of the Encoder.</Subtext>
+				<Subtext>Current operation mode of the device.</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>numeric text</RawType>
 				<Type>double</Type>
 				<LengthType>next param</LengthType>
-				<DefaultValue>1</DefaultValue>
+				<DefaultValue>0</DefaultValue>
 			</Interprete>
 			<Display>
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>Encoder</Page>
+						<Page>General</Page>
 						<Column>0</Column>
 						<Row>0</Row>
 					</Position>
@@ -69,23 +75,20 @@
 				<Type>discreet</Type>
 				<Discreets>
 					<Discreet>
-						<Display>Disabled</Display>
+						<Display>Encoder</Display>
 						<Value>0</Value>
 					</Discreet>
 					<Discreet>
-						<Display>Enabled</Display>
+						<Display>Decoder</Display>
 						<Value>1</Value>
 					</Discreet>
 				</Discreets>
 			</Measurement>
 		</Param>
-		<Param id="101" setter="true">
-			<Name>EncoderStatus</Name>
-			<Description>Encoder Status</Description>
+		<Param id="51" setter="true">
+			<Name>OperationMode</Name>
+			<Description>Operation Mode</Description>
 			<Type>write</Type>
-			<Information>
-				<Subtext>Current status of the Encoder.</Subtext>
-			</Information>
 			<Interprete>
 				<RawType>numeric text</RawType>
 				<Type>double</Type>
@@ -95,26 +98,27 @@
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>Encoder</Page>
+						<Page>General</Page>
 						<Column>0</Column>
 						<Row>0</Row>
 					</Position>
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type>togglebutton</Type>
+				<Type>discreet</Type>
 				<Discreets>
 					<Discreet>
-						<Display>Disabled</Display>
+						<Display>Encoder</Display>
 						<Value>0</Value>
 					</Discreet>
 					<Discreet>
-						<Display>Enabled</Display>
+						<Display>Decoder</Display>
 						<Value>1</Value>
 					</Discreet>
 				</Discreets>
 			</Measurement>
 		</Param>
+		<!-- ENCODER -->
 		<Param id="102">
 			<Name>EncoderCurrentCompressedBitrate</Name>
 			<Description>Encoder Current Compressed Bitrate</Description>
@@ -164,7 +168,7 @@
 		</Param>
 		<Param id="103">
 			<Name>EncoderAutoChromaWeight</Name>
-			<Description>Encoder Auto Chroma Weight</Description>
+			<Description>Auto Chroma Weight</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>Current auto chroma weight of the Encoder.</Subtext>
@@ -211,7 +215,7 @@
 		</Param>
 		<Param id="104" setter="true">
 			<Name>EncoderAutoChromaWeight</Name>
-			<Description>Encoder Auto Chroma Weight</Description>
+			<Description>Auto Chroma Weight</Description>
 			<Type>write</Type>
 			<Interprete>
 				<RawType>numeric text</RawType>
@@ -244,7 +248,7 @@
 		</Param>
 		<Param id="105">
 			<Name>EncoderChromaWeight</Name>
-			<Description>Encoder Chroma Weight</Description>
+			<Description>Chroma Weight</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>Current chroma weight of the Encoder.</Subtext>
@@ -284,9 +288,9 @@
 				<Type>analog</Type>
 			</Measurement>
 		</Param>
-		<Param id="106" setter="true">
+	   <Param id="106" setter="true">
 			<Name>EncoderChromaWeight</Name>
-			<Description>Encoder Chroma Weight</Description>
+			<Description>Chroma Weight</Description>
 			<Type>write</Type>
 			<Interprete>
 				<RawType>numeric text</RawType>
@@ -314,7 +318,7 @@
 		</Param>
 		<Param id="107">
 			<Name>EncoderLosslessMode</Name>
-			<Description>Encoder Lossless Mode</Description>
+			<Description>Lossless Mode</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>Current lossless mode of the Encoder.</Subtext>
@@ -361,7 +365,7 @@
 		</Param>
 		<Param id="108" setter="true">
 			<Name>EncoderLosslessMode</Name>
-			<Description>Encoder Lossless Mode</Description>
+			<Description>Lossless Mode</Description>
 			<Type>write</Type>
 			<Interprete>
 				<RawType>numeric text</RawType>
@@ -392,77 +396,30 @@
 				</Discreets>
 			</Measurement>
 		</Param>
-		<!-- DECODER -->
-		<Param id="200">
-			<Name>DecoderStatus</Name>
-			<Description>Decoder Status</Description>
+		<Param id="109">
+			<Name>EncoderTitle</Name>
+			<Description>Encoder</Description>
 			<Type>read</Type>
-			<Information>
-				<Subtext>Current status of the Decoder.</Subtext>
-			</Information>
 			<Interprete>
-				<RawType>numeric text</RawType>
-				<Type>double</Type>
+				<RawType>other</RawType>
+				<Type>string</Type>
 				<LengthType>next param</LengthType>
-				<DefaultValue>0</DefaultValue>
-			</Interprete>
+			</Interprete>	
 			<Display>
 				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>Decoder</Page>
-						<Column>0</Column>
-						<Row>0</Row>
-					</Position>
-				</Positions>
+			<Positions>
+				<Position>
+					<Page>Encoder</Page>
+					<Column>0</Column>
+					<Row>0</Row>
+				</Position>
+			</Positions>
 			</Display>
 			<Measurement>
-				<Type>discreet</Type>
-				<Discreets>
-					<Discreet>
-						<Display>Disabled</Display>
-						<Value>0</Value>
-					</Discreet>
-					<Discreet>
-						<Display>Enabled</Display>
-						<Value>1</Value>
-					</Discreet>
-				</Discreets>
+				<Type>title</Type>
 			</Measurement>
 		</Param>
-		<Param id="201" setter="true">
-			<Name>DecoderStatus</Name>
-			<Description>Decoder Status</Description>
-			<Type>write</Type>
-			<Interprete>
-				<RawType>numeric text</RawType>
-				<Type>double</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>Decoder</Page>
-						<Column>0</Column>
-						<Row>0</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type>togglebutton</Type>
-				<Discreets>
-					<Discreet>
-						<Display>Disabled</Display>
-						<Value>0</Value>
-					</Discreet>
-					<Discreet>
-						<Display>Enabled</Display>
-						<Value>1</Value>
-					</Discreet>
-				</Discreets>
-			</Measurement>
-		</Param>
+		<!-- DECODER -->
 		<Param id="202">
 			<Name>DecoderCurrentCompressedBitrate</Name>
 			<Description>Decoder Current Compressed Bitrate</Description>
@@ -512,7 +469,7 @@
 		</Param>
 		<Param id="203">
 			<Name>DecoderProgressionOrder</Name>
-			<Description>Decoder Progression Order</Description>
+			<Description>Progression Order</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>Current progression order of the Decoder.</Subtext>
@@ -571,7 +528,7 @@
 		</Param>
 		<Param id="204" setter="true">
 			<Name>DecoderProgressionOrder</Name>
-			<Description>Decoder Progression Order</Description>
+			<Description>Progression Order</Description>
 			<Type>write</Type>
 			<Interprete>
 				<RawType>numeric text</RawType>
@@ -616,7 +573,7 @@
 		</Param>
 		<Param id="205">
 			<Name>DecoderCodeBlockWidth</Name>
-			<Description>Decoder Code Block Width</Description>
+			<Description>Code Block Width</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>Code block width of the Decoder.</Subtext>
@@ -658,7 +615,7 @@
 		</Param>
 		<Param id="206">
 			<Name>DecoderCodeBlockHeight</Name>
-			<Description>Decoder Code Block Height</Description>
+			<Description>Code Block Height</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>Code block height of the Decoder.</Subtext>
@@ -698,16 +655,42 @@
 				<Type>number</Type>
 			</Measurement>
 		</Param>
+       <Param id="207">
+			<Name>DecoderTitle</Name>
+			<Description>Decoder</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>	
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			<Positions>
+				<Position>
+					<Page>Decoder</Page>
+					<Column>0</Column>
+					<Row>0</Row>
+				</Position>
+			</Positions>
+			</Display>
+			<Measurement>
+				<Type>title</Type>
+			</Measurement>
+		</Param>
 	</Params>
-
-
 	<QActions>
-		<QAction id="1" name="After Startup" encoding="csharp" triggers="1"></QAction>
-		<QAction id="2" name="Encoder Status Changed" encoding="csharp" triggers="100"></QAction>
-		<QAction id="3" name="Decoder Status Changed" encoding="csharp" triggers="200"></QAction>
-		<QAction id="4" name="Update Bitrate" encoding="csharp" triggers="5"></QAction>
+		<!-- SuppressValidator 2901 Referencing precompile QAction -->
+		<QAction id="1" name="After Startup" encoding="csharp" triggers="1" options="3"></QAction>
+		<!-- /SuppressValidator 2901 -->
+		<!-- SuppressValidator 2901 Referencing precompile QAction-->
+		<QAction id="2" name="Operation mode changed" encoding="csharp" triggers="51" options="3"></QAction>
+		<!-- /SuppressValidator 2901 -->
+		<QAction id="3" name="Shared Methods" encoding="csharp" options="precompile"></QAction>
+		<!-- SuppressValidator 2901 Referencing precompile QAction-->
+		<QAction id="4" name="Update Bitrate" encoding="csharp" triggers="5" options="3"></QAction>
+		<!-- /SuppressValidator 2901 -->
 	</QActions>
-	
 	<Groups>
 		<Group id="300">
 			<Name>After Startup Group</Name>
@@ -736,7 +719,6 @@
 			</Content>
 		</Trigger>
 	</Triggers>
-	
 	<Actions>
 		<Action id="540">
 			<Name>After startup group</Name>
@@ -754,7 +736,6 @@
 			<Type>run actions</Type>
 		</Action>
 	</Actions>
-
 	<Timers>
 		<Timer id="1">
 			<Name>bitrate Timer (1s)</Name>
@@ -765,7 +746,6 @@
 			</Content>
 		</Timer>
 	</Timers>
-	
 	<VersionHistory>
 		<Branches>
 			<Branch id="1">
@@ -778,12 +758,26 @@
 									<MinorVersion id="1">
 										<Date>2024-01-08</Date>
 										<Provider>
-											<Author>XXX</Author>
+											<Author>SCO</Author>
 											<Company>Skyline Communications</Company>
 										</Provider>
 										<Changes>
 											<NewFeature>Initial version</NewFeature>
 										</Changes>
+									</MinorVersion>
+									<MinorVersion id="2">
+										<Date>2024-01-08</Date>
+										<Provider>
+											<Author>SCO</Author>
+											<Company>Skyline Communications</Company>
+										</Provider>
+										<Changes>
+											<NewFeature>Split encoder and decoder parameters onto separate pages</NewFeature>
+											<NewFeature>Added Operation Mode read/write parameter (Encoder/Decoder)</NewFeature>
+											<NewFeature>Added General page as default page with Operation Mode parameter</NewFeature>
+											<NewFeature>Added page visibility based on selected Operation Mode</NewFeature>
+											<NewFeature>Added title parameters for Encoder and Decoder pages</NewFeature>										
+									</Changes>
 									</MinorVersion>
 								</MinorVersions>
 							</MajorVersion>
@@ -793,5 +787,4 @@
 			</Branch>
 		</Branches>
 	</VersionHistory>
-
 </Protocol>

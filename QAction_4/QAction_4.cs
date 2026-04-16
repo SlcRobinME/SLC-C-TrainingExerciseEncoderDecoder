@@ -1,11 +1,5 @@
 using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Runtime.CompilerServices;
-using System.Text;
-
 using Skyline.DataMiner.Scripting;
-using Skyline.DataMiner.Utils.Protocol.Extension;
 
 /// <summary>
 /// DataMiner QAction Class.
@@ -18,21 +12,19 @@ public static class QAction
     /// <param name="protocol">Link with SLProtocol process.</param>
     /// 
     private static readonly Random Rng = new Random();
+    private const int BitrateDecimalPlaces = 3;
 
     public static void Run(SLProtocol protocol)
 	{
 		try
 		{
-			double randomBitrate= Math.Round(Rng.NextDouble()*15.0, 3);
+			double randomBitrate = Math.Round(Rng.NextDouble()*SharedConstants.MaxBitrate, BitrateDecimalPlaces);
 
-            int encoderStatus = Convert.ToInt32(protocol.GetParameter(Parameter.encoderstatus));
-            if (encoderStatus == 1) {
+            int operationMode = Convert.ToInt32(protocol.GetParameter(Parameter.operationmode));
+            if (operationMode == SharedConstants.EncoderMode)
                 protocol.SetParameter(Parameter.encodercurrentcompressedbitrate, randomBitrate);
-            }
-            int decoderStatus = Convert.ToInt32(protocol.GetParameter(Parameter.decoderstatus));
-            if (decoderStatus == 1) {
+            else
                 protocol.SetParameter(Parameter.decodercurrentcompressedbitrate, randomBitrate);
-            }
         }
         catch (Exception ex)
 		{

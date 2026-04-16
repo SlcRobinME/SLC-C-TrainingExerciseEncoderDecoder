@@ -8,11 +8,11 @@ namespace Skyline.DataMiner.Scripting
 {
 public static class Parameter
 {
-	/// <summary>PID: 100 | Type: read</summary>
+	/// <summary>PID: 50 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int encoderstatus_100 = 100;
-	/// <summary>PID: 100 | Type: read</summary>
-	public const int encoderstatus = 100;
+	public const int operationmode_50 = 50;
+	/// <summary>PID: 50 | Type: read</summary>
+	public const int operationmode = 50;
 	/// <summary>PID: 102 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public const int encodercurrentcompressedbitrate_102 = 102;
@@ -33,11 +33,11 @@ public static class Parameter
 	public const int encoderlosslessmode_107 = 107;
 	/// <summary>PID: 107 | Type: read</summary>
 	public const int encoderlosslessmode = 107;
-	/// <summary>PID: 200 | Type: read</summary>
+	/// <summary>PID: 109 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int decoderstatus_200 = 200;
-	/// <summary>PID: 200 | Type: read</summary>
-	public const int decoderstatus = 200;
+	public const int encodertitle_109 = 109;
+	/// <summary>PID: 109 | Type: read</summary>
+	public const int encodertitle = 109;
 	/// <summary>PID: 202 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public const int decodercurrentcompressedbitrate_202 = 202;
@@ -58,13 +58,18 @@ public static class Parameter
 	public const int decodercodeblockheight_206 = 206;
 	/// <summary>PID: 206 | Type: read</summary>
 	public const int decodercodeblockheight = 206;
+	/// <summary>PID: 207 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int decodertitle_207 = 207;
+	/// <summary>PID: 207 | Type: read</summary>
+	public const int decodertitle = 207;
 	public class Write
 	{
-		/// <summary>PID: 101 | Type: write</summary>
+		/// <summary>PID: 51 | Type: write</summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public const int encoderstatus_101 = 101;
-		/// <summary>PID: 101 | Type: write</summary>
-		public const int encoderstatus = 101;
+		public const int operationmode_51 = 51;
+		/// <summary>PID: 51 | Type: write</summary>
+		public const int operationmode = 51;
 		/// <summary>PID: 104 | Type: write</summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		public const int encoderautochromaweight_104 = 104;
@@ -80,11 +85,6 @@ public static class Parameter
 		public const int encoderlosslessmode_108 = 108;
 		/// <summary>PID: 108 | Type: write</summary>
 		public const int encoderlosslessmode = 108;
-		/// <summary>PID: 201 | Type: write</summary>
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		public const int decoderstatus_201 = 201;
-		/// <summary>PID: 201 | Type: write</summary>
-		public const int decoderstatus = 201;
 		/// <summary>PID: 204 | Type: write</summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		public const int decoderprogressionorder_204 = 204;
@@ -94,16 +94,14 @@ public static class Parameter
 }
 public class WriteParameters
 {
-	/// <summary>PID: 101  | Type: write | DISCREETS: Disabled = 0, Enabled = 1</summary>
-	public System.Object Encoderstatus {get { return Protocol.GetParameter(101); }set { Protocol.SetParameter(101, value); }}
+	/// <summary>PID: 51  | Type: write | DISCREETS: Encoder = 0, Decoder = 1</summary>
+	public System.Object Operationmode {get { return Protocol.GetParameter(51); }set { Protocol.SetParameter(51, value); }}
 	/// <summary>PID: 104  | Type: write | DISCREETS: Disabled = 0, Enabled = 1</summary>
 	public System.Object Encoderautochromaweight {get { return Protocol.GetParameter(104); }set { Protocol.SetParameter(104, value); }}
 	/// <summary>PID: 106  | Type: write</summary>
 	public System.Object Encoderchromaweight {get { return Protocol.GetParameter(106); }set { Protocol.SetParameter(106, value); }}
 	/// <summary>PID: 108  | Type: write | DISCREETS: Disabled = 0, Enabled = 1</summary>
 	public System.Object Encoderlosslessmode {get { return Protocol.GetParameter(108); }set { Protocol.SetParameter(108, value); }}
-	/// <summary>PID: 201  | Type: write | DISCREETS: Disabled = 0, Enabled = 1</summary>
-	public System.Object Decoderstatus {get { return Protocol.GetParameter(201); }set { Protocol.SetParameter(201, value); }}
 	/// <summary>PID: 204  | Type: write | DISCREETS: LCRP = 0, RLCP = 1, RPCL = 2, PCRL = 3, CPRL = 4</summary>
 	public System.Object Decoderprogressionorder {get { return Protocol.GetParameter(204); }set { Protocol.SetParameter(204, value); }}
 	public SLProtocolExt Protocol;
@@ -116,9 +114,9 @@ public interface SLProtocolExt : SLProtocol
 {
 	object Afterstartup_dummy { get; set; }
 	object Bitratetimertick_dummy { get; set; }
-	object Encoderstatus_100 { get; set; }
-	object Encoderstatus { get; set; }
-	object Encoderstatus_101 { get; set; }
+	object Operationmode_50 { get; set; }
+	object Operationmode { get; set; }
+	object Operationmode_51 { get; set; }
 	object Encodercurrentcompressedbitrate_102 { get; set; }
 	object Encodercurrentcompressedbitrate { get; set; }
 	object Encoderautochromaweight_103 { get; set; }
@@ -130,9 +128,8 @@ public interface SLProtocolExt : SLProtocol
 	object Encoderlosslessmode_107 { get; set; }
 	object Encoderlosslessmode { get; set; }
 	object Encoderlosslessmode_108 { get; set; }
-	object Decoderstatus_200 { get; set; }
-	object Decoderstatus { get; set; }
-	object Decoderstatus_201 { get; set; }
+	object Encodertitle_109 { get; set; }
+	object Encodertitle { get; set; }
 	object Decodercurrentcompressedbitrate_202 { get; set; }
 	object Decodercurrentcompressedbitrate { get; set; }
 	object Decoderprogressionorder_203 { get; set; }
@@ -142,6 +139,8 @@ public interface SLProtocolExt : SLProtocol
 	object Decodercodeblockwidth { get; set; }
 	object Decodercodeblockheight_206 { get; set; }
 	object Decodercodeblockheight { get; set; }
+	object Decodertitle_207 { get; set; }
+	object Decodertitle { get; set; }
 	WriteParameters Write { get; set; }
 }
 public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
@@ -150,14 +149,14 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Afterstartup_dummy {get { return GetParameter(1); }set { SetParameter(1, value); }}
 	/// <summary>PID: 5  | Type: dummy</summary>
 	public System.Object Bitratetimertick_dummy {get { return GetParameter(5); }set { SetParameter(5, value); }}
-	/// <summary>PID: 100  | Type: read | DISCREETS: Disabled = 0, Enabled = 1</summary>
+	/// <summary>PID: 50  | Type: read | DISCREETS: Encoder = 0, Decoder = 1</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Encoderstatus_100 {get { return GetParameter(100); }set { SetParameter(100, value); }}
-	/// <summary>PID: 100  | Type: read | DISCREETS: Disabled = 0, Enabled = 1</summary>
-	public System.Object Encoderstatus {get { return GetParameter(100); }set { SetParameter(100, value); }}
-	/// <summary>PID: 101  | Type: write | DISCREETS: Disabled = 0, Enabled = 1</summary>
+	public System.Object Operationmode_50 {get { return GetParameter(50); }set { SetParameter(50, value); }}
+	/// <summary>PID: 50  | Type: read | DISCREETS: Encoder = 0, Decoder = 1</summary>
+	public System.Object Operationmode {get { return GetParameter(50); }set { SetParameter(50, value); }}
+	/// <summary>PID: 51  | Type: write | DISCREETS: Encoder = 0, Decoder = 1</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Encoderstatus_101 {get { return GetParameter(101); }set { SetParameter(101, value); }}
+	public System.Object Operationmode_51 {get { return GetParameter(51); }set { SetParameter(51, value); }}
 	/// <summary>PID: 102  | Type: read | EXCEPTIONS: Not Available = -1</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Encodercurrentcompressedbitrate_102 {get { return GetParameter(102); }set { SetParameter(102, value); }}
@@ -187,14 +186,11 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	/// <summary>PID: 108  | Type: write | DISCREETS: Disabled = 0, Enabled = 1</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Encoderlosslessmode_108 {get { return GetParameter(108); }set { SetParameter(108, value); }}
-	/// <summary>PID: 200  | Type: read | DISCREETS: Disabled = 0, Enabled = 1</summary>
+	/// <summary>PID: 109  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Decoderstatus_200 {get { return GetParameter(200); }set { SetParameter(200, value); }}
-	/// <summary>PID: 200  | Type: read | DISCREETS: Disabled = 0, Enabled = 1</summary>
-	public System.Object Decoderstatus {get { return GetParameter(200); }set { SetParameter(200, value); }}
-	/// <summary>PID: 201  | Type: write | DISCREETS: Disabled = 0, Enabled = 1</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Decoderstatus_201 {get { return GetParameter(201); }set { SetParameter(201, value); }}
+	public System.Object Encodertitle_109 {get { return GetParameter(109); }set { SetParameter(109, value); }}
+	/// <summary>PID: 109  | Type: read</summary>
+	public System.Object Encodertitle {get { return GetParameter(109); }set { SetParameter(109, value); }}
 	/// <summary>PID: 202  | Type: read | EXCEPTIONS: Not Available = -1</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Decodercurrentcompressedbitrate_202 {get { return GetParameter(202); }set { SetParameter(202, value); }}
@@ -218,6 +214,11 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Decodercodeblockheight_206 {get { return GetParameter(206); }set { SetParameter(206, value); }}
 	/// <summary>PID: 206  | Type: read | EXCEPTIONS: Not Available = -1</summary>
 	public System.Object Decodercodeblockheight {get { return GetParameter(206); }set { SetParameter(206, value); }}
+	/// <summary>PID: 207  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Decodertitle_207 {get { return GetParameter(207); }set { SetParameter(207, value); }}
+	/// <summary>PID: 207  | Type: read</summary>
+	public System.Object Decodertitle {get { return GetParameter(207); }set { SetParameter(207, value); }}
 	public WriteParameters Write { get; set; }
 	public ConcreteSLProtocolExt()
 	{
