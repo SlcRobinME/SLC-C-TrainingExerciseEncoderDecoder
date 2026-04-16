@@ -1,5 +1,7 @@
 using Skyline.DataMiner.Scripting;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 /// <summary>
 /// DataMiner QAction Class.
@@ -16,57 +18,39 @@ public static class QAction
 		try
 		{
             int operationMode = Convert.ToInt32(protocol.GetParameter(Parameter.operationmode));
-
+            Dictionary<int, object> parameters;
             if (operationMode == SharedConstants.EncoderMode)
             {
-                protocol.SetParameters(
-                    new int[] {
-                    Parameter.encodercurrentcompressedbitrate,
-                    Parameter.encoderautochromaweight,
-                    Parameter.encoderchromaweight,
-                    Parameter.encoderlosslessmode,
-                    Parameter.decodercurrentcompressedbitrate,
-                    Parameter.decoderprogressionorder,
-                    Parameter.decodercodeblockwidth,
-                    Parameter.decodercodeblockheight
-                    },
-                    new object[] {
-                    SharedConstants.DefaultBitrate,
-                    SharedConstants.AutoChromaWeightDisabled,
-                    SharedConstants.DefaultChromaWeight,
-                    SharedConstants.LosslessModeDisabled,
-                    SharedConstants.NotAvailable,
-                    SharedConstants.NotAvailable,
-                    SharedConstants.NotAvailable,
-                    SharedConstants.NotAvailable
-                    });
+                parameters = new Dictionary<int, object>
+            {
+                { Parameter.encodercurrentcompressedbitrate, SharedConstants.DefaultBitrate },
+                { Parameter.encoderautochromaweight, SharedConstants.AutoChromaWeightDisabled },
+                { Parameter.encoderchromaweight, SharedConstants.DefaultChromaWeight },
+                { Parameter.encoderlosslessmode, SharedConstants.LosslessModeDisabled },
+                { Parameter.decodercurrentcompressedbitrate, SharedConstants.NotAvailable },
+                { Parameter.decoderprogressionorder, SharedConstants.NotAvailable },
+                { Parameter.decodercodeblockwidth, SharedConstants.NotAvailable },
+                { Parameter.decodercodeblockheight, SharedConstants.NotAvailable },
+            };
             }
             else 
 			{
-                protocol.SetParameters(
-                    new int[] {
-                    Parameter.decodercurrentcompressedbitrate,
-                    Parameter.decoderprogressionorder,
-                    Parameter.decodercodeblockwidth,
-                    Parameter.decodercodeblockheight,
-                    Parameter.encodercurrentcompressedbitrate,
-                    Parameter.encoderautochromaweight,
-                    Parameter.encoderchromaweight,
-                    Parameter.encoderlosslessmode
-                    },
-                    new object[] {
-                    SharedConstants.DefaultBitrate,
-                    SharedConstants.DefaultProgressionOrder,
-                    SharedConstants.DefaultCodeBlockSize,
-                    SharedConstants.DefaultCodeBlockSize,
-                    SharedConstants.NotAvailable,
-                    SharedConstants.NotAvailable,
-                    SharedConstants.NotAvailable,
-                    SharedConstants.NotAvailable
-                    });
+                parameters = new Dictionary<int, object>
+            {
+                { Parameter.decodercurrentcompressedbitrate, SharedConstants.DefaultBitrate },
+                { Parameter.decoderprogressionorder, SharedConstants.DefaultProgressionOrder },
+                { Parameter.decodercodeblockwidth, SharedConstants.DefaultCodeBlockSize },
+                { Parameter.decodercodeblockheight, SharedConstants.DefaultCodeBlockSize },
+                { Parameter.encodercurrentcompressedbitrate, SharedConstants.NotAvailable },
+                { Parameter.encoderautochromaweight, SharedConstants.NotAvailable },
+                { Parameter.encoderchromaweight, SharedConstants.NotAvailable },
+                { Parameter.encoderlosslessmode, SharedConstants.NotAvailable },
+            };
             }
-		}
-		catch (Exception ex)
+
+            protocol.SetParameters(parameters.Keys.ToArray(), parameters.Values.ToArray());
+        }
+        catch (Exception ex)
 		{
 			protocol.Log($"QA{protocol.QActionID}|{protocol.GetTriggerParameter()}|Run|Exception thrown:{Environment.NewLine}{ex}", LogType.Error, LogLevel.NoLogging);
 		}

@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using Skyline.DataMiner.Scripting;
 
 /// <summary>
@@ -15,29 +17,19 @@ public static class QAction
 	{
 		try
 		{
-            protocol.SetParameters(
-                new int[] {
-                Parameter.operationmode,
-                Parameter.encodercurrentcompressedbitrate,
-                Parameter.encoderautochromaweight,
-                Parameter.encoderchromaweight,
-                Parameter.encoderlosslessmode,
-                Parameter.decodercurrentcompressedbitrate,
-                Parameter.decoderprogressionorder,
-                Parameter.decodercodeblockwidth,
-                Parameter.decodercodeblockheight
-                },
-                new object[] {
-                SharedConstants.EncoderMode,
-                SharedConstants.DefaultBitrate,
-                SharedConstants.AutoChromaWeightDisabled,
-                SharedConstants.DefaultChromaWeight,
-                SharedConstants.LosslessModeDisabled,
-                SharedConstants.NotAvailable,
-                SharedConstants.NotAvailable,
-                SharedConstants.NotAvailable,
-                SharedConstants.NotAvailable
-                });
+            var initialValues = new Dictionary<int, object>
+            {
+                { Parameter.operationmode, SharedConstants.EncoderMode },
+                { Parameter.encodercurrentcompressedbitrate, SharedConstants.DefaultBitrate },
+                { Parameter.encoderautochromaweight, SharedConstants.AutoChromaWeightDisabled },
+                { Parameter.encoderchromaweight, SharedConstants.DefaultChromaWeight },
+                { Parameter.encoderlosslessmode, SharedConstants.LosslessModeDisabled },
+                { Parameter.decodercurrentcompressedbitrate, SharedConstants.NotAvailable },
+                { Parameter.decoderprogressionorder, SharedConstants.NotAvailable },
+                { Parameter.decodercodeblockwidth, SharedConstants.NotAvailable },
+                { Parameter.decodercodeblockheight, SharedConstants.NotAvailable }
+            };
+            protocol.SetParameters(initialValues.Keys.ToArray(),initialValues.Values.ToArray());
         }
         catch (Exception ex)
 		{
