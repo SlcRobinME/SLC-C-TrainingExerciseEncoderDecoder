@@ -19,7 +19,6 @@
 	<DeviceOID>00</DeviceOID>
 	<ElementType>Encoder/Decoder</ElementType>
 	<Type relativeTimers="true">virtual</Type>
-	<!--<Display defaultPage="Encoder" pageOrder="Encoder;Decoder" wideColumnPages=""/>-->
 	<Display defaultPage="General" pageOrder="General;Encoder;Decoder" wideColumnPages="">
 		<Pages>
 			<Page>
