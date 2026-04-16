@@ -1,43 +1,39 @@
 using System;
+using System.Collections.Generic;
 using Skyline.DataMiner.Scripting;
+using Skyline.DataMiner.Utils.Protocol.Extension;
 
 /// <summary>
 /// DataMiner QAction Class: Encoder Status Changed.
 /// </summary>
 public static class QAction
 {
-    public enum ParamState
-    {
-        NA = -1,
-        Disabled = 0,
-        Enabled = 1,
-    }
-
     /// <summary>
     /// The QAction entry point.
     /// </summary>
     /// <param name="protocol">Link with SLProtocol process.</param>
-    public static void Run(SLProtocol protocol)
+    public static void Run(SLProtocolExt protocol)
     {
         try
         {
-            double writeValue = Convert.ToDouble(protocol.GetParameter(Parameter.Write.encoderstatus_54));
+            short writeValue = (short)protocol.GetParameter(Parameter.Write.encoderstatus_54);
 
             // Copy write value to read parameter
             protocol.SetParameter(Parameter.encoderstatus_4, writeValue);
 
-            if (writeValue == 0)
+            if (writeValue == (short)ParamState.Disabled)
             {
-                // Disable — set all encoder params to Not Available (-1)
-                protocol.SetParameters(
-                    new int[]
+                var disableEncoder = new Dictionary<int, object>
                     {
-                        Parameter.encodercurrentcompressedbitrate_6,
-                        Parameter.encoderautochromaweight_8,
-                        Parameter.encoderchromaweight_17,
-                        Parameter.encoderlosslessmode_10,
-                    },
-                    new object[] { ParamState.NA, ParamState.NA, ParamState.NA, ParamState.NA });
+                        { Parameter.encodercurrentcompressedbitrate_6,  ParamState.NA },
+                        { Parameter.encoderautochromaweight_8,          ParamState.NA },
+                        { Parameter.encoderchromaweight_17,             ParamState.NA },
+                        { Parameter.encoderlosslessmode_10,             ParamState.NA },
+                    };
+
+                protocol.SetParameters(
+                    new List<int>(disableEncoder.Keys).ToArray(),
+                    new List<object>(disableEncoder.Values).ToArray());
             }
             else
             {
@@ -50,37 +46,23 @@ public static class QAction
                     Parameter.copyofencoderlosslessmode_110,
                 });
 
-                protocol.SetParameters(
-                    new int[]
-                    {
-                        // Restore encoder params
-                        Parameter.encodercurrentcompressedbitrate_6,
-                        Parameter.encoderautochromaweight_8,
-                        Parameter.encoderchromaweight_17,
-                        Parameter.encoderlosslessmode_10,
+                var enableEncoder = new Dictionary<int, object>
+                {
+                    // Restore encoder params from copy
+                    { Parameter.encodercurrentcompressedbitrate_6,  copyValues[0] },
+                    { Parameter.encoderautochromaweight_8,          copyValues[1] },
+                    { Parameter.encoderchromaweight_17,             copyValues[2] },
+                    { Parameter.encoderlosslessmode_10,             copyValues[3] },
 
-                        // Auto-disable decoder
-                        Parameter.Write.decoderstatus_55,
-                        Parameter.decoderstatus_5,
-                        Parameter.decodercurrentcompressedbitrate_7,
-                        Parameter.decoderprogressionorder_11,
-                        Parameter.decodercodeblockwidth_12,
-                        Parameter.decodercodeblockheight_13,
-                    },
-                    new object[]
-                    {
-                        copyValues[0],
-                        copyValues[1],
-                        copyValues[2],
-                        copyValues[3],
-
-                        ParamState.Disabled,
-                        ParamState.Disabled,
-                        ParamState.NA,
-                        ParamState.NA,
-                        ParamState.NA,
-                        ParamState.NA,
-                    });
+                    // Auto-disable decoder
+                    { Parameter.Write.decoderstatus_55,             ParamState.Disabled },
+                    { Parameter.decoderstatus_5,                    ParamState.Disabled },
+                    { Parameter.decodercurrentcompressedbitrate_7,  ParamState.NA },
+                    { Parameter.decoderprogressionorder_11,         ParamState.NA },
+                    { Parameter.decodercodeblockwidth_12,           ParamState.NA },
+                    { Parameter.decodercodeblockheight_13,          ParamState.NA },
+                };
+                protocol.SetParameters(enableEncoder);
             }
         }
         catch (Exception ex)

@@ -66,18 +66,18 @@ DATE          VERSION    AUTHOR                         COMMENTS
 		<Pages>
 			<Page>
 				<Name>Encoder</Name>
-				<Visibility default="false" overridePID="70" value="1"/>
+				<Visibility default="false" overridePID="70" value="1" />
 			</Page>
 			<Page>
 				<Name>Decoder</Name>
-				<Visibility default="false" overridePID="71" value="1"/>
+				<Visibility default="false" overridePID="71" value="1" />
 			</Page>
 		</Pages>
 	</Display>
 	<SNMP includepages="true">auto</SNMP>
 	<Compliancies>
 		<CassandraReady>true</CassandraReady>
-		<MinimumRequiredVersion>10.3.0.0 - 12752</MinimumRequiredVersion>
+		<MinimumRequiredVersion>10.4.0.0 - 14003</MinimumRequiredVersion>
 	</Compliancies>
 	<Params>
 		<Param id="1">
@@ -129,7 +129,7 @@ DATE          VERSION    AUTHOR                         COMMENTS
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>Decoder </Page>
+						<Page>Decoder</Page>
 						<Column>0</Column>
 						<Row>0</Row>
 					</Position>
@@ -254,7 +254,7 @@ DATE          VERSION    AUTHOR                         COMMENTS
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>Decoder </Page>
+						<Page>Decoder</Page>
 						<Column>0</Column>
 						<Row>1</Row>
 					</Position>
@@ -287,7 +287,7 @@ DATE          VERSION    AUTHOR                         COMMENTS
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>Decoder </Page>
+						<Page>Decoder</Page>
 						<Column>0</Column>
 						<Row>1</Row>
 					</Position>
@@ -391,7 +391,7 @@ DATE          VERSION    AUTHOR                         COMMENTS
 				</Range>
 				<Positions>
 					<Position>
-						<Page>Decoder </Page>
+						<Page>Decoder</Page>
 						<Column>0</Column>
 						<Row>2</Row>
 					</Position>
@@ -591,7 +591,7 @@ DATE          VERSION    AUTHOR                         COMMENTS
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>Decoder </Page>
+						<Page>Decoder</Page>
 						<Column>0</Column>
 						<Row>3</Row>
 					</Position>
@@ -636,7 +636,7 @@ DATE          VERSION    AUTHOR                         COMMENTS
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>Decoder </Page>
+						<Page>Decoder</Page>
 						<Column>0</Column>
 						<Row>3</Row>
 					</Position>
@@ -696,7 +696,7 @@ DATE          VERSION    AUTHOR                         COMMENTS
 				</Range>
 				<Positions>
 					<Position>
-						<Page>Decoder </Page>
+						<Page>Decoder</Page>
 						<Column>0</Column>
 						<Row>4</Row>
 					</Position>
@@ -1019,7 +1019,6 @@ DATE          VERSION    AUTHOR                         COMMENTS
 				<Type>double</Type>
 				<LengthType>next param</LengthType>
 			</Interprete>
-			
 			<Display>
 				<RTDisplay>true</RTDisplay>
 				<Positions>
@@ -1030,7 +1029,6 @@ DATE          VERSION    AUTHOR                         COMMENTS
 					</Position>
 				</Positions>
 			</Display>
-			
 			<Measurement>
 				<Type>togglebutton</Type>
 				<Discreets>
@@ -1049,13 +1047,11 @@ DATE          VERSION    AUTHOR                         COMMENTS
 			<Name>DecoderMode</Name>
 			<Description>Decoder Mode</Description>
 			<Type>write</Type>
-			
 			<Interprete>
 				<RawType>numeric text</RawType>
 				<Type>double</Type>
 				<LengthType>next param</LengthType>
 			</Interprete>
-			
 			<Display>
 				<RTDisplay>true</RTDisplay>
 				<Positions>
@@ -1081,7 +1077,7 @@ DATE          VERSION    AUTHOR                         COMMENTS
 			</Measurement>
 		</Param>
 		<Param id="52">
-			<Name>Poll Trigger</Name>
+			<Name>PollTrigger</Name>
 			<Description>Poll Trigger</Description>
 			<Type>dummy</Type>
 		</Param>
@@ -1154,8 +1150,6 @@ DATE          VERSION    AUTHOR                         COMMENTS
 			</Content>
 		</Timer>
 	</Timers>
-	<PortSettings>
-	</PortSettings>
 	<VersionHistory>
 		<Branches>
 			<Branch id="1">
@@ -1166,9 +1160,9 @@ DATE          VERSION    AUTHOR                         COMMENTS
 							<MajorVersion id="0">
 								<MinorVersions>
 									<MinorVersion id="1">
-										<Date>2024-01-08</Date>
+										<Date>2026-01-04</Date>
 										<Provider>
-											<Author>XXX</Author>
+											<Author>AMO</Author>
 											<Company>Skyline Communications</Company>
 										</Provider>
 										<Changes>

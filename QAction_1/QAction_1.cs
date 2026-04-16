@@ -1,14 +1,7 @@
-namespace Skyline.Protocol
+public enum ParamState
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Globalization;
-    using System.Text;
-
-    namespace MyExtension
-    {
-        public class MyClass
-        {
-        }
-    }
+    NA = -1,
+    Disabled = 0,
+    Enabled = 1,
+    RandomBitrateMultiplier = 47,
 }
