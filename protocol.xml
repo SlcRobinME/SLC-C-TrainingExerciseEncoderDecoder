@@ -1093,6 +1093,8 @@ DATE          VERSION    AUTHOR                         COMMENTS
 		</QAction>
 		<QAction id="5" name="Poll Trigger for Bitrate simulation" encoding="csharp" triggers="52">
 		</QAction>
+		<QAction id="6" name="Trigger for encoder/decoder operation mode" encoding="csharp" triggers="70;71">
+		</QAction>
 	</QActions>
 	<Groups>
 		<Group id="1">

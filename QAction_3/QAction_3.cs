@@ -16,12 +16,9 @@ public static class QAction
     {
         try
         {
-            short writeValue = (short)protocol.GetParameter(Parameter.Write.encoderstatus_54);
+            double readValue = (double)protocol.GetParameter(Parameter.encoderstatus_4);
 
-            // Copy write value to read parameter
-            protocol.SetParameter(Parameter.encoderstatus_4, writeValue);
-
-            if (writeValue == (short)ParamState.Disabled)
+            if (readValue == (double)ParamState.Disabled)
             {
                 var disableEncoder = new Dictionary<int, object>
                     {

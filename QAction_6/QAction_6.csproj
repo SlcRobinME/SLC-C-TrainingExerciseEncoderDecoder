@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <Company>Skyline Communications</Company>
+    <Copyright>© Skyline Communications NV</Copyright>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QAction_1\QAction_1.csproj" />
+    <ProjectReference Include="..\QAction_Helper\QAction_Helper.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Skyline.DataMiner.Dev.Protocol" Version="10.2.0.25" />
+    <PackageReference Include="Skyline.DataMiner.Utils.Protocol.Extension" Version="1.0.0.4" />
+    <PackageReference Include="Skyline.DataMiner.Utils.SecureCoding.Analyzers" Version="2.2.3" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties DisLinkedXmlFile="..\protocol.xml" DisProjectType="qactionProject" DisLinkId="6" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
