@@ -43,21 +43,21 @@
 
 	<Timers>
 		<Timer id="1">
-			<Name>Fast Timer (10s)</Name>
+			<Name>Timer (10s)</Name>
 			<Time initial="true">10000</Time>
 			<Interval>75</Interval>
 			<Content>
 			</Content>
 		</Timer>
 		<Timer id="2">
-			<Name>Medium Timer (1m)</Name>
+			<Name>Timer (1m)</Name>
 			<Time initial="true" dataDisplay="30000">60000</Time>
 			<Interval>75</Interval>
 			<Content>
 			</Content>
 		</Timer>
 		<Timer id="3">
-			<Name>Slow Timer (1h)</Name>
+			<Name>Timer (1h)</Name>
 			<Time initial="true">3600000</Time>
 			<Interval>75</Interval>
 			<Content>
