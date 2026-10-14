@@ -55,14 +55,14 @@ public static class Parameter
 	public const int currentcompressedbitratedecoder = 18;
 	/// <summary>PID: 19 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int blockwidth_19 = 19;
+	public const int codeblockwidth_19 = 19;
 	/// <summary>PID: 19 | Type: read</summary>
-	public const int blockwidth = 19;
+	public const int codeblockwidth = 19;
 	/// <summary>PID: 20 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int blockheight_20 = 20;
+	public const int codeblockheight_20 = 20;
 	/// <summary>PID: 20 | Type: read</summary>
-	public const int blockheight = 20;
+	public const int codeblockheight = 20;
 	public class Write
 	{
 		/// <summary>PID: 110 | Type: write</summary>
@@ -114,7 +114,7 @@ public class WriteParameters
 	public System.Object Losslessmode {get { return Protocol.GetParameter(114); }set { Protocol.SetParameter(114, value); }}
 	/// <summary>PID: 115  | Type: write | DISCREETS: Encoder = 1, Decoder = 2</summary>
 	public System.Object _switch {get { return Protocol.GetParameter(115); }set { Protocol.SetParameter(115, value); }}
-	/// <summary>PID: 116  | Type: write | DISCREETS: Enabled = 1, Disabled = 2</summary>
+	/// <summary>PID: 116  | Type: write | DISCREETS: Enabled = 1, Disabled = 0</summary>
 	public System.Object Statustoggledecoder {get { return Protocol.GetParameter(116); }set { Protocol.SetParameter(116, value); }}
 	/// <summary>PID: 117  | Type: write | DISCREETS: LCRP = 0, RLCP = 1, RPCL = 2, PCRL = 3, CPRL = 4</summary>
 	public System.Object Progressionorder {get { return Protocol.GetParameter(117); }set { Protocol.SetParameter(117, value); }}
@@ -144,11 +144,13 @@ public interface SLProtocolExt : SLProtocol
 	object Progressionorder { get; set; }
 	object Currentcompressedbitratedecoder_18 { get; set; }
 	object Currentcompressedbitratedecoder { get; set; }
-	object Blockwidth_19 { get; set; }
-	object Blockwidth { get; set; }
-	object Blockheight_20 { get; set; }
-	object Blockheight { get; set; }
+	object Codeblockwidth_19 { get; set; }
+	object Codeblockwidth { get; set; }
+	object Codeblockheight_20 { get; set; }
+	object Codeblockheight { get; set; }
 	object Notavailable__fixed { get; set; }
+	object Enable__fixed { get; set; }
+	object Disable__fixed { get; set; }
 	object Statustoggleencoder_110 { get; set; }
 	object Autochromaweight_112 { get; set; }
 	object Chromaweight_113 { get; set; }
@@ -190,33 +192,37 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object _switch_15 {get { return GetParameter(15); }set { SetParameter(15, value); }}
 	/// <summary>PID: 15  | Type: read | DISCREETS: Encoder = 1, Decoder = 2</summary>
 	public System.Object _switch {get { return GetParameter(15); }set { SetParameter(15, value); }}
-	/// <summary>PID: 16  | Type: read | DISCREETS: Enabled = 1, Disabled = 2</summary>
+	/// <summary>PID: 16  | Type: read | DISCREETS: Enabled = 1, Disabled = 0</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Statustoggledecoder_16 {get { return GetParameter(16); }set { SetParameter(16, value); }}
-	/// <summary>PID: 16  | Type: read | DISCREETS: Enabled = 1, Disabled = 2</summary>
+	/// <summary>PID: 16  | Type: read | DISCREETS: Enabled = 1, Disabled = 0</summary>
 	public System.Object Statustoggledecoder {get { return GetParameter(16); }set { SetParameter(16, value); }}
-	/// <summary>PID: 17  | Type: read | DISCREETS: LCRP = 0, RLCP = 1, RPCL = 2, PCRL = 3, CPRL = 4</summary>
+	/// <summary>PID: 17  | Type: read | DISCREETS: LCRP = 0, RLCP = 1, RPCL = 2, PCRL = 3, CPRL = 4 | EXCEPTIONS: Not Available = -1</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Progressionorder_17 {get { return GetParameter(17); }set { SetParameter(17, value); }}
-	/// <summary>PID: 17  | Type: read | DISCREETS: LCRP = 0, RLCP = 1, RPCL = 2, PCRL = 3, CPRL = 4</summary>
+	/// <summary>PID: 17  | Type: read | DISCREETS: LCRP = 0, RLCP = 1, RPCL = 2, PCRL = 3, CPRL = 4 | EXCEPTIONS: Not Available = -1</summary>
 	public System.Object Progressionorder {get { return GetParameter(17); }set { SetParameter(17, value); }}
-	/// <summary>PID: 18  | Type: read</summary>
+	/// <summary>PID: 18  | Type: read | EXCEPTIONS: Not Available = -1</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Currentcompressedbitratedecoder_18 {get { return GetParameter(18); }set { SetParameter(18, value); }}
-	/// <summary>PID: 18  | Type: read</summary>
+	/// <summary>PID: 18  | Type: read | EXCEPTIONS: Not Available = -1</summary>
 	public System.Object Currentcompressedbitratedecoder {get { return GetParameter(18); }set { SetParameter(18, value); }}
-	/// <summary>PID: 19  | Type: read</summary>
+	/// <summary>PID: 19  | Type: read | EXCEPTIONS: Not Available = -1</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Blockwidth_19 {get { return GetParameter(19); }set { SetParameter(19, value); }}
-	/// <summary>PID: 19  | Type: read</summary>
-	public System.Object Blockwidth {get { return GetParameter(19); }set { SetParameter(19, value); }}
-	/// <summary>PID: 20  | Type: read</summary>
+	public System.Object Codeblockwidth_19 {get { return GetParameter(19); }set { SetParameter(19, value); }}
+	/// <summary>PID: 19  | Type: read | EXCEPTIONS: Not Available = -1</summary>
+	public System.Object Codeblockwidth {get { return GetParameter(19); }set { SetParameter(19, value); }}
+	/// <summary>PID: 20  | Type: read | EXCEPTIONS: Not Available = -1</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Blockheight_20 {get { return GetParameter(20); }set { SetParameter(20, value); }}
-	/// <summary>PID: 20  | Type: read</summary>
-	public System.Object Blockheight {get { return GetParameter(20); }set { SetParameter(20, value); }}
+	public System.Object Codeblockheight_20 {get { return GetParameter(20); }set { SetParameter(20, value); }}
+	/// <summary>PID: 20  | Type: read | EXCEPTIONS: Not Available = -1</summary>
+	public System.Object Codeblockheight {get { return GetParameter(20); }set { SetParameter(20, value); }}
 	/// <summary>PID: 21  | Type: fixed</summary>
 	public System.Object Notavailable__fixed {get { return GetParameter(21); }set { SetParameter(21, value); }}
+	/// <summary>PID: 22  | Type: fixed</summary>
+	public System.Object Enable__fixed {get { return GetParameter(22); }set { SetParameter(22, value); }}
+	/// <summary>PID: 23  | Type: fixed</summary>
+	public System.Object Disable__fixed {get { return GetParameter(23); }set { SetParameter(23, value); }}
 	/// <summary>PID: 110  | Type: write | DISCREETS: Enabled = 1, Disabled = 0</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Statustoggleencoder_110 {get { return GetParameter(110); }set { SetParameter(110, value); }}
@@ -232,7 +238,7 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	/// <summary>PID: 115  | Type: write | DISCREETS: Encoder = 1, Decoder = 2</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object _switch_115 {get { return GetParameter(115); }set { SetParameter(115, value); }}
-	/// <summary>PID: 116  | Type: write | DISCREETS: Enabled = 1, Disabled = 2</summary>
+	/// <summary>PID: 116  | Type: write | DISCREETS: Enabled = 1, Disabled = 0</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Statustoggledecoder_116 {get { return GetParameter(116); }set { SetParameter(116, value); }}
 	/// <summary>PID: 117  | Type: write | DISCREETS: LCRP = 0, RLCP = 1, RPCL = 2, PCRL = 3, CPRL = 4</summary>

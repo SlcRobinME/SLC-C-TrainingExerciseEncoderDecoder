@@ -18,7 +18,7 @@
 	<DeviceOID>1</DeviceOID>
 	<ElementType>Encoder</ElementType>
 	<Type relativeTimers="true">virtual</Type>
-	<Display defaultPage="Encoder" pageOrder="General;Encoder;Decoder" wideColumnPages=""/>
+	<Display defaultPage="General" pageOrder="General;Encoder;Decoder" wideColumnPages=""/>
 	<SNMP includepages="true">auto</SNMP>
 
 	<Compliancies>
@@ -459,7 +459,7 @@
 					</Discreet>
 					<Discreet>
 						<Display>Disabled</Display>
-						<Value>2</Value>
+						<Value>0</Value>
 					</Discreet>
 				</Discreets>
 			</Measurement>
@@ -492,7 +492,7 @@
 					</Discreet>
 					<Discreet>
 						<Display>Disabled</Display>
-						<Value>2</Value>
+						<Value>0</Value>
 					</Discreet>
 				</Discreets>
 			</Measurement>
@@ -510,6 +510,12 @@
 				<Type>double</Type>
 				<LengthType>next param</LengthType>
 				<DefaultValue>0</DefaultValue>
+				<Exceptions>
+					<Exception id="5" value="-1">
+						<Display state="disabled">Not Available</Display>
+						<Value>-1</Value>
+					</Exception>
+				</Exceptions>
 			</Interprete>
 			<Display>
 				<RTDisplay>true</RTDisplay>
@@ -605,6 +611,12 @@
 				<LengthType>next param</LengthType>
 				<Decimals>3</Decimals>
 				<DefaultValue>10</DefaultValue>
+				<Exceptions>
+					<Exception id="6" value="-1">
+						<Display state="disabled">Not Available</Display>
+						<Value>-1</Value>
+					</Exception>
+				</Exceptions>
 			</Interprete>
 			<Display>
 				<RTDisplay>true</RTDisplay>
@@ -624,8 +636,8 @@
 		</Param>
 		
 		<Param id="19" trending="false">
-			<Name>blockWidth</Name>
-			<Description>Block Width</Description>
+			<Name>codeBlockWidth</Name>
+			<Description>Code Block Width</Description>
 			<Type>read</Type>
 			<Information>
 			</Information>
@@ -634,6 +646,12 @@
 				<Type>double</Type>
 				<LengthType>fixed</LengthType>
 				<DefaultValue>50</DefaultValue>
+				<Exceptions>
+					<Exception id="7" value="-1">
+						<Display state="disabled">Not Available</Display>
+						<Value>-1</Value>
+					</Exception>
+				</Exceptions>
 			</Interprete>
 			<Display>
 				<RTDisplay>true</RTDisplay>
@@ -652,8 +670,8 @@
 		</Param>
 		
 		<Param id="20" trending="false">
-			<Name>blockHeight</Name>
-			<Description>Block Height</Description>
+			<Name>codeBlockHeight</Name>
+			<Description>Code Block Height</Description>
 			<Type>read</Type>
 			<Information>
 			</Information>
@@ -662,6 +680,12 @@
 				<Type>double</Type>
 				<LengthType>fixed</LengthType>
 				<DefaultValue>50</DefaultValue>
+				<Exceptions>
+					<Exception id="8" value="-1">
+						<Display state="disabled">Not Available</Display>
+						<Value>-1</Value>
+					</Exception>
+				</Exceptions>
 			</Interprete>
 			<Display>
 				<RTDisplay>true</RTDisplay>
@@ -678,7 +702,7 @@
 				<Type>number</Type>
 			</Measurement>
 		</Param>
-
+		
 		<Param id="21">
 			<Name>notAvailable</Name>
 			<Description>Not Available</Description>
@@ -689,6 +713,32 @@
 				<LengthType>fixed</LengthType>
 				<Length>2</Length>
 				<Value>-1</Value>
+			</Interprete>
+		</Param>
+
+		<Param id="22">
+			<Name>Enable</Name>
+			<Description>Enable</Description>
+			<Type>fixed</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>fixed</LengthType>
+				<Length>1</Length>
+				<Value>1</Value>
+			</Interprete>
+		</Param>
+
+		<Param id="23">
+			<Name>Disable</Name>
+			<Description>Disable</Description>
+			<Type>fixed</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>fixed</LengthType>
+				<Length>1</Length>
+				<Value>0</Value>
 			</Interprete>
 		</Param>
 	</Params>
@@ -714,45 +764,123 @@
 				<Id>4</Id>
 			</Content>
 		</Trigger>
-
 		<Trigger id="2">
-			<Name>Encoder Enabled</Name>
+			<Name>Encoder Enabled, Disable Decoder If Enabled</Name>
 			<On id="10">parameter</On>
-			<Condition><![CDATA[id:10 == 1]]></Condition>
+			<Condition><![CDATA[id:10 == 1 && id:16 == 1]]></Condition>
 			<Time>change</Time>
 			<Type>action</Type>
 			<Content>
-				<Id>5</Id>
+				<Id>11</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="3">
+			<Name>Decoder Disabled</Name>
+			<On id="16">parameter</On>
+			<Condition><![CDATA[id:16 == 0]]></Condition>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>6</Id>
+				<Id>7</Id>
+				<Id>8</Id>
+				<Id>9</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="4">
+			<Name>Switch Encoder On / Decoder Off</Name>
+			<Condition><![CDATA[id:15 == 1]]></Condition>
+			<On id="15">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>10</Id>
+				<Id>11</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="5">
+			<Name>Switch Decoder On / Encoder Off</Name>
+			<Condition><![CDATA[id:15 == 2]]></Condition>
+			<On id="15">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>12</Id>
+				<Id>13</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="6">
+			<Name>Decoder Enabled, Disable Encoder If Enabled</Name>
+			<On id="16">parameter</On>
+			<Condition><![CDATA[id:16 == 1 && id:10 == 1]]></Condition>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>13</Id>
 			</Content>
 		</Trigger>
 	</Triggers>
 
 	<Actions>
 		<Action id="1">
-			<Name>Copy 21 To 11</Name>
+			<Name>Set Current Bitrate Encoder to Not Available</Name>
 			<On id="11">parameter</On>
 			<Type id="21">copy</Type>
 		</Action>
 		<Action id="2">
-			<Name>Copy 21 To 12</Name>
+			<Name>Set Auto Chroma Weight to Not Available</Name>
 			<On id="12">parameter</On>
 			<Type id="21">copy</Type>
 		</Action>
 		<Action id="3">
-			<Name>Copy 21 To 13</Name>
+			<Name>Set Chroma Weight to Not Available</Name>
 			<On id="13">parameter</On>
 			<Type id="21">copy</Type>
 		</Action>
 		<Action id="4">
-			<Name>Copy 21 To 14</Name>
+			<Name>Set Lossless Mode to Not Available</Name>
 			<On id="14">parameter</On>
 			<Type id="21">copy</Type>
 		</Action>
-
-		<Action id="5">
-			<Name>Restart Param</Name>
-			<On id="11">parameter</On>
-			<Type>start</Type>
+		<Action id="6">
+			<Name>Set Progression Order to Not Available</Name>
+			<On id="17">parameter</On>
+			<Type id="21">copy</Type>
+		</Action>
+		<Action id="7">
+			<Name>Set Current Bitrate Decoder to Not Available</Name>
+			<On id="18">parameter</On>
+			<Type id="21">copy</Type>
+		</Action>
+		<Action id="8">
+			<Name>Set Code Block Width to Not Available</Name>
+			<On id="19">parameter</On>
+			<Type id="21">copy</Type>
+		</Action>
+		<Action id="9">
+			<Name>Set Code Block Height to Not Available</Name>
+			<On id="20">parameter</On>
+			<Type id="21">copy</Type>
+		</Action>
+		<Action id="10">
+			<Name>Enable Encoder</Name>
+			<On id="10">parameter</On>
+			<Type id="22">copy</Type>
+		</Action>
+		<Action id="11">
+			<Name>Disable Decoder</Name>
+			<On id="16">parameter</On>
+			<Type id="23">copy</Type>
+		</Action>
+		<Action id="12">
+			<Name>Enable Decoder</Name>
+			<On id="16">parameter</On>
+			<Type id="22">copy</Type>
+		</Action>
+		<Action id="13">
+			<Name>Disable Encoder</Name>
+			<On id="10">parameter</On>
+			<Type id="23">copy</Type>
 		</Action>
 	</Actions>
 
