@@ -17,7 +17,9 @@
     <File Path="Internal/Code Analysis/qaction-release.ruleset" />
     <File Path="Internal/Code Analysis/stylecop.json" />
   </Folder>
-  <Folder Name="/QActions/" />
+  <Folder Name="/QActions/">
+    <Project Path="QAction_1/QAction_1.csproj" />
+  </Folder>
   <Folder Name="/Solution Items/">
     <File Path="protocol.xml" />
   </Folder>
