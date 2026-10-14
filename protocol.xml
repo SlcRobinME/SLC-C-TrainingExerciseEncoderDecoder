@@ -27,6 +27,7 @@
 	</Compliancies>
 
 	<Params>
+		<!-- Encoder Params-->
 		<Param id="10" trending="false" save="true">
 			<Name>statusToggleEncoder</Name>
 			<Description>Encoder Status</Description>
@@ -358,6 +359,7 @@
 			</Measurement>
 		</Param>
 		
+		<!-- Main Switch Param-->
 		<Param id="15" trending="true" save="true">
 			<Name>switch</Name>
 			<Description>Switch</Description>
@@ -428,6 +430,7 @@
 			</Measurement>
 		</Param>
 		
+		<!-- Decoder Params-->		
 		<Param id="16" trending="false" save="true">
 			<Name>statusToggleDecoder</Name>
 			<Description>Decoder Status</Description>
@@ -497,7 +500,6 @@
 				</Discreets>
 			</Measurement>
 		</Param>
-		
 		
 		<Param id="17" trending="false" save="true">
 			<Name>progressionOrder</Name>
@@ -598,7 +600,6 @@
 				</Discreets>
 			</Measurement>
 		</Param>
-		
 		<Param id="18" trending="false" save="true">
 			<Name>currentCompressedBitrateDecoder</Name>
 			<Description>Current Compressed Bitrate Decoder</Description>
@@ -633,8 +634,7 @@
 			<Measurement>
 				<Type>number</Type>
 			</Measurement>
-		</Param>
-		
+		</Param>	
 		<Param id="19" trending="false">
 			<Name>codeBlockWidth</Name>
 			<Description>Code Block Width</Description>
@@ -667,8 +667,7 @@
 			<Measurement>
 				<Type>number</Type>
 			</Measurement>
-		</Param>
-		
+		</Param>	
 		<Param id="20" trending="false">
 			<Name>codeBlockHeight</Name>
 			<Description>Code Block Height</Description>
@@ -702,7 +701,8 @@
 				<Type>number</Type>
 			</Measurement>
 		</Param>
-		
+
+		<!-- Fixed Params-->
 		<Param id="21">
 			<Name>notAvailable</Name>
 			<Description>Not Available</Description>
@@ -715,7 +715,6 @@
 				<Value>-1</Value>
 			</Interprete>
 		</Param>
-
 		<Param id="22">
 			<Name>Enable</Name>
 			<Description>Enable</Description>
@@ -728,7 +727,6 @@
 				<Value>1</Value>
 			</Interprete>
 		</Param>
-
 		<Param id="23">
 			<Name>Disable</Name>
 			<Description>Disable</Description>
@@ -740,6 +738,84 @@
 				<Length>1</Length>
 				<Value>0</Value>
 			</Interprete>
+		</Param>
+
+		<!-- Encoder Backup Params-->
+		<Param id="24" trending="false">
+			<Name>encoderBitrateBackup</Name>
+			<Description>Backup of the Current Compressed Bitrate Encoder</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext></Subtext>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+		<Param id="25" trending="false">
+			<Name>encoderAutoChromaWeightBackup</Name>
+			<Description>Backup of the Auto Chroma Weight</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext></Subtext>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+		<Param id="26" trending="false">
+			<Name>encoderChromaWeightBackup</Name>
+			<Description>Backup of the Chroma Weight</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext></Subtext>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+		<Param id="27" trending="false">
+			<Name>encoderLosslessModeBackup</Name>
+			<Description>Backup of the Lossless Mode</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext></Subtext>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
 		</Param>
 	</Params>
 
@@ -758,6 +834,10 @@
 			<Time>change</Time>
 			<Type>action</Type>
 			<Content>
+				<Id>14</Id>
+				<Id>15</Id>
+				<Id>16</Id>
+				<Id>17</Id>
 				<Id>1</Id>
 				<Id>2</Id>
 				<Id>3</Id>
@@ -772,6 +852,10 @@
 			<Type>action</Type>
 			<Content>
 				<Id>11</Id>
+				<Id>18</Id>
+				<Id>19</Id>
+				<Id>20</Id>
+				<Id>21</Id>
 			</Content>
 		</Trigger>
 		<Trigger id="3">
@@ -881,6 +965,47 @@
 			<Name>Disable Encoder</Name>
 			<On id="10">parameter</On>
 			<Type id="23">copy</Type>
+		</Action>
+		<Action id="14">
+			<Name>Backup Current Bitrate Encoder</Name>
+			<On id="24">parameter</On>
+			<Type id="11">copy</Type>
+		</Action>
+		<Action id="15">
+			<Name>Backup Auto Chroma Weight</Name>
+			<On id="25">parameter</On>
+			<Type id="12">copy</Type>
+		</Action>
+		<Action id="16">
+			<Name>Backup Chroma Weight</Name>
+			<On id="26">parameter</On>
+			<Type id="13">copy</Type>
+		</Action>
+		<Action id="17">
+			<Name>Backup Lossless Mode</Name>
+			<On id="27">parameter</On>
+			<Type id="14">copy</Type>
+		</Action>
+
+		<Action id="18">
+			<Name> FromBackup Current Bitrate Encoder To Parameter</Name>
+			<On id="11">parameter</On>
+			<Type id="24">copy</Type>
+		</Action>
+		<Action id="19">
+			<Name>From Backup Auto Chroma Weight To Parameter</Name>
+			<On id="12">parameter</On>
+			<Type id="25">copy</Type>
+		</Action>
+		<Action id="20">
+			<Name>From Backup Chroma Weight To Parameter</Name>
+			<On id="13">parameter</On>
+			<Type id="26">copy</Type>
+		</Action>
+		<Action id="21">
+			<Name> From Backup Lossless Mode To Parameter</Name>
+			<On id="14">parameter</On>
+			<Type id="27">copy</Type>
 		</Action>
 	</Actions>
 

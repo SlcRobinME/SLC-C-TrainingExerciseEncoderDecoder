@@ -63,6 +63,26 @@ public static class Parameter
 	public const int codeblockheight_20 = 20;
 	/// <summary>PID: 20 | Type: read</summary>
 	public const int codeblockheight = 20;
+	/// <summary>PID: 24 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int encoderbitratebackup_24 = 24;
+	/// <summary>PID: 24 | Type: read</summary>
+	public const int encoderbitratebackup = 24;
+	/// <summary>PID: 25 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int encoderautochromaweightbackup_25 = 25;
+	/// <summary>PID: 25 | Type: read</summary>
+	public const int encoderautochromaweightbackup = 25;
+	/// <summary>PID: 26 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int encoderchromaweightbackup_26 = 26;
+	/// <summary>PID: 26 | Type: read</summary>
+	public const int encoderchromaweightbackup = 26;
+	/// <summary>PID: 27 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int encoderlosslessmodebackup_27 = 27;
+	/// <summary>PID: 27 | Type: read</summary>
+	public const int encoderlosslessmodebackup = 27;
 	public class Write
 	{
 		/// <summary>PID: 110 | Type: write</summary>
@@ -151,6 +171,14 @@ public interface SLProtocolExt : SLProtocol
 	object Notavailable__fixed { get; set; }
 	object Enable__fixed { get; set; }
 	object Disable__fixed { get; set; }
+	object Encoderbitratebackup_24 { get; set; }
+	object Encoderbitratebackup { get; set; }
+	object Encoderautochromaweightbackup_25 { get; set; }
+	object Encoderautochromaweightbackup { get; set; }
+	object Encoderchromaweightbackup_26 { get; set; }
+	object Encoderchromaweightbackup { get; set; }
+	object Encoderlosslessmodebackup_27 { get; set; }
+	object Encoderlosslessmodebackup { get; set; }
 	object Statustoggleencoder_110 { get; set; }
 	object Autochromaweight_112 { get; set; }
 	object Chromaweight_113 { get; set; }
@@ -223,6 +251,26 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Enable__fixed {get { return GetParameter(22); }set { SetParameter(22, value); }}
 	/// <summary>PID: 23  | Type: fixed</summary>
 	public System.Object Disable__fixed {get { return GetParameter(23); }set { SetParameter(23, value); }}
+	/// <summary>PID: 24  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Encoderbitratebackup_24 {get { return GetParameter(24); }set { SetParameter(24, value); }}
+	/// <summary>PID: 24  | Type: read</summary>
+	public System.Object Encoderbitratebackup {get { return GetParameter(24); }set { SetParameter(24, value); }}
+	/// <summary>PID: 25  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Encoderautochromaweightbackup_25 {get { return GetParameter(25); }set { SetParameter(25, value); }}
+	/// <summary>PID: 25  | Type: read</summary>
+	public System.Object Encoderautochromaweightbackup {get { return GetParameter(25); }set { SetParameter(25, value); }}
+	/// <summary>PID: 26  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Encoderchromaweightbackup_26 {get { return GetParameter(26); }set { SetParameter(26, value); }}
+	/// <summary>PID: 26  | Type: read</summary>
+	public System.Object Encoderchromaweightbackup {get { return GetParameter(26); }set { SetParameter(26, value); }}
+	/// <summary>PID: 27  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Encoderlosslessmodebackup_27 {get { return GetParameter(27); }set { SetParameter(27, value); }}
+	/// <summary>PID: 27  | Type: read</summary>
+	public System.Object Encoderlosslessmodebackup {get { return GetParameter(27); }set { SetParameter(27, value); }}
 	/// <summary>PID: 110  | Type: write | DISCREETS: Enabled = 1, Disabled = 0</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Statustoggleencoder_110 {get { return GetParameter(110); }set { SetParameter(110, value); }}
