@@ -8,12 +8,77 @@ namespace Skyline.DataMiner.Scripting
 {
 public static class Parameter
 {
+	/// <summary>PID: 10 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int statustoggle_10 = 10;
+	/// <summary>PID: 10 | Type: read</summary>
+	public const int statustoggle = 10;
+	/// <summary>PID: 11 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int currentcompressedbitrate_11 = 11;
+	/// <summary>PID: 11 | Type: read</summary>
+	public const int currentcompressedbitrate = 11;
+	/// <summary>PID: 12 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int autochromaweight_12 = 12;
+	/// <summary>PID: 12 | Type: read</summary>
+	public const int autochromaweight = 12;
+	/// <summary>PID: 13 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int chromaweight_13 = 13;
+	/// <summary>PID: 13 | Type: read</summary>
+	public const int chromaweight = 13;
+	/// <summary>PID: 14 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int losslessmode_14 = 14;
+	/// <summary>PID: 14 | Type: read</summary>
+	public const int losslessmode = 14;
+	/// <summary>PID: 15 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int _switch_15 = 15;
+	/// <summary>PID: 15 | Type: read</summary>
+	public const int _switch = 15;
 	public class Write
 	{
+		/// <summary>PID: 110 | Type: write</summary>
+		[EditorBrowsable(EditorBrowsableState.Never)]
+		public const int statustoggle_110 = 110;
+		/// <summary>PID: 110 | Type: write</summary>
+		public const int statustoggle = 110;
+		/// <summary>PID: 112 | Type: write</summary>
+		[EditorBrowsable(EditorBrowsableState.Never)]
+		public const int autochromaweight_112 = 112;
+		/// <summary>PID: 112 | Type: write</summary>
+		public const int autochromaweight = 112;
+		/// <summary>PID: 113 | Type: write</summary>
+		[EditorBrowsable(EditorBrowsableState.Never)]
+		public const int chromaweight_113 = 113;
+		/// <summary>PID: 113 | Type: write</summary>
+		public const int chromaweight = 113;
+		/// <summary>PID: 114 | Type: write</summary>
+		[EditorBrowsable(EditorBrowsableState.Never)]
+		public const int losslessmode_114 = 114;
+		/// <summary>PID: 114 | Type: write</summary>
+		public const int losslessmode = 114;
+		/// <summary>PID: 115 | Type: write</summary>
+		[EditorBrowsable(EditorBrowsableState.Never)]
+		public const int _switch_115 = 115;
+		/// <summary>PID: 115 | Type: write</summary>
+		public const int _switch = 115;
 	}
 }
 public class WriteParameters
 {
+	/// <summary>PID: 110  | Type: write | DISCREETS: Enabled = 1, Disabled = 2</summary>
+	public System.Object Statustoggle {get { return Protocol.GetParameter(110); }set { Protocol.SetParameter(110, value); }}
+	/// <summary>PID: 112  | Type: write | DISCREETS: Enabled = 1, Disabled = 0</summary>
+	public System.Object Autochromaweight {get { return Protocol.GetParameter(112); }set { Protocol.SetParameter(112, value); }}
+	/// <summary>PID: 113  | Type: write</summary>
+	public System.Object Chromaweight {get { return Protocol.GetParameter(113); }set { Protocol.SetParameter(113, value); }}
+	/// <summary>PID: 114  | Type: write | DISCREETS: Enabled = 1, Disabled = 0</summary>
+	public System.Object Losslessmode {get { return Protocol.GetParameter(114); }set { Protocol.SetParameter(114, value); }}
+	/// <summary>PID: 115  | Type: write | DISCREETS: Encoder = 1, Decoder = 2</summary>
+	public System.Object _switch {get { return Protocol.GetParameter(115); }set { Protocol.SetParameter(115, value); }}
 	public SLProtocolExt Protocol;
 	public WriteParameters(SLProtocolExt protocol)
 	{
@@ -22,10 +87,72 @@ public class WriteParameters
 }
 public interface SLProtocolExt : SLProtocol
 {
+	object Statustoggle_10 { get; set; }
+	object Statustoggle { get; set; }
+	object Currentcompressedbitrate_11 { get; set; }
+	object Currentcompressedbitrate { get; set; }
+	object Autochromaweight_12 { get; set; }
+	object Autochromaweight { get; set; }
+	object Chromaweight_13 { get; set; }
+	object Chromaweight { get; set; }
+	object Losslessmode_14 { get; set; }
+	object Losslessmode { get; set; }
+	object _switch_15 { get; set; }
+	object _switch { get; set; }
+	object Statustoggle_110 { get; set; }
+	object Autochromaweight_112 { get; set; }
+	object Chromaweight_113 { get; set; }
+	object Losslessmode_114 { get; set; }
+	object _switch_115 { get; set; }
 	WriteParameters Write { get; set; }
 }
 public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 {
+	/// <summary>PID: 10  | Type: read | DISCREETS: Enabled = 1, Disabled = 2</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Statustoggle_10 {get { return GetParameter(10); }set { SetParameter(10, value); }}
+	/// <summary>PID: 10  | Type: read | DISCREETS: Enabled = 1, Disabled = 2</summary>
+	public System.Object Statustoggle {get { return GetParameter(10); }set { SetParameter(10, value); }}
+	/// <summary>PID: 11  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Currentcompressedbitrate_11 {get { return GetParameter(11); }set { SetParameter(11, value); }}
+	/// <summary>PID: 11  | Type: read</summary>
+	public System.Object Currentcompressedbitrate {get { return GetParameter(11); }set { SetParameter(11, value); }}
+	/// <summary>PID: 12  | Type: read | DISCREETS: Enabled = 1, Disabled = 0</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Autochromaweight_12 {get { return GetParameter(12); }set { SetParameter(12, value); }}
+	/// <summary>PID: 12  | Type: read | DISCREETS: Enabled = 1, Disabled = 0</summary>
+	public System.Object Autochromaweight {get { return GetParameter(12); }set { SetParameter(12, value); }}
+	/// <summary>PID: 13  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Chromaweight_13 {get { return GetParameter(13); }set { SetParameter(13, value); }}
+	/// <summary>PID: 13  | Type: read</summary>
+	public System.Object Chromaweight {get { return GetParameter(13); }set { SetParameter(13, value); }}
+	/// <summary>PID: 14  | Type: read | DISCREETS: Enabled = 1, Disabled = 0</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Losslessmode_14 {get { return GetParameter(14); }set { SetParameter(14, value); }}
+	/// <summary>PID: 14  | Type: read | DISCREETS: Enabled = 1, Disabled = 0</summary>
+	public System.Object Losslessmode {get { return GetParameter(14); }set { SetParameter(14, value); }}
+	/// <summary>PID: 15  | Type: read | DISCREETS: Encoder = 1, Decoder = 2</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object _switch_15 {get { return GetParameter(15); }set { SetParameter(15, value); }}
+	/// <summary>PID: 15  | Type: read | DISCREETS: Encoder = 1, Decoder = 2</summary>
+	public System.Object _switch {get { return GetParameter(15); }set { SetParameter(15, value); }}
+	/// <summary>PID: 110  | Type: write | DISCREETS: Enabled = 1, Disabled = 2</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Statustoggle_110 {get { return GetParameter(110); }set { SetParameter(110, value); }}
+	/// <summary>PID: 112  | Type: write | DISCREETS: Enabled = 1, Disabled = 0</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Autochromaweight_112 {get { return GetParameter(112); }set { SetParameter(112, value); }}
+	/// <summary>PID: 113  | Type: write</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Chromaweight_113 {get { return GetParameter(113); }set { SetParameter(113, value); }}
+	/// <summary>PID: 114  | Type: write | DISCREETS: Enabled = 1, Disabled = 0</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Losslessmode_114 {get { return GetParameter(114); }set { SetParameter(114, value); }}
+	/// <summary>PID: 115  | Type: write | DISCREETS: Encoder = 1, Decoder = 2</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object _switch_115 {get { return GetParameter(115); }set { SetParameter(115, value); }}
 	public WriteParameters Write { get; set; }
 	public ConcreteSLProtocolExt()
 	{
