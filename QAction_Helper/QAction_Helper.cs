@@ -10,14 +10,14 @@ public static class Parameter
 {
 	/// <summary>PID: 10 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int statustoggle_10 = 10;
+	public const int statustoggleencoder_10 = 10;
 	/// <summary>PID: 10 | Type: read</summary>
-	public const int statustoggle = 10;
+	public const int statustoggleencoder = 10;
 	/// <summary>PID: 11 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int currentcompressedbitrate_11 = 11;
+	public const int currentcompressedbitrateencoder_11 = 11;
 	/// <summary>PID: 11 | Type: read</summary>
-	public const int currentcompressedbitrate = 11;
+	public const int currentcompressedbitrateencoder = 11;
 	/// <summary>PID: 12 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public const int autochromaweight_12 = 12;
@@ -38,13 +38,38 @@ public static class Parameter
 	public const int _switch_15 = 15;
 	/// <summary>PID: 15 | Type: read</summary>
 	public const int _switch = 15;
+	/// <summary>PID: 16 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int statustoggledecoder_16 = 16;
+	/// <summary>PID: 16 | Type: read</summary>
+	public const int statustoggledecoder = 16;
+	/// <summary>PID: 17 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int progressionorder_17 = 17;
+	/// <summary>PID: 17 | Type: read</summary>
+	public const int progressionorder = 17;
+	/// <summary>PID: 18 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int currentcompressedbitratedecoder_18 = 18;
+	/// <summary>PID: 18 | Type: read</summary>
+	public const int currentcompressedbitratedecoder = 18;
+	/// <summary>PID: 19 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int blockwidth_19 = 19;
+	/// <summary>PID: 19 | Type: read</summary>
+	public const int blockwidth = 19;
+	/// <summary>PID: 20 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int blockheight_20 = 20;
+	/// <summary>PID: 20 | Type: read</summary>
+	public const int blockheight = 20;
 	public class Write
 	{
 		/// <summary>PID: 110 | Type: write</summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public const int statustoggle_110 = 110;
+		public const int statustoggleencoder_110 = 110;
 		/// <summary>PID: 110 | Type: write</summary>
-		public const int statustoggle = 110;
+		public const int statustoggleencoder = 110;
 		/// <summary>PID: 112 | Type: write</summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		public const int autochromaweight_112 = 112;
@@ -65,12 +90,22 @@ public static class Parameter
 		public const int _switch_115 = 115;
 		/// <summary>PID: 115 | Type: write</summary>
 		public const int _switch = 115;
+		/// <summary>PID: 116 | Type: write</summary>
+		[EditorBrowsable(EditorBrowsableState.Never)]
+		public const int statustoggledecoder_116 = 116;
+		/// <summary>PID: 116 | Type: write</summary>
+		public const int statustoggledecoder = 116;
+		/// <summary>PID: 117 | Type: write</summary>
+		[EditorBrowsable(EditorBrowsableState.Never)]
+		public const int progressionorder_117 = 117;
+		/// <summary>PID: 117 | Type: write</summary>
+		public const int progressionorder = 117;
 	}
 }
 public class WriteParameters
 {
-	/// <summary>PID: 110  | Type: write | DISCREETS: Enabled = 1, Disabled = 2</summary>
-	public System.Object Statustoggle {get { return Protocol.GetParameter(110); }set { Protocol.SetParameter(110, value); }}
+	/// <summary>PID: 110  | Type: write | DISCREETS: Enabled = 1, Disabled = 0</summary>
+	public System.Object Statustoggleencoder {get { return Protocol.GetParameter(110); }set { Protocol.SetParameter(110, value); }}
 	/// <summary>PID: 112  | Type: write | DISCREETS: Enabled = 1, Disabled = 0</summary>
 	public System.Object Autochromaweight {get { return Protocol.GetParameter(112); }set { Protocol.SetParameter(112, value); }}
 	/// <summary>PID: 113  | Type: write</summary>
@@ -79,6 +114,10 @@ public class WriteParameters
 	public System.Object Losslessmode {get { return Protocol.GetParameter(114); }set { Protocol.SetParameter(114, value); }}
 	/// <summary>PID: 115  | Type: write | DISCREETS: Encoder = 1, Decoder = 2</summary>
 	public System.Object _switch {get { return Protocol.GetParameter(115); }set { Protocol.SetParameter(115, value); }}
+	/// <summary>PID: 116  | Type: write | DISCREETS: Enabled = 1, Disabled = 2</summary>
+	public System.Object Statustoggledecoder {get { return Protocol.GetParameter(116); }set { Protocol.SetParameter(116, value); }}
+	/// <summary>PID: 117  | Type: write | DISCREETS: LCRP = 0, RLCP = 1, RPCL = 2, PCRL = 3, CPRL = 4</summary>
+	public System.Object Progressionorder {get { return Protocol.GetParameter(117); }set { Protocol.SetParameter(117, value); }}
 	public SLProtocolExt Protocol;
 	public WriteParameters(SLProtocolExt protocol)
 	{
@@ -87,10 +126,10 @@ public class WriteParameters
 }
 public interface SLProtocolExt : SLProtocol
 {
-	object Statustoggle_10 { get; set; }
-	object Statustoggle { get; set; }
-	object Currentcompressedbitrate_11 { get; set; }
-	object Currentcompressedbitrate { get; set; }
+	object Statustoggleencoder_10 { get; set; }
+	object Statustoggleencoder { get; set; }
+	object Currentcompressedbitrateencoder_11 { get; set; }
+	object Currentcompressedbitrateencoder { get; set; }
 	object Autochromaweight_12 { get; set; }
 	object Autochromaweight { get; set; }
 	object Chromaweight_13 { get; set; }
@@ -99,25 +138,38 @@ public interface SLProtocolExt : SLProtocol
 	object Losslessmode { get; set; }
 	object _switch_15 { get; set; }
 	object _switch { get; set; }
-	object Statustoggle_110 { get; set; }
+	object Statustoggledecoder_16 { get; set; }
+	object Statustoggledecoder { get; set; }
+	object Progressionorder_17 { get; set; }
+	object Progressionorder { get; set; }
+	object Currentcompressedbitratedecoder_18 { get; set; }
+	object Currentcompressedbitratedecoder { get; set; }
+	object Blockwidth_19 { get; set; }
+	object Blockwidth { get; set; }
+	object Blockheight_20 { get; set; }
+	object Blockheight { get; set; }
+	object Notavailable__fixed { get; set; }
+	object Statustoggleencoder_110 { get; set; }
 	object Autochromaweight_112 { get; set; }
 	object Chromaweight_113 { get; set; }
 	object Losslessmode_114 { get; set; }
 	object _switch_115 { get; set; }
+	object Statustoggledecoder_116 { get; set; }
+	object Progressionorder_117 { get; set; }
 	WriteParameters Write { get; set; }
 }
 public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 {
-	/// <summary>PID: 10  | Type: read | DISCREETS: Enabled = 1, Disabled = 2</summary>
+	/// <summary>PID: 10  | Type: read | DISCREETS: Enabled = 1, Disabled = 0, Not Available = -1</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Statustoggle_10 {get { return GetParameter(10); }set { SetParameter(10, value); }}
-	/// <summary>PID: 10  | Type: read | DISCREETS: Enabled = 1, Disabled = 2</summary>
-	public System.Object Statustoggle {get { return GetParameter(10); }set { SetParameter(10, value); }}
+	public System.Object Statustoggleencoder_10 {get { return GetParameter(10); }set { SetParameter(10, value); }}
+	/// <summary>PID: 10  | Type: read | DISCREETS: Enabled = 1, Disabled = 0, Not Available = -1</summary>
+	public System.Object Statustoggleencoder {get { return GetParameter(10); }set { SetParameter(10, value); }}
 	/// <summary>PID: 11  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Currentcompressedbitrate_11 {get { return GetParameter(11); }set { SetParameter(11, value); }}
+	public System.Object Currentcompressedbitrateencoder_11 {get { return GetParameter(11); }set { SetParameter(11, value); }}
 	/// <summary>PID: 11  | Type: read</summary>
-	public System.Object Currentcompressedbitrate {get { return GetParameter(11); }set { SetParameter(11, value); }}
+	public System.Object Currentcompressedbitrateencoder {get { return GetParameter(11); }set { SetParameter(11, value); }}
 	/// <summary>PID: 12  | Type: read | DISCREETS: Enabled = 1, Disabled = 0</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Autochromaweight_12 {get { return GetParameter(12); }set { SetParameter(12, value); }}
@@ -138,9 +190,36 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object _switch_15 {get { return GetParameter(15); }set { SetParameter(15, value); }}
 	/// <summary>PID: 15  | Type: read | DISCREETS: Encoder = 1, Decoder = 2</summary>
 	public System.Object _switch {get { return GetParameter(15); }set { SetParameter(15, value); }}
-	/// <summary>PID: 110  | Type: write | DISCREETS: Enabled = 1, Disabled = 2</summary>
+	/// <summary>PID: 16  | Type: read | DISCREETS: Enabled = 1, Disabled = 2</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Statustoggle_110 {get { return GetParameter(110); }set { SetParameter(110, value); }}
+	public System.Object Statustoggledecoder_16 {get { return GetParameter(16); }set { SetParameter(16, value); }}
+	/// <summary>PID: 16  | Type: read | DISCREETS: Enabled = 1, Disabled = 2</summary>
+	public System.Object Statustoggledecoder {get { return GetParameter(16); }set { SetParameter(16, value); }}
+	/// <summary>PID: 17  | Type: read | DISCREETS: LCRP = 0, RLCP = 1, RPCL = 2, PCRL = 3, CPRL = 4</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Progressionorder_17 {get { return GetParameter(17); }set { SetParameter(17, value); }}
+	/// <summary>PID: 17  | Type: read | DISCREETS: LCRP = 0, RLCP = 1, RPCL = 2, PCRL = 3, CPRL = 4</summary>
+	public System.Object Progressionorder {get { return GetParameter(17); }set { SetParameter(17, value); }}
+	/// <summary>PID: 18  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Currentcompressedbitratedecoder_18 {get { return GetParameter(18); }set { SetParameter(18, value); }}
+	/// <summary>PID: 18  | Type: read</summary>
+	public System.Object Currentcompressedbitratedecoder {get { return GetParameter(18); }set { SetParameter(18, value); }}
+	/// <summary>PID: 19  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Blockwidth_19 {get { return GetParameter(19); }set { SetParameter(19, value); }}
+	/// <summary>PID: 19  | Type: read</summary>
+	public System.Object Blockwidth {get { return GetParameter(19); }set { SetParameter(19, value); }}
+	/// <summary>PID: 20  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Blockheight_20 {get { return GetParameter(20); }set { SetParameter(20, value); }}
+	/// <summary>PID: 20  | Type: read</summary>
+	public System.Object Blockheight {get { return GetParameter(20); }set { SetParameter(20, value); }}
+	/// <summary>PID: 21  | Type: fixed</summary>
+	public System.Object Notavailable__fixed {get { return GetParameter(21); }set { SetParameter(21, value); }}
+	/// <summary>PID: 110  | Type: write | DISCREETS: Enabled = 1, Disabled = 0</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Statustoggleencoder_110 {get { return GetParameter(110); }set { SetParameter(110, value); }}
 	/// <summary>PID: 112  | Type: write | DISCREETS: Enabled = 1, Disabled = 0</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Autochromaweight_112 {get { return GetParameter(112); }set { SetParameter(112, value); }}
@@ -153,6 +232,12 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	/// <summary>PID: 115  | Type: write | DISCREETS: Encoder = 1, Decoder = 2</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object _switch_115 {get { return GetParameter(115); }set { SetParameter(115, value); }}
+	/// <summary>PID: 116  | Type: write | DISCREETS: Enabled = 1, Disabled = 2</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Statustoggledecoder_116 {get { return GetParameter(116); }set { SetParameter(116, value); }}
+	/// <summary>PID: 117  | Type: write | DISCREETS: LCRP = 0, RLCP = 1, RPCL = 2, PCRL = 3, CPRL = 4</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Progressionorder_117 {get { return GetParameter(117); }set { SetParameter(117, value); }}
 	public WriteParameters Write { get; set; }
 	public ConcreteSLProtocolExt()
 	{
