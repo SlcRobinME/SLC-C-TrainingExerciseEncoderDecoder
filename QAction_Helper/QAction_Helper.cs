@@ -83,6 +83,26 @@ public static class Parameter
 	public const int encoderlosslessmodebackup_27 = 27;
 	/// <summary>PID: 27 | Type: read</summary>
 	public const int encoderlosslessmodebackup = 27;
+	/// <summary>PID: 28 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int decoderbitratebackup_28 = 28;
+	/// <summary>PID: 28 | Type: read</summary>
+	public const int decoderbitratebackup = 28;
+	/// <summary>PID: 29 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int decoderprogressionorderbackup_29 = 29;
+	/// <summary>PID: 29 | Type: read</summary>
+	public const int decoderprogressionorderbackup = 29;
+	/// <summary>PID: 30 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int decodercodeblockwidthbackup_30 = 30;
+	/// <summary>PID: 30 | Type: read</summary>
+	public const int decodercodeblockwidthbackup = 30;
+	/// <summary>PID: 31 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int decodercodeblockheightbackup_31 = 31;
+	/// <summary>PID: 31 | Type: read</summary>
+	public const int decodercodeblockheightbackup = 31;
 	public class Write
 	{
 		/// <summary>PID: 110 | Type: write</summary>
@@ -179,6 +199,14 @@ public interface SLProtocolExt : SLProtocol
 	object Encoderchromaweightbackup { get; set; }
 	object Encoderlosslessmodebackup_27 { get; set; }
 	object Encoderlosslessmodebackup { get; set; }
+	object Decoderbitratebackup_28 { get; set; }
+	object Decoderbitratebackup { get; set; }
+	object Decoderprogressionorderbackup_29 { get; set; }
+	object Decoderprogressionorderbackup { get; set; }
+	object Decodercodeblockwidthbackup_30 { get; set; }
+	object Decodercodeblockwidthbackup { get; set; }
+	object Decodercodeblockheightbackup_31 { get; set; }
+	object Decodercodeblockheightbackup { get; set; }
 	object Statustoggleencoder_110 { get; set; }
 	object Autochromaweight_112 { get; set; }
 	object Chromaweight_113 { get; set; }
@@ -190,15 +218,15 @@ public interface SLProtocolExt : SLProtocol
 }
 public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 {
-	/// <summary>PID: 10  | Type: read | DISCREETS: Enabled = 1, Disabled = 0, Not Available = -1</summary>
+	/// <summary>PID: 10  | Type: read | DISCREETS: Enabled = 1, Disabled = 0</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Statustoggleencoder_10 {get { return GetParameter(10); }set { SetParameter(10, value); }}
-	/// <summary>PID: 10  | Type: read | DISCREETS: Enabled = 1, Disabled = 0, Not Available = -1</summary>
+	/// <summary>PID: 10  | Type: read | DISCREETS: Enabled = 1, Disabled = 0</summary>
 	public System.Object Statustoggleencoder {get { return GetParameter(10); }set { SetParameter(10, value); }}
-	/// <summary>PID: 11  | Type: read | EXCEPTIONS: Not available = -1</summary>
+	/// <summary>PID: 11  | Type: read | EXCEPTIONS: Not Available = -1</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Currentcompressedbitrateencoder_11 {get { return GetParameter(11); }set { SetParameter(11, value); }}
-	/// <summary>PID: 11  | Type: read | EXCEPTIONS: Not available = -1</summary>
+	/// <summary>PID: 11  | Type: read | EXCEPTIONS: Not Available = -1</summary>
 	public System.Object Currentcompressedbitrateencoder {get { return GetParameter(11); }set { SetParameter(11, value); }}
 	/// <summary>PID: 12  | Type: read | DISCREETS: Enabled = 1, Disabled = 0 | EXCEPTIONS: Not Available = -1</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
@@ -271,6 +299,26 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Encoderlosslessmodebackup_27 {get { return GetParameter(27); }set { SetParameter(27, value); }}
 	/// <summary>PID: 27  | Type: read</summary>
 	public System.Object Encoderlosslessmodebackup {get { return GetParameter(27); }set { SetParameter(27, value); }}
+	/// <summary>PID: 28  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Decoderbitratebackup_28 {get { return GetParameter(28); }set { SetParameter(28, value); }}
+	/// <summary>PID: 28  | Type: read</summary>
+	public System.Object Decoderbitratebackup {get { return GetParameter(28); }set { SetParameter(28, value); }}
+	/// <summary>PID: 29  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Decoderprogressionorderbackup_29 {get { return GetParameter(29); }set { SetParameter(29, value); }}
+	/// <summary>PID: 29  | Type: read</summary>
+	public System.Object Decoderprogressionorderbackup {get { return GetParameter(29); }set { SetParameter(29, value); }}
+	/// <summary>PID: 30  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Decodercodeblockwidthbackup_30 {get { return GetParameter(30); }set { SetParameter(30, value); }}
+	/// <summary>PID: 30  | Type: read</summary>
+	public System.Object Decodercodeblockwidthbackup {get { return GetParameter(30); }set { SetParameter(30, value); }}
+	/// <summary>PID: 31  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Decodercodeblockheightbackup_31 {get { return GetParameter(31); }set { SetParameter(31, value); }}
+	/// <summary>PID: 31  | Type: read</summary>
+	public System.Object Decodercodeblockheightbackup {get { return GetParameter(31); }set { SetParameter(31, value); }}
 	/// <summary>PID: 110  | Type: write | DISCREETS: Enabled = 1, Disabled = 0</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Statustoggleencoder_110 {get { return GetParameter(110); }set { SetParameter(110, value); }}

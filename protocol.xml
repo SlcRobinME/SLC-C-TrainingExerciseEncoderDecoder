@@ -61,10 +61,6 @@
 						<Display>Disabled</Display>
 						<Value>0</Value>
 					</Discreet>
-					<Discreet>
-						<Display>Not Available</Display>
-						<Value>-1</Value>
-					</Discreet>
 				</Discreets>
 			</Measurement>
 		</Param>
@@ -116,7 +112,7 @@
 				<DefaultValue>10</DefaultValue>
 				<Exceptions>
 					<Exception id="1" value="-1">
-						<Display state="disabled">Not available</Display>
+						<Display state="disabled">Not Available</Display>
 						<Value>-1</Value>
 					</Exception>
 				</Exceptions>
@@ -232,9 +228,6 @@
 					</Exception>
 				</Exceptions>
 			</Interprete>
-			<Alarm>
-				<Monitored>true</Monitored>
-			</Alarm>
 			<Display>
 				<RTDisplay>true</RTDisplay>
 				<Units>%</Units>
@@ -644,7 +637,7 @@
 			<Interprete>
 				<RawType>numeric text</RawType>
 				<Type>double</Type>
-				<LengthType>fixed</LengthType>
+				<LengthType>next param</LengthType>
 				<DefaultValue>50</DefaultValue>
 				<Exceptions>
 					<Exception id="7" value="-1">
@@ -677,8 +670,8 @@
 			<Interprete>
 				<RawType>numeric text</RawType>
 				<Type>double</Type>
-				<LengthType>fixed</LengthType>
-				<DefaultValue>50</DefaultValue>
+				<LengthType>next param</LengthType>
+				<DefaultValue>10</DefaultValue>
 				<Exceptions>
 					<Exception id="8" value="-1">
 						<Display state="disabled">Not Available</Display>
@@ -754,7 +747,7 @@
 				<LengthType>next param</LengthType>
 			</Interprete>
 			<Display>
-				<RTDisplay>true</RTDisplay>
+				<RTDisplay>false</RTDisplay>
 			</Display>
 			<Measurement>
 				<Type>number</Type>
@@ -773,7 +766,7 @@
 				<LengthType>next param</LengthType>
 			</Interprete>
 			<Display>
-				<RTDisplay>true</RTDisplay>
+				<RTDisplay>false</RTDisplay>
 			</Display>
 			<Measurement>
 				<Type>number</Type>
@@ -792,7 +785,7 @@
 				<LengthType>next param</LengthType>
 			</Interprete>
 			<Display>
-				<RTDisplay>true</RTDisplay>
+				<RTDisplay>false</RTDisplay>
 			</Display>
 			<Measurement>
 				<Type>number</Type>
@@ -811,7 +804,85 @@
 				<LengthType>next param</LengthType>
 			</Interprete>
 			<Display>
-				<RTDisplay>true</RTDisplay>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+
+		<!-- Decoder Backup Params-->
+		<Param id="28" trending="false">
+			<Name>decoderBitrateBackup</Name>
+			<Description>Backup of the Current Compressed Bitrate Decoder</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext></Subtext>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+		<Param id="29" trending="false">
+			<Name>decoderProgressionOrderBackup</Name>
+			<Description>Backup of the Progression Order</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext></Subtext>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+		<Param id="30" trending="false">
+			<Name>decoderCodeBlockWidthBackup</Name>
+			<Description>Backup of the Code Bloc kWidth</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext></Subtext>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+		<Param id="31" trending="false">
+			<Name>decoderCodeBlockHeightBackup</Name>
+			<Description>Backup of the Code Block Height</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext></Subtext>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>false</RTDisplay>
 			</Display>
 			<Measurement>
 				<Type>number</Type>
@@ -847,7 +918,7 @@
 		<Trigger id="2">
 			<Name>Encoder Enabled, Disable Decoder If Enabled</Name>
 			<On id="10">parameter</On>
-			<Condition><![CDATA[id:10 == 1 && id:16 == 1]]></Condition>
+			<Condition><![CDATA[id:10 == 1 AND id:16 == 1]]></Condition>
 			<Time>change</Time>
 			<Type>action</Type>
 			<Content>
@@ -865,6 +936,10 @@
 			<Time>change</Time>
 			<Type>action</Type>
 			<Content>
+				<Id>22</Id>
+				<Id>23</Id>
+				<Id>24</Id>
+				<Id>25</Id>
 				<Id>6</Id>
 				<Id>7</Id>
 				<Id>8</Id>
@@ -896,11 +971,15 @@
 		<Trigger id="6">
 			<Name>Decoder Enabled, Disable Encoder If Enabled</Name>
 			<On id="16">parameter</On>
-			<Condition><![CDATA[id:16 == 1 && id:10 == 1]]></Condition>
+			<Condition><![CDATA[(id:16 == 1 AND id:10 == 1)]]></Condition>
 			<Time>change</Time>
 			<Type>action</Type>
 			<Content>
 				<Id>13</Id>
+				<Id>26</Id>
+				<Id>27</Id>
+				<Id>28</Id>
+				<Id>29</Id>
 			</Content>
 		</Trigger>
 	</Triggers>
@@ -986,9 +1065,8 @@
 			<On id="27">parameter</On>
 			<Type id="14">copy</Type>
 		</Action>
-
 		<Action id="18">
-			<Name> FromBackup Current Bitrate Encoder To Parameter</Name>
+			<Name> From Backup Current Bitrate Encoder To Parameter</Name>
 			<On id="11">parameter</On>
 			<Type id="24">copy</Type>
 		</Action>
@@ -1007,6 +1085,46 @@
 			<On id="14">parameter</On>
 			<Type id="27">copy</Type>
 		</Action>
+		<Action id="22">
+			<Name>Backup Current Bitrate Decoder</Name>
+			<On id="28">parameter</On>
+			<Type id="18">copy</Type>
+		</Action>
+		<Action id="23">
+			<Name>Backup Progression Order</Name>
+			<On id="29">parameter</On>
+			<Type id="17">copy</Type>
+		</Action>
+		<Action id="24">
+			<Name>Backup Coder Block Width</Name>
+			<On id="30">parameter</On>
+			<Type id="19">copy</Type>
+		</Action>
+		<Action id="25">
+			<Name>Backup Coder Block Height</Name>
+			<On id="27">parameter</On>
+			<Type id="20">copy</Type>
+		</Action>
+		<Action id="26">
+			<Name> From Backup Current Bitrate Decoder To Parameter</Name>
+			<On id="18">parameter</On>
+			<Type id="28">copy</Type>
+		</Action>
+		<Action id="27">
+			<Name>From Backup Progression Order To Parameter</Name>
+			<On id="17">parameter</On>
+			<Type id="29">copy</Type>
+		</Action>
+		<Action id="28">
+			<Name>From Backup Coder Block Width To Parameter</Name>
+			<On id="19">parameter</On>
+			<Type id="30">copy</Type>
+		</Action>
+		<Action id="29">
+			<Name> From Backup Coder Block Height To Parameter</Name>
+			<On id="20">parameter</On>
+			<Type id="27">copy</Type>
+		</Action>	
 	</Actions>
 
 	<Timers>
