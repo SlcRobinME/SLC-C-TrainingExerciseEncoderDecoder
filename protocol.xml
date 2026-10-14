@@ -593,6 +593,7 @@
 				</Discreets>
 			</Measurement>
 		</Param>
+		
 		<Param id="18" trending="false" save="true">
 			<Name>currentCompressedBitrateDecoder</Name>
 			<Description>Current Compressed Bitrate Decoder</Description>
@@ -918,7 +919,7 @@
 		<Trigger id="2">
 			<Name>Encoder Enabled, Disable Decoder If Enabled</Name>
 			<On id="10">parameter</On>
-			<Condition><![CDATA[id:10 == 1 AND id:16 == 1]]></Condition>
+			<Condition><![CDATA[(id:10 == 1 AND id:16 == 1)]]></Condition>
 			<Time>change</Time>
 			<Type>action</Type>
 			<Content>
