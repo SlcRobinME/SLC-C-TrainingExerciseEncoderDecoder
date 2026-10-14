@@ -165,25 +165,25 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Statustoggleencoder_10 {get { return GetParameter(10); }set { SetParameter(10, value); }}
 	/// <summary>PID: 10  | Type: read | DISCREETS: Enabled = 1, Disabled = 0, Not Available = -1</summary>
 	public System.Object Statustoggleencoder {get { return GetParameter(10); }set { SetParameter(10, value); }}
-	/// <summary>PID: 11  | Type: read</summary>
+	/// <summary>PID: 11  | Type: read | EXCEPTIONS: Not available = -1</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Currentcompressedbitrateencoder_11 {get { return GetParameter(11); }set { SetParameter(11, value); }}
-	/// <summary>PID: 11  | Type: read</summary>
+	/// <summary>PID: 11  | Type: read | EXCEPTIONS: Not available = -1</summary>
 	public System.Object Currentcompressedbitrateencoder {get { return GetParameter(11); }set { SetParameter(11, value); }}
-	/// <summary>PID: 12  | Type: read | DISCREETS: Enabled = 1, Disabled = 0</summary>
+	/// <summary>PID: 12  | Type: read | DISCREETS: Enabled = 1, Disabled = 0 | EXCEPTIONS: Not Available = -1</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Autochromaweight_12 {get { return GetParameter(12); }set { SetParameter(12, value); }}
-	/// <summary>PID: 12  | Type: read | DISCREETS: Enabled = 1, Disabled = 0</summary>
+	/// <summary>PID: 12  | Type: read | DISCREETS: Enabled = 1, Disabled = 0 | EXCEPTIONS: Not Available = -1</summary>
 	public System.Object Autochromaweight {get { return GetParameter(12); }set { SetParameter(12, value); }}
-	/// <summary>PID: 13  | Type: read</summary>
+	/// <summary>PID: 13  | Type: read | EXCEPTIONS: Not Available = -1</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Chromaweight_13 {get { return GetParameter(13); }set { SetParameter(13, value); }}
-	/// <summary>PID: 13  | Type: read</summary>
+	/// <summary>PID: 13  | Type: read | EXCEPTIONS: Not Available = -1</summary>
 	public System.Object Chromaweight {get { return GetParameter(13); }set { SetParameter(13, value); }}
-	/// <summary>PID: 14  | Type: read | DISCREETS: Enabled = 1, Disabled = 0</summary>
+	/// <summary>PID: 14  | Type: read | DISCREETS: Enabled = 1, Disabled = 0 | EXCEPTIONS: Not Available = -1</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Losslessmode_14 {get { return GetParameter(14); }set { SetParameter(14, value); }}
-	/// <summary>PID: 14  | Type: read | DISCREETS: Enabled = 1, Disabled = 0</summary>
+	/// <summary>PID: 14  | Type: read | DISCREETS: Enabled = 1, Disabled = 0 | EXCEPTIONS: Not Available = -1</summary>
 	public System.Object Losslessmode {get { return GetParameter(14); }set { SetParameter(14, value); }}
 	/// <summary>PID: 15  | Type: read | DISCREETS: Encoder = 1, Decoder = 2</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]

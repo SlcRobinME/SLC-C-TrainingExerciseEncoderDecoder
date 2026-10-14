@@ -29,7 +29,7 @@
 	<Params>
 		<Param id="10" trending="false" save="true">
 			<Name>statusToggleEncoder</Name>
-			<Description>Status</Description>
+			<Description>Encoder Status</Description>
 			<Type>read</Type>
 			<Information>
 			</Information>
@@ -69,7 +69,7 @@
 		</Param>
 		<Param id="110" setter="true">
 			<Name>statusToggleEncoder</Name>
-			<Description>Status</Description>
+			<Description>Encoder Status</Description>
 			<Type>write</Type>
 			<Interprete>
 				<RawType>numeric text</RawType>
@@ -103,7 +103,7 @@
 		
 		<Param id="11" trending="false" save="true">
 			<Name>currentCompressedBitrateEncoder</Name>
-			<Description>Current Compressed Bitrate</Description>
+			<Description>Current Compressed Bitrate Encoder</Description>
 			<Type>read</Type>
 			<Information>
 			</Information>
@@ -113,6 +113,12 @@
 				<LengthType>next param</LengthType>
 				<Decimals>3</Decimals>
 				<DefaultValue>10</DefaultValue>
+				<Exceptions>
+					<Exception id="1" value="-1">
+						<Display state="disabled">Not available</Display>
+						<Value>-1</Value>
+					</Exception>
+				</Exceptions>
 			</Interprete>
 			<Display>
 				<RTDisplay>true</RTDisplay>
@@ -142,6 +148,12 @@
 				<Type>double</Type>
 				<LengthType>next param</LengthType>
 				<DefaultValue>0</DefaultValue>
+				<Exceptions>
+					<Exception id="2" value="-1">
+						<Display state="disabled">Not Available</Display>
+						<Value>-1</Value>
+					</Exception>
+				</Exceptions>
 			</Interprete>
 			<Display>
 				<RTDisplay>true</RTDisplay>
@@ -212,6 +224,12 @@
 				<Type>double</Type>
 				<LengthType>next param</LengthType>
 				<DefaultValue>0</DefaultValue>
+				<Exceptions>
+					<Exception id="3" value="-1">
+						<Display state="disabled">Not Available</Display>
+						<Value>-1</Value>
+					</Exception>
+				</Exceptions>
 			</Interprete>
 			<Alarm>
 				<Monitored>true</Monitored>
@@ -275,6 +293,12 @@
 				<Type>double</Type>
 				<LengthType>next param</LengthType>
 				<DefaultValue>0</DefaultValue>
+				<Exceptions>
+					<Exception id="4" value="-1">
+						<Display state="disabled">Not Available</Display>
+						<Value>-1</Value>
+					</Exception>
+				</Exceptions>
 			</Interprete>
 			<Display>
 				<RTDisplay>true</RTDisplay>
@@ -406,7 +430,7 @@
 		
 		<Param id="16" trending="false" save="true">
 			<Name>statusToggleDecoder</Name>
-			<Description>Status</Description>
+			<Description>Decoder Status</Description>
 			<Type>read</Type>
 			<Information>
 			</Information>
@@ -442,7 +466,7 @@
 		</Param>
 		<Param id="116" setter="true">
 			<Name>statusToggleDecoder</Name>
-			<Description>Status</Description>
+			<Description>Decoder Status</Description>
 			<Type>write</Type>
 			<Interprete>
 				<RawType>numeric text</RawType>
@@ -571,7 +595,7 @@
 		
 		<Param id="18" trending="false" save="true">
 			<Name>currentCompressedBitrateDecoder</Name>
-			<Description>Current Compressed Bitrate</Description>
+			<Description>Current Compressed Bitrate Decoder</Description>
 			<Type>read</Type>
 			<Information>
 			</Information>
@@ -663,7 +687,7 @@
 				<RawType>numeric text</RawType>
 				<Type>double</Type>
 				<LengthType>fixed</LengthType>
-				<Length>1</Length>
+				<Length>2</Length>
 				<Value>-1</Value>
 			</Interprete>
 		</Param>
@@ -674,18 +698,33 @@
 	</QActions>
 
 	<Groups>
-		<Group id="1">
-			<Name>DisableParameter</Name>
-			<Description>When Encoder/Decoder is disabled parameters need to be inactive</Description>
-			<Type>action</Type>
-			<Content>
-				<Action>1</Action>
-			</Content>
-		</Group>
 	</Groups>
 
 	<Triggers>
-	
+		<Trigger id="1">
+			<Name>Encoder Disabled</Name>
+			<On id="10">parameter</On>
+			<Condition><![CDATA[id:10 == 0]]></Condition>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>1</Id>
+				<Id>2</Id>
+				<Id>3</Id>
+				<Id>4</Id>
+			</Content>
+		</Trigger>
+
+		<Trigger id="2">
+			<Name>Encoder Enabled</Name>
+			<On id="10">parameter</On>
+			<Condition><![CDATA[id:10 == 1]]></Condition>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>5</Id>
+			</Content>
+		</Trigger>
 	</Triggers>
 
 	<Actions>
@@ -693,6 +732,27 @@
 			<Name>Copy 21 To 11</Name>
 			<On id="11">parameter</On>
 			<Type id="21">copy</Type>
+		</Action>
+		<Action id="2">
+			<Name>Copy 21 To 12</Name>
+			<On id="12">parameter</On>
+			<Type id="21">copy</Type>
+		</Action>
+		<Action id="3">
+			<Name>Copy 21 To 13</Name>
+			<On id="13">parameter</On>
+			<Type id="21">copy</Type>
+		</Action>
+		<Action id="4">
+			<Name>Copy 21 To 14</Name>
+			<On id="14">parameter</On>
+			<Type id="21">copy</Type>
+		</Action>
+
+		<Action id="5">
+			<Name>Restart Param</Name>
+			<On id="11">parameter</On>
+			<Type>start</Type>
 		</Action>
 	</Actions>
 
