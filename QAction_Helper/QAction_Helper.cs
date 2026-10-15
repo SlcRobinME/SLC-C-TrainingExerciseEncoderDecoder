@@ -10,9 +10,9 @@ public static class Parameter
 {
 	/// <summary>PID: 10 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int statustoggleencoder_10 = 10;
+	public const int encoderstatus_10 = 10;
 	/// <summary>PID: 10 | Type: read</summary>
-	public const int statustoggleencoder = 10;
+	public const int encoderstatus = 10;
 	/// <summary>PID: 11 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public const int currentcompressedbitrateencoder_11 = 11;
@@ -35,81 +35,36 @@ public static class Parameter
 	public const int losslessmode = 14;
 	/// <summary>PID: 15 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int _switch_15 = 15;
+	public const int bitratebackup_15 = 15;
 	/// <summary>PID: 15 | Type: read</summary>
-	public const int _switch = 15;
+	public const int bitratebackup = 15;
 	/// <summary>PID: 16 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int statustoggledecoder_16 = 16;
+	public const int autochromebackup_16 = 16;
 	/// <summary>PID: 16 | Type: read</summary>
-	public const int statustoggledecoder = 16;
+	public const int autochromebackup = 16;
 	/// <summary>PID: 17 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int progressionorder_17 = 17;
+	public const int chromabackup_17 = 17;
 	/// <summary>PID: 17 | Type: read</summary>
-	public const int progressionorder = 17;
+	public const int chromabackup = 17;
 	/// <summary>PID: 18 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int currentcompressedbitratedecoder_18 = 18;
+	public const int losslessbackup_18 = 18;
 	/// <summary>PID: 18 | Type: read</summary>
-	public const int currentcompressedbitratedecoder = 18;
+	public const int losslessbackup = 18;
 	/// <summary>PID: 19 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int codeblockwidth_19 = 19;
+	public const int _switch_19 = 19;
 	/// <summary>PID: 19 | Type: read</summary>
-	public const int codeblockwidth = 19;
-	/// <summary>PID: 20 | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int codeblockheight_20 = 20;
-	/// <summary>PID: 20 | Type: read</summary>
-	public const int codeblockheight = 20;
-	/// <summary>PID: 24 | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int encoderbitratebackup_24 = 24;
-	/// <summary>PID: 24 | Type: read</summary>
-	public const int encoderbitratebackup = 24;
-	/// <summary>PID: 25 | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int encoderautochromaweightbackup_25 = 25;
-	/// <summary>PID: 25 | Type: read</summary>
-	public const int encoderautochromaweightbackup = 25;
-	/// <summary>PID: 26 | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int encoderchromaweightbackup_26 = 26;
-	/// <summary>PID: 26 | Type: read</summary>
-	public const int encoderchromaweightbackup = 26;
-	/// <summary>PID: 27 | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int encoderlosslessmodebackup_27 = 27;
-	/// <summary>PID: 27 | Type: read</summary>
-	public const int encoderlosslessmodebackup = 27;
-	/// <summary>PID: 28 | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int decoderbitratebackup_28 = 28;
-	/// <summary>PID: 28 | Type: read</summary>
-	public const int decoderbitratebackup = 28;
-	/// <summary>PID: 29 | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int decoderprogressionorderbackup_29 = 29;
-	/// <summary>PID: 29 | Type: read</summary>
-	public const int decoderprogressionorderbackup = 29;
-	/// <summary>PID: 30 | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int decodercodeblockwidthbackup_30 = 30;
-	/// <summary>PID: 30 | Type: read</summary>
-	public const int decodercodeblockwidthbackup = 30;
-	/// <summary>PID: 31 | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int decodercodeblockheightbackup_31 = 31;
-	/// <summary>PID: 31 | Type: read</summary>
-	public const int decodercodeblockheightbackup = 31;
+	public const int _switch = 19;
 	public class Write
 	{
 		/// <summary>PID: 110 | Type: write</summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public const int statustoggleencoder_110 = 110;
+		public const int encoderstatus_110 = 110;
 		/// <summary>PID: 110 | Type: write</summary>
-		public const int statustoggleencoder = 110;
+		public const int encoderstatus = 110;
 		/// <summary>PID: 112 | Type: write</summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		public const int autochromaweight_112 = 112;
@@ -125,39 +80,25 @@ public static class Parameter
 		public const int losslessmode_114 = 114;
 		/// <summary>PID: 114 | Type: write</summary>
 		public const int losslessmode = 114;
-		/// <summary>PID: 115 | Type: write</summary>
+		/// <summary>PID: 119 | Type: write</summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public const int _switch_115 = 115;
-		/// <summary>PID: 115 | Type: write</summary>
-		public const int _switch = 115;
-		/// <summary>PID: 116 | Type: write</summary>
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		public const int statustoggledecoder_116 = 116;
-		/// <summary>PID: 116 | Type: write</summary>
-		public const int statustoggledecoder = 116;
-		/// <summary>PID: 117 | Type: write</summary>
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		public const int progressionorder_117 = 117;
-		/// <summary>PID: 117 | Type: write</summary>
-		public const int progressionorder = 117;
+		public const int _switch_119 = 119;
+		/// <summary>PID: 119 | Type: write</summary>
+		public const int _switch = 119;
 	}
 }
 public class WriteParameters
 {
 	/// <summary>PID: 110  | Type: write | DISCREETS: Enabled = 1, Disabled = 0</summary>
-	public System.Object Statustoggleencoder {get { return Protocol.GetParameter(110); }set { Protocol.SetParameter(110, value); }}
+	public System.Object Encoderstatus {get { return Protocol.GetParameter(110); }set { Protocol.SetParameter(110, value); }}
 	/// <summary>PID: 112  | Type: write | DISCREETS: Enabled = 1, Disabled = 0</summary>
 	public System.Object Autochromaweight {get { return Protocol.GetParameter(112); }set { Protocol.SetParameter(112, value); }}
 	/// <summary>PID: 113  | Type: write</summary>
 	public System.Object Chromaweight {get { return Protocol.GetParameter(113); }set { Protocol.SetParameter(113, value); }}
 	/// <summary>PID: 114  | Type: write | DISCREETS: Enabled = 1, Disabled = 0</summary>
 	public System.Object Losslessmode {get { return Protocol.GetParameter(114); }set { Protocol.SetParameter(114, value); }}
-	/// <summary>PID: 115  | Type: write | DISCREETS: Encoder = 1, Decoder = 2</summary>
-	public System.Object _switch {get { return Protocol.GetParameter(115); }set { Protocol.SetParameter(115, value); }}
-	/// <summary>PID: 116  | Type: write | DISCREETS: Enabled = 1, Disabled = 0</summary>
-	public System.Object Statustoggledecoder {get { return Protocol.GetParameter(116); }set { Protocol.SetParameter(116, value); }}
-	/// <summary>PID: 117  | Type: write | DISCREETS: LCRP = 0, RLCP = 1, RPCL = 2, PCRL = 3, CPRL = 4</summary>
-	public System.Object Progressionorder {get { return Protocol.GetParameter(117); }set { Protocol.SetParameter(117, value); }}
+	/// <summary>PID: 119  | Type: write | DISCREETS: Encoder = 1, Decoder = 2</summary>
+	public System.Object _switch {get { return Protocol.GetParameter(119); }set { Protocol.SetParameter(119, value); }}
 	public SLProtocolExt Protocol;
 	public WriteParameters(SLProtocolExt protocol)
 	{
@@ -166,8 +107,8 @@ public class WriteParameters
 }
 public interface SLProtocolExt : SLProtocol
 {
-	object Statustoggleencoder_10 { get; set; }
-	object Statustoggleencoder { get; set; }
+	object Encoderstatus_10 { get; set; }
+	object Encoderstatus { get; set; }
 	object Currentcompressedbitrateencoder_11 { get; set; }
 	object Currentcompressedbitrateencoder { get; set; }
 	object Autochromaweight_12 { get; set; }
@@ -176,53 +117,31 @@ public interface SLProtocolExt : SLProtocol
 	object Chromaweight { get; set; }
 	object Losslessmode_14 { get; set; }
 	object Losslessmode { get; set; }
-	object _switch_15 { get; set; }
+	object Bitratebackup_15 { get; set; }
+	object Bitratebackup { get; set; }
+	object Autochromebackup_16 { get; set; }
+	object Autochromebackup { get; set; }
+	object Chromabackup_17 { get; set; }
+	object Chromabackup { get; set; }
+	object Losslessbackup_18 { get; set; }
+	object Losslessbackup { get; set; }
+	object _switch_19 { get; set; }
 	object _switch { get; set; }
-	object Statustoggledecoder_16 { get; set; }
-	object Statustoggledecoder { get; set; }
-	object Progressionorder_17 { get; set; }
-	object Progressionorder { get; set; }
-	object Currentcompressedbitratedecoder_18 { get; set; }
-	object Currentcompressedbitratedecoder { get; set; }
-	object Codeblockwidth_19 { get; set; }
-	object Codeblockwidth { get; set; }
-	object Codeblockheight_20 { get; set; }
-	object Codeblockheight { get; set; }
-	object Notavailable__fixed { get; set; }
-	object Enable__fixed { get; set; }
-	object Disable__fixed { get; set; }
-	object Encoderbitratebackup_24 { get; set; }
-	object Encoderbitratebackup { get; set; }
-	object Encoderautochromaweightbackup_25 { get; set; }
-	object Encoderautochromaweightbackup { get; set; }
-	object Encoderchromaweightbackup_26 { get; set; }
-	object Encoderchromaweightbackup { get; set; }
-	object Encoderlosslessmodebackup_27 { get; set; }
-	object Encoderlosslessmodebackup { get; set; }
-	object Decoderbitratebackup_28 { get; set; }
-	object Decoderbitratebackup { get; set; }
-	object Decoderprogressionorderbackup_29 { get; set; }
-	object Decoderprogressionorderbackup { get; set; }
-	object Decodercodeblockwidthbackup_30 { get; set; }
-	object Decodercodeblockwidthbackup { get; set; }
-	object Decodercodeblockheightbackup_31 { get; set; }
-	object Decodercodeblockheightbackup { get; set; }
-	object Statustoggleencoder_110 { get; set; }
+	object Setnotavailabledummy_dummy { get; set; }
+	object Encoderstatus_110 { get; set; }
 	object Autochromaweight_112 { get; set; }
 	object Chromaweight_113 { get; set; }
 	object Losslessmode_114 { get; set; }
-	object _switch_115 { get; set; }
-	object Statustoggledecoder_116 { get; set; }
-	object Progressionorder_117 { get; set; }
+	object _switch_119 { get; set; }
 	WriteParameters Write { get; set; }
 }
 public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 {
 	/// <summary>PID: 10  | Type: read | DISCREETS: Enabled = 1, Disabled = 0</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Statustoggleencoder_10 {get { return GetParameter(10); }set { SetParameter(10, value); }}
+	public System.Object Encoderstatus_10 {get { return GetParameter(10); }set { SetParameter(10, value); }}
 	/// <summary>PID: 10  | Type: read | DISCREETS: Enabled = 1, Disabled = 0</summary>
-	public System.Object Statustoggleencoder {get { return GetParameter(10); }set { SetParameter(10, value); }}
+	public System.Object Encoderstatus {get { return GetParameter(10); }set { SetParameter(10, value); }}
 	/// <summary>PID: 11  | Type: read | EXCEPTIONS: Not Available = -1</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Currentcompressedbitrateencoder_11 {get { return GetParameter(11); }set { SetParameter(11, value); }}
@@ -243,85 +162,36 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Losslessmode_14 {get { return GetParameter(14); }set { SetParameter(14, value); }}
 	/// <summary>PID: 14  | Type: read | DISCREETS: Enabled = 1, Disabled = 0 | EXCEPTIONS: Not Available = -1</summary>
 	public System.Object Losslessmode {get { return GetParameter(14); }set { SetParameter(14, value); }}
-	/// <summary>PID: 15  | Type: read | DISCREETS: Encoder = 1, Decoder = 2</summary>
+	/// <summary>PID: 15  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object _switch_15 {get { return GetParameter(15); }set { SetParameter(15, value); }}
-	/// <summary>PID: 15  | Type: read | DISCREETS: Encoder = 1, Decoder = 2</summary>
-	public System.Object _switch {get { return GetParameter(15); }set { SetParameter(15, value); }}
-	/// <summary>PID: 16  | Type: read | DISCREETS: Enabled = 1, Disabled = 0</summary>
+	public System.Object Bitratebackup_15 {get { return GetParameter(15); }set { SetParameter(15, value); }}
+	/// <summary>PID: 15  | Type: read</summary>
+	public System.Object Bitratebackup {get { return GetParameter(15); }set { SetParameter(15, value); }}
+	/// <summary>PID: 16  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Statustoggledecoder_16 {get { return GetParameter(16); }set { SetParameter(16, value); }}
-	/// <summary>PID: 16  | Type: read | DISCREETS: Enabled = 1, Disabled = 0</summary>
-	public System.Object Statustoggledecoder {get { return GetParameter(16); }set { SetParameter(16, value); }}
-	/// <summary>PID: 17  | Type: read | DISCREETS: LCRP = 0, RLCP = 1, RPCL = 2, PCRL = 3, CPRL = 4 | EXCEPTIONS: Not Available = -1</summary>
+	public System.Object Autochromebackup_16 {get { return GetParameter(16); }set { SetParameter(16, value); }}
+	/// <summary>PID: 16  | Type: read</summary>
+	public System.Object Autochromebackup {get { return GetParameter(16); }set { SetParameter(16, value); }}
+	/// <summary>PID: 17  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Progressionorder_17 {get { return GetParameter(17); }set { SetParameter(17, value); }}
-	/// <summary>PID: 17  | Type: read | DISCREETS: LCRP = 0, RLCP = 1, RPCL = 2, PCRL = 3, CPRL = 4 | EXCEPTIONS: Not Available = -1</summary>
-	public System.Object Progressionorder {get { return GetParameter(17); }set { SetParameter(17, value); }}
-	/// <summary>PID: 18  | Type: read | EXCEPTIONS: Not Available = -1</summary>
+	public System.Object Chromabackup_17 {get { return GetParameter(17); }set { SetParameter(17, value); }}
+	/// <summary>PID: 17  | Type: read</summary>
+	public System.Object Chromabackup {get { return GetParameter(17); }set { SetParameter(17, value); }}
+	/// <summary>PID: 18  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Currentcompressedbitratedecoder_18 {get { return GetParameter(18); }set { SetParameter(18, value); }}
-	/// <summary>PID: 18  | Type: read | EXCEPTIONS: Not Available = -1</summary>
-	public System.Object Currentcompressedbitratedecoder {get { return GetParameter(18); }set { SetParameter(18, value); }}
-	/// <summary>PID: 19  | Type: read | EXCEPTIONS: Not Available = -1</summary>
+	public System.Object Losslessbackup_18 {get { return GetParameter(18); }set { SetParameter(18, value); }}
+	/// <summary>PID: 18  | Type: read</summary>
+	public System.Object Losslessbackup {get { return GetParameter(18); }set { SetParameter(18, value); }}
+	/// <summary>PID: 19  | Type: read | DISCREETS: Encoder = 1, Decoder = 2</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Codeblockwidth_19 {get { return GetParameter(19); }set { SetParameter(19, value); }}
-	/// <summary>PID: 19  | Type: read | EXCEPTIONS: Not Available = -1</summary>
-	public System.Object Codeblockwidth {get { return GetParameter(19); }set { SetParameter(19, value); }}
-	/// <summary>PID: 20  | Type: read | EXCEPTIONS: Not Available = -1</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Codeblockheight_20 {get { return GetParameter(20); }set { SetParameter(20, value); }}
-	/// <summary>PID: 20  | Type: read | EXCEPTIONS: Not Available = -1</summary>
-	public System.Object Codeblockheight {get { return GetParameter(20); }set { SetParameter(20, value); }}
-	/// <summary>PID: 21  | Type: fixed</summary>
-	public System.Object Notavailable__fixed {get { return GetParameter(21); }set { SetParameter(21, value); }}
-	/// <summary>PID: 22  | Type: fixed</summary>
-	public System.Object Enable__fixed {get { return GetParameter(22); }set { SetParameter(22, value); }}
-	/// <summary>PID: 23  | Type: fixed</summary>
-	public System.Object Disable__fixed {get { return GetParameter(23); }set { SetParameter(23, value); }}
-	/// <summary>PID: 24  | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Encoderbitratebackup_24 {get { return GetParameter(24); }set { SetParameter(24, value); }}
-	/// <summary>PID: 24  | Type: read</summary>
-	public System.Object Encoderbitratebackup {get { return GetParameter(24); }set { SetParameter(24, value); }}
-	/// <summary>PID: 25  | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Encoderautochromaweightbackup_25 {get { return GetParameter(25); }set { SetParameter(25, value); }}
-	/// <summary>PID: 25  | Type: read</summary>
-	public System.Object Encoderautochromaweightbackup {get { return GetParameter(25); }set { SetParameter(25, value); }}
-	/// <summary>PID: 26  | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Encoderchromaweightbackup_26 {get { return GetParameter(26); }set { SetParameter(26, value); }}
-	/// <summary>PID: 26  | Type: read</summary>
-	public System.Object Encoderchromaweightbackup {get { return GetParameter(26); }set { SetParameter(26, value); }}
-	/// <summary>PID: 27  | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Encoderlosslessmodebackup_27 {get { return GetParameter(27); }set { SetParameter(27, value); }}
-	/// <summary>PID: 27  | Type: read</summary>
-	public System.Object Encoderlosslessmodebackup {get { return GetParameter(27); }set { SetParameter(27, value); }}
-	/// <summary>PID: 28  | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Decoderbitratebackup_28 {get { return GetParameter(28); }set { SetParameter(28, value); }}
-	/// <summary>PID: 28  | Type: read</summary>
-	public System.Object Decoderbitratebackup {get { return GetParameter(28); }set { SetParameter(28, value); }}
-	/// <summary>PID: 29  | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Decoderprogressionorderbackup_29 {get { return GetParameter(29); }set { SetParameter(29, value); }}
-	/// <summary>PID: 29  | Type: read</summary>
-	public System.Object Decoderprogressionorderbackup {get { return GetParameter(29); }set { SetParameter(29, value); }}
-	/// <summary>PID: 30  | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Decodercodeblockwidthbackup_30 {get { return GetParameter(30); }set { SetParameter(30, value); }}
-	/// <summary>PID: 30  | Type: read</summary>
-	public System.Object Decodercodeblockwidthbackup {get { return GetParameter(30); }set { SetParameter(30, value); }}
-	/// <summary>PID: 31  | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Decodercodeblockheightbackup_31 {get { return GetParameter(31); }set { SetParameter(31, value); }}
-	/// <summary>PID: 31  | Type: read</summary>
-	public System.Object Decodercodeblockheightbackup {get { return GetParameter(31); }set { SetParameter(31, value); }}
+	public System.Object _switch_19 {get { return GetParameter(19); }set { SetParameter(19, value); }}
+	/// <summary>PID: 19  | Type: read | DISCREETS: Encoder = 1, Decoder = 2</summary>
+	public System.Object _switch {get { return GetParameter(19); }set { SetParameter(19, value); }}
+	/// <summary>PID: 100  | Type: dummy</summary>
+	public System.Object Setnotavailabledummy_dummy {get { return GetParameter(100); }set { SetParameter(100, value); }}
 	/// <summary>PID: 110  | Type: write | DISCREETS: Enabled = 1, Disabled = 0</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Statustoggleencoder_110 {get { return GetParameter(110); }set { SetParameter(110, value); }}
+	public System.Object Encoderstatus_110 {get { return GetParameter(110); }set { SetParameter(110, value); }}
 	/// <summary>PID: 112  | Type: write | DISCREETS: Enabled = 1, Disabled = 0</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Autochromaweight_112 {get { return GetParameter(112); }set { SetParameter(112, value); }}
@@ -331,15 +201,9 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	/// <summary>PID: 114  | Type: write | DISCREETS: Enabled = 1, Disabled = 0</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Losslessmode_114 {get { return GetParameter(114); }set { SetParameter(114, value); }}
-	/// <summary>PID: 115  | Type: write | DISCREETS: Encoder = 1, Decoder = 2</summary>
+	/// <summary>PID: 119  | Type: write | DISCREETS: Encoder = 1, Decoder = 2</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object _switch_115 {get { return GetParameter(115); }set { SetParameter(115, value); }}
-	/// <summary>PID: 116  | Type: write | DISCREETS: Enabled = 1, Disabled = 0</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Statustoggledecoder_116 {get { return GetParameter(116); }set { SetParameter(116, value); }}
-	/// <summary>PID: 117  | Type: write | DISCREETS: LCRP = 0, RLCP = 1, RPCL = 2, PCRL = 3, CPRL = 4</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Progressionorder_117 {get { return GetParameter(117); }set { SetParameter(117, value); }}
+	public System.Object _switch_119 {get { return GetParameter(119); }set { SetParameter(119, value); }}
 	public WriteParameters Write { get; set; }
 	public ConcreteSLProtocolExt()
 	{
