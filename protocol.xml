@@ -18,7 +18,7 @@
 	<DeviceOID>1</DeviceOID>
 	<ElementType>Encoder</ElementType>
 	<Type relativeTimers="true">virtual</Type>
-	<Display defaultPage="General" pageOrder="General;Encoder" wideColumnPages=""/>
+	<Display defaultPage="General" pageOrder="General;Encoder;Decoder" wideColumnPages=""/>
 	<SNMP includepages="true">auto</SNMP>
 
 	<Compliancies>
@@ -428,7 +428,7 @@
 			</Measurement>
 		</Param>
 		
-		<Param id="19" trending="false">
+		<Param id="19" trending="false" save="true">
 			<Name>switch</Name>
 			<Description>Switch</Description>
 			<Type>read</Type>
@@ -497,18 +497,383 @@
 				</Discreets>
 			</Measurement>
 		</Param>
-
 		
+		<Param id="20" trending="false" save="true">
+			<Name>statusDecoder</Name>
+			<Description>Decoder Status</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+				<DefaultValue>0</DefaultValue>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Decoder</Page>
+						<Column>1</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Enabled</Display>
+						<Value>1</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Disabled</Display>
+						<Value>0</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="120" setter="true">
+			<Name>statusDecoder</Name>
+			<Description>Decoder Status</Description>
+			<Type>write</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Decoder</Page>
+						<Column>1</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>togglebutton</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Enabled</Display>
+						<Value>1</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Disabled</Display>
+						<Value>0</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		
+		<Param id="21" trending="false" save="true">
+			<Name>currentCompressedBitrateDecoder</Name>
+			<Description>Current Compressed Bitrate Decoder</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+				<Exceptions>
+					<Exception id="1" value="-1">
+						<Display state="disabled">Not Available</Display>
+						<Value>-1</Value>
+					</Exception>
+				</Exceptions>
+				<DefaultValue>1</DefaultValue>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Units>Mbps</Units>
+				<Decimals>3</Decimals>
+				<Range>
+					<Low>0</Low>
+				</Range>
+				<Positions>
+					<Position>
+						<Page>Decoder</Page>
+						<Column>0</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+		
+		<Param id="22" trending="false" save="true">
+			<Name>progressionOrder</Name>
+			<Description>Progression Order</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+				<DefaultValue>0</DefaultValue>
+				<Exceptions>
+					<Exception id="1" value="-1">
+						<Display state="disabled">Not Available</Display>
+						<Value>-1</Value>
+					</Exception>
+				</Exceptions>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Decoder</Page>
+						<Column>1</Column>
+						<Row>1</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>LCRP</Display>
+						<Value>0</Value>
+					</Discreet>
+					<Discreet>
+						<Display>RLCP</Display>
+						<Value>1</Value>
+					</Discreet>
+					<Discreet>
+						<Display>RPCL</Display>
+						<Value>2</Value>
+					</Discreet>
+					<Discreet>
+						<Display>PCRL</Display>
+						<Value>3</Value>
+					</Discreet>
+					<Discreet>
+						<Display>CPRL</Display>
+						<Value>4</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="122" setter="true">
+			<Name>progressionOrder</Name>
+			<Description>Progression Order</Description>
+			<Type>write</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Decoder</Page>
+						<Column>1</Column>
+						<Row>1</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>LCRP</Display>
+						<Value>0</Value>
+					</Discreet>
+					<Discreet>
+						<Display>RLCP</Display>
+						<Value>1</Value>
+					</Discreet>
+					<Discreet>
+						<Display>RPCL</Display>
+						<Value>2</Value>
+					</Discreet>
+					<Discreet>
+						<Display>PCRL</Display>
+						<Value>3</Value>
+					</Discreet>
+					<Discreet>
+						<Display>CPRL</Display>
+						<Value>4</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		
+		<Param id="23" trending="false" save="true">
+			<Name>codeBlockWidth</Name>
+			<Description>Code Block Width</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+				<DefaultValue>50</DefaultValue>
+				<Exceptions>
+					<Exception id="1" value="-1">
+						<Display state="disabled">Not Available</Display>
+						<Value>-1</Value>
+					</Exception>
+				</Exceptions>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Units>px</Units>
+				<Range>
+					<Low>0</Low>
+				</Range>
+				<Positions>
+					<Position>
+						<Page>Decoder</Page>
+						<Column>0</Column>
+						<Row>1</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+		
+		<Param id="24" trending="false" save="true">
+			<Name>codeBlockHeight</Name>
+			<Description>Code Block Height</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+				<DefaultValue>50</DefaultValue>
+				<Exceptions>
+					<Exception id="1" value="-1">
+						<Display state="disabled">Not Available</Display>
+						<Value>-1</Value>
+					</Exception>
+				</Exceptions>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Units>px</Units>
+				<Range>
+					<Low>0</Low>
+				</Range>
+				
+				<Positions>
+					<Position>
+						<Page>Decoder</Page>
+						<Column>0</Column>
+						<Row>2</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="25" trending="false" save="true">
+			<Name>bitrateBackupDecoder</Name>
+			<Description>Backup value for the Bitrate Decoder when enabled back on</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="26" trending="false" save="true">
+			<Name>progressionOrderBackup</Name>
+			<Description>Backup value for the Progression Order when enabled back on</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="27" trending="false" save="true">
+			<Name>codeBlockHeightBackup</Name>
+			<Description>Backup value for the Code Block Height when enabled back on</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+				<DefaultValue>50</DefaultValue>
+			</Interprete>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="28" trending="false" save="true">
+			<Name>codeBlockWidthBackup</Name>
+			<Description>Backup value for the Code Block Width when enabled back on</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+				<DefaultValue>50</DefaultValue>
+			</Interprete>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
 		
 		<Param id="100">
-			<Name>setNotAvailableDummy</Name>
-			<Description>Dummy param for setting params to NA</Description>
+			<Name>bitrateEncoderDummy</Name>
+			<Description>Dummy param for generating encoder bitrate value</Description>
+			<Type>dummy</Type>
+		</Param>
+
+		<Param id="101">
+			<Name>bitrateDecoderDummy</Name>
+			<Description>Dummy param for generating decoder bitrate value</Description>
 			<Type>dummy</Type>
 		</Param>
 	</Params>
 
 	<QActions>
-		<QAction id="1" name="generateBitrate" encoding="csharp" triggers="100">
+		<QAction id="1" name="generateBitrateEncoder" encoding="csharp" triggers="100">
 			<![CDATA[using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -530,8 +895,8 @@ public static class QAction
 		try
 		{
 			var random = new Random();
-			var bitrate = random.Next(1,16);
-			protocol.SetParameter(Parameter.currentcompressedbitrateencoder_11, bitrate);
+			var bitrateEncoder = random.Next(1,16);
+            protocol.SetParameter(Parameter.currentcompressedbitrateencoder_11, bitrateEncoder);
 		}
 		catch (Exception ex)
 		{
@@ -540,7 +905,7 @@ public static class QAction
 	}
 }]]>
 		</QAction>
-		<QAction id="2" name="setNotAvailable" encoding="csharp" triggers="10">
+		<QAction id="2" name="setNotAvailable" encoding="csharp" triggers="10;20">
 			<![CDATA[using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -553,11 +918,43 @@ using Skyline.DataMiner.Scripting;
 /// </summary>
 public static class QAction
 {
-	/// <summary>
-	/// The QAction entry point.
-	/// </summary>
-	/// <param name="protocol">Link with SLProtocol process.</param>
-	public static void Run(SLProtocol protocol)
+    /// <summary>
+    /// The QAction entry point.
+    /// </summary>
+    /// <param name="protocol">Link with SLProtocol process.</param>
+    /// 
+    public static readonly int[] encoderParams = new int[]
+                {
+                    Parameter.currentcompressedbitrateencoder_11,
+                    Parameter.autochromaweight_12,
+                    Parameter.chromaweight_13,
+                    Parameter.losslessmode_14
+                };
+
+    public static readonly int[] encoderBackupParams = new int[]
+    {
+                    Parameter.bitratebackup_15,
+                    Parameter.autochromebackup_16,
+                    Parameter.chromabackup_17,
+                    Parameter.losslessbackup_18
+    };
+
+    public static readonly int[] decoderParams = new int[]
+                {
+                    Parameter.currentcompressedbitratedecoder_21,
+                    Parameter.progressionorder_22,
+                    Parameter.codeblockwidth_23,
+                    Parameter.codeblockheight_24
+                };
+
+    public static readonly int[] decoderBackupParams = new int[]
+    {
+                    Parameter.bitratebackupdecoder_25,
+                    Parameter.progressionorderbackup_26,
+                    Parameter.codeblockwidthbackup_28,
+                    Parameter.codeblockheightbackup_27
+    };
+    public static void Run(SLProtocol protocol)
 	{
         try
         {
@@ -566,36 +963,41 @@ public static class QAction
             if (triggerParamId == Parameter.encoderstatus_10)
             {
                 var parameterValue = protocol.GetParameter(triggerParamId);
-                var encoderParams = new int[]
-                {
-                    Parameter.currentcompressedbitrateencoder_11,
-                    Parameter.autochromaweight_12,
-                    Parameter.chromaweight_13,
-                    Parameter.losslessmode_14
-                };
-
-                var encoderBackupParams = new int[]
-                {
-                    Parameter.bitratebackup_15,
-                    Parameter.autochromebackup_16,
-                    Parameter.chromabackup_17,
-                    Parameter.losslessbackup_18
-                };
 
                 if (Convert.ToInt64(parameterValue) == 0)
                 {
-                    var encoderParamsUint = Array.ConvertAll(encoderParams, id => (uint)id);
-                    var values = (object[])protocol.GetParameters(encoderParamsUint);
-
-                    protocol.SetParameters(encoderBackupParams, values);
-                    protocol.SetParameters(encoderParams, new object[] { -1, -1, -1, -1 });
+                    disableEncoderParams(protocol);
                 }
                 else
                 {
-                    var backupParamsUint = Array.ConvertAll(encoderBackupParams, id => (uint)id);
-                    var backupValues = (object[])protocol.GetParameters(backupParamsUint);
+                    enableEncoderParams(protocol);
 
-                    protocol.SetParameters(encoderParams, backupValues);
+                    var decoderStatusValue = protocol.GetParameter(Parameter.statusdecoder_20);
+                    if (Convert.ToInt64(decoderStatusValue) == 1)
+                    {
+                        protocol.SetParameter(Parameter.statusdecoder_20, 0);
+                        protocol.SetParameter(Parameter._switch_19, 1);
+                    }
+                }
+            }
+            else if(triggerParamId == Parameter.statusdecoder_20)
+            {
+                var parameterValue = protocol.GetParameter(triggerParamId);
+                
+                if (Convert.ToInt64(parameterValue) == 0)
+                {
+                    disableDecoderParams(protocol);
+                }
+                else
+                {
+                    enableDecoderParams(protocol);
+
+                    var encoderStatusValue = protocol.GetParameter(Parameter.encoderstatus_10);
+                    if (Convert.ToInt64(encoderStatusValue) == 1)
+                    {
+                        protocol.SetParameter(Parameter.encoderstatus_10, 0);
+                        protocol.SetParameter(Parameter._switch_19, 2);
+                    }
                 }
             }
         }
@@ -604,19 +1006,127 @@ public static class QAction
             protocol.Log($"QA{protocol.QActionID}|{protocol.GetTriggerParameter()}|Run|Exception thrown:{Environment.NewLine}{ex}", LogType.Error, LogLevel.NoLogging);
         }
 	}
+
+    public static void disableEncoderParams(SLProtocol protocol)
+    {
+        var encoderParamsUint = Array.ConvertAll(encoderParams, id => (uint)id);
+        var values = (object[])protocol.GetParameters(encoderParamsUint);
+
+        protocol.SetParameters(encoderBackupParams, values);
+        protocol.SetParameters(encoderParams, new object[] { -1, -1, -1, -1 });
+    }
+
+    public static void enableEncoderParams(SLProtocol protocol)
+    {
+        var backupParamsUint = Array.ConvertAll(encoderBackupParams, id => (uint)id);
+        var backupValues = (object[])protocol.GetParameters(backupParamsUint);
+
+        protocol.SetParameters(encoderParams, backupValues);
+    }
+
+    public static void disableDecoderParams(SLProtocol protocol)
+    {
+        var decoderParamsUint = Array.ConvertAll(decoderParams, id => (uint)id);
+        var values = (object[])protocol.GetParameters(decoderParamsUint);
+
+        protocol.SetParameters(decoderBackupParams, values);
+        protocol.SetParameters(decoderParams, new object[] { -1, -1, -1, -1 });
+    }
+
+    public static void enableDecoderParams(SLProtocol protocol)
+    {
+        var backupParamsUint = Array.ConvertAll(decoderBackupParams, id => (uint)id);
+        var backupValues = (object[])protocol.GetParameters(backupParamsUint);
+
+        protocol.SetParameters(decoderParams, backupValues);
+    }
 }]]>
 		</QAction>
-		
+		<QAction id="3" name="generateBitrateDecoder" encoding="csharp" triggers="101">
+			<![CDATA[using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Text;
+
+using Skyline.DataMiner.Scripting;
+
+/// <summary>
+/// DataMiner QAction Class: generateBitrate.
+/// </summary>
+public static class QAction
+{
+	/// <summary>
+	/// The QAction entry point.
+	/// </summary>
+	/// <param name="protocol">Link with SLProtocol process.</param>
+	public static void Run(SLProtocol protocol)
+	{
+		try
+		{
+			var random = new Random();
+            var bitrateDecoder = random.Next(1, 16);
+            protocol.SetParameter(Parameter.currentcompressedbitratedecoder_21, bitrateDecoder);
+		}
+		catch (Exception ex)
+		{
+			protocol.Log($"QA{protocol.QActionID}|{protocol.GetTriggerParameter()}|Run|Exception thrown:{Environment.NewLine}{ex}", LogType.Error, LogLevel.NoLogging);
+		}
+	}
+}]]>
+		</QAction>
+		<QAction id="4" name="mainSwitchAction" encoding="csharp" triggers="19">
+			<![CDATA[using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Text;
+
+using Skyline.DataMiner.Scripting;
+
+/// <summary>
+/// DataMiner QAction Class: mainSwitchAction.
+/// </summary>
+public static class QAction
+{
+	/// <summary>
+	/// The QAction entry point.
+	/// </summary>
+	/// <param name="protocol">Link with SLProtocol process.</param>
+	public static void Run(SLProtocol protocol)
+	{
+		try
+		{
+			var paramValue = protocol.GetParameter(Parameter._switch_19);
+			if(Convert.ToInt64(paramValue) == 1)
+				protocol.SetParameter(Parameter.encoderstatus_10, 1);
+			else
+                protocol.SetParameter(Parameter.statusdecoder_20, 1);
+        }
+		catch (Exception ex)
+		{
+			protocol.Log($"QA{protocol.QActionID}|{protocol.GetTriggerParameter()}|Run|Exception thrown:{Environment.NewLine}{ex}", LogType.Error, LogLevel.NoLogging);
+		}
+	}
+}]]>
+		</QAction>
 	</QActions>
 
 	<Groups>
 		<Group id="1">
-			<Name>generateBitrate</Name>
+			<Name>generateBitrateEncoder</Name>
 			<Condition><![CDATA[ID:10 != 0]]></Condition>
-			<Description>Generate Rnadom Bitrate value</Description>
+			<Description>Generate Random Bitrate value</Description>
 			<Type>action</Type>
 			<Content>
 				<Action>1</Action>
+			</Content>
+		</Group>
+		<Group id="2">
+			<Name>generateBitrateDecoder</Name>
+			<Condition><![CDATA[ID:20 != 0]]></Condition>
+			<Description>Generate Random Bitrate value Decoder</Description>
+			<Type>action</Type>
+			<Content>
+				<Action>2</Action>
 			</Content>
 		</Group>
 	</Groups>
@@ -627,8 +1137,13 @@ public static class QAction
 
 	<Actions>
 		<Action id="1">
-			<Name>generateBitrate</Name>
+			<Name>generateBitrateEncoder</Name>
 			<On id="100">parameter</On>
+			<Type>run actions</Type>
+		</Action>
+		<Action id="2">
+			<Name>generateBitrateDecoder</Name>
+			<On id="101">parameter</On>
 			<Type>run actions</Type>
 		</Action>
 	</Actions>
@@ -640,6 +1155,7 @@ public static class QAction
 			<Interval>75</Interval>
 			<Content>
 				<Group>1</Group>
+				<Group>2</Group>
 			</Content>
 		</Timer>
 	</Timers>

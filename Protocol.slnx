@@ -4,8 +4,10 @@
   </Folder>
   <Folder Name="/dis/" />
   <Folder Name="/dis/2FF2EE7339A99E4A5E4818B29B32D244/">
+    <Project Path="../../../AppData/Local/Temp/DIS/QActions/2FF2EE7339A99E4A5E4818B29B32D244/QAction_1/QAction_1.csproj" />
     <Project Path="../../../AppData/Local/Temp/DIS/QActions/2FF2EE7339A99E4A5E4818B29B32D244/QAction_2/QAction_2.csproj" />
     <Project Path="../../../AppData/Local/Temp/DIS/QActions/2FF2EE7339A99E4A5E4818B29B32D244/QAction_3/QAction_3.csproj" />
+    <Project Path="../../../AppData/Local/Temp/DIS/QActions/2FF2EE7339A99E4A5E4818B29B32D244/QAction_4/QAction_4.csproj" />
   </Folder>
   <Folder Name="/Dlls/">
     <File Path="Dlls/ABOUT.md" />
