@@ -2,6 +2,10 @@
   <Folder Name="/DefaultTemplates/">
     <File Path="DefaultTemplates/ABOUT.md" />
   </Folder>
+  <Folder Name="/dis/" />
+  <Folder Name="/dis/296EED241F362FD622F75CC953EECF72/">
+    <Project Path="../../Users/RobinME/AppData/Local/Temp/DIS/QActions/296EED241F362FD622F75CC953EECF72/QAction_5/QAction_5.csproj" />
+  </Folder>
   <Folder Name="/Dlls/">
     <File Path="Dlls/ABOUT.md" />
   </Folder>
