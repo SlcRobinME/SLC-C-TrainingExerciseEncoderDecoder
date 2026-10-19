@@ -217,10 +217,10 @@ public interface SLProtocolExt : SLProtocol
 }
 public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 {
-	/// <summary>PID: 10  | Type: read | DISCREETS: Enabled = 1, Disabled = 0</summary>
+	/// <summary>PID: 10  | Type: read | DISCREETS: Enabled = 1, Disabled = 0 | EXCEPTIONS: Not Available = -1</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Encoderstatus_10 {get { return GetParameter(10); }set { SetParameter(10, value); }}
-	/// <summary>PID: 10  | Type: read | DISCREETS: Enabled = 1, Disabled = 0</summary>
+	/// <summary>PID: 10  | Type: read | DISCREETS: Enabled = 1, Disabled = 0 | EXCEPTIONS: Not Available = -1</summary>
 	public System.Object Encoderstatus {get { return GetParameter(10); }set { SetParameter(10, value); }}
 	/// <summary>PID: 11  | Type: read | EXCEPTIONS: Not Available = -1</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
@@ -262,15 +262,15 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Losslessbackup_18 {get { return GetParameter(18); }set { SetParameter(18, value); }}
 	/// <summary>PID: 18  | Type: read</summary>
 	public System.Object Losslessbackup {get { return GetParameter(18); }set { SetParameter(18, value); }}
-	/// <summary>PID: 19  | Type: read | DISCREETS: Encoder = 1, Decoder = 2</summary>
+	/// <summary>PID: 19  | Type: read | DISCREETS: Not initialized = 0, Encoder = 1, Decoder = 2</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object _switch_19 {get { return GetParameter(19); }set { SetParameter(19, value); }}
-	/// <summary>PID: 19  | Type: read | DISCREETS: Encoder = 1, Decoder = 2</summary>
+	/// <summary>PID: 19  | Type: read | DISCREETS: Not initialized = 0, Encoder = 1, Decoder = 2</summary>
 	public System.Object _switch {get { return GetParameter(19); }set { SetParameter(19, value); }}
-	/// <summary>PID: 20  | Type: read | DISCREETS: Enabled = 1, Disabled = 0</summary>
+	/// <summary>PID: 20  | Type: read | DISCREETS: Enabled = 1, Disabled = 0 | EXCEPTIONS: Not Available = -1</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Statusdecoder_20 {get { return GetParameter(20); }set { SetParameter(20, value); }}
-	/// <summary>PID: 20  | Type: read | DISCREETS: Enabled = 1, Disabled = 0</summary>
+	/// <summary>PID: 20  | Type: read | DISCREETS: Enabled = 1, Disabled = 0 | EXCEPTIONS: Not Available = -1</summary>
 	public System.Object Statusdecoder {get { return GetParameter(20); }set { SetParameter(20, value); }}
 	/// <summary>PID: 21  | Type: read | EXCEPTIONS: Not Available = -1</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
